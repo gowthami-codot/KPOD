@@ -12,22 +12,25 @@ const About = () => {
       </div>
       <div className="flex flex-col items-center md:flex-row gap-6">
         <div className="w-full flex flex-col justify-center p-5 md:p-10 bg-[#ffffff20] rounded-2xl h-auto md:h-[250px]">
-          <div className="text-lg font-bold mb-2 md:mb-4">Mission Statement</div>
+          <div className="text-lg font-bold mb-2 md:mb-4">
+            Mission Statement
+          </div>
           <div>
-            "Our mission is to democratize access to advanced GPU technology,
-            empowering users across industries to accelerate their projects,
-            enhance productivity, and drive innovation. We strive to provide
-            scalable, secure, and cost-effective GPU computing resources,
-            supported by expert guidance and an intuitive user experience."
+            &quot;Our mission is to democratize access to advanced GPU
+            technology, empowering users across industries to accelerate their
+            projects, enhance productivity, and drive innovation. We strive to
+            provide scalable, secure, and cost-effective GPU computing
+            resources, supported by expert guidance and an intuitive user
+            experience.&quot;
           </div>
         </div>
         <div className="w-full flex flex-col justify-center p-5 md:p-10 bg-[#ffffff20] rounded-2xl h-auto md:h-[250px]">
           <div className="text-lg font-bold mb-2 md:mb-4">Vision Statement</div>
           <div>
-            "Our vision is to be the global leader in cloud-based GPU services,
-            transforming how computational work is done around the world. We aim
-            to foster a future where anyone, anywhere can access the computing
-            power needed to tackle the most
+            &quot;Our vision is to be the global leader in cloud-based GPU
+            services, transforming how computational work is done around the
+            world. We aim to foster a future where anyone, anywhere can access
+            the computing power needed to tackle the most.&quot;
           </div>
         </div>
       </div>
