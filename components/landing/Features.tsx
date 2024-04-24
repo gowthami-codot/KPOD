@@ -4,7 +4,7 @@ const Features = () => {
   return (
     <div className="z-10 mt-[100vh] bg-opacity-20 bg-black">
       <div
-        className="bg-black flex flex-col md:flex-row 
+        className="bg-black flex flex-col md:flex-row w-full
       gap-6 md:gap-10 items-center justify-between px-5 md:px-10 py-10 md:py-32"
       >
         <div
@@ -20,6 +20,7 @@ const Features = () => {
             width={150}
             height={150}
             alt="code"
+            className="max-w-[150px]"
           />
         </div>
         <div
@@ -35,6 +36,7 @@ const Features = () => {
             width={150}
             height={150}
             alt="code"
+            className="max-w-[150px]"
           />
         </div>
         <div
@@ -50,6 +52,7 @@ const Features = () => {
             width={150}
             height={150}
             alt="code"
+            className="max-w-[150px]"
           />
         </div>
       </div>
