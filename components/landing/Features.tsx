@@ -2,13 +2,13 @@ import Image from "next/image";
 
 const Features = () => {
   return (
-    <div className="z-10 mt-[100vh] bg-opacity-20 bg-black">
+    <div className="z-10 mt-[100vh] bg-opacity-20 bg-black max-w-screen">
       <div
         className="bg-black flex flex-col md:flex-row w-full
       gap-6 md:gap-10 items-center justify-between px-5 md:px-10 py-10 md:py-32"
       >
         <div
-          className="border border-[#63E3E3] bg-[#ffffff10] p-5 w-full
+          className="border border-[#63E3E3] bg-[#ffffff10] p-5
         rounded-2xl flex justify-between"
         >
           <div className="flex flex-col gap-6 w-full">
