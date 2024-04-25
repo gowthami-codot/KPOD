@@ -1,3 +1,7 @@
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({ subsets: ["latin"], weight: "100" });
+
 const About = () => {
   return (
     <div className="py-10 md:py-20 px-10 md:px-40">
@@ -15,7 +19,7 @@ const About = () => {
           <div className="text-lg font-bold mb-2 md:mb-4">
             Mission Statement
           </div>
-          <div>
+          <div className={poppins.className}>
             &quot;Our mission is to democratize access to advanced GPU
             technology, empowering users across industries to accelerate their
             projects, enhance productivity, and drive innovation. We strive to
@@ -26,7 +30,7 @@ const About = () => {
         </div>
         <div className="w-full flex flex-col justify-center p-5 md:p-10 bg-[#ffffff20] rounded-2xl h-auto md:h-[250px]">
           <div className="text-lg font-bold mb-2 md:mb-4">Vision Statement</div>
-          <div>
+          <div className={poppins.className}>
             &quot;Our vision is to be the global leader in cloud-based GPU
             services, transforming how computational work is done around the
             world. We aim to foster a future where anyone, anywhere can access

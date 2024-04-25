@@ -5,9 +5,9 @@ const Footer = () => {
         <div className="flex flex-col gap-6">
           <div className="text-start text-2xl ">KRUTRIM</div>
           <div className="flex flex-col md:flex-row gap-6">
-            <div>Blog</div>
-            <div>Privacy Policy</div>
-            <div>Terms and Conditions</div>
+            <div className="cursor-pointer hover:underline duration-300">Blog</div>
+            <div className="cursor-pointer hover:underline duration-300">Privacy Policy</div>
+            <div className="cursor-pointer hover:underline duration-300">Terms and Conditions</div>
           </div>
           <div className="text-start text-gray-400">
             2024. All rights reserved.

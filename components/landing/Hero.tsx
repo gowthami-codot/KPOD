@@ -18,7 +18,7 @@ const Hero = () => {
             Create your GPU instance
           </div>
         </div>
-        <video src="/hero_video.mp4" autoPlay loop muted className="-z-0 min-h-screen object-cover" />
+        <video src="/ai_video.mp4" autoPlay loop muted className="-z-0 min-h-screen object-cover" />
       </div>
     </div>
   );
