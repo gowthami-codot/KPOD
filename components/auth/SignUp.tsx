@@ -9,7 +9,9 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [accountType, setAccountType] = useState("");
-  const [userProfile, setUserProfile] = useState("");
+  const [userProfile, setUserProfile] = useState("Others");
+  
+  const [selectedProfile, setSelectedProfile] = useState("");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -119,49 +121,67 @@ const SignUp = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
               <div
-                onClick={() => setUserProfile("Cloud Engineer")}
+                onClick={() => {
+                  setUserProfile("Cloud Engineer")
+                  setSelectedProfile("Cloud Engineer");
+                }}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  userProfile === "Cloud Engineer" ? "bg-green-400" : ""
+                  selectedProfile === "Cloud Engineer" ? "bg-blue-400" : ""
                 }`}
               >
                 Cloud Engineer
               </div>
               <div
-                onClick={() => setUserProfile("Devops")}
+                onClick={() => {
+                  setUserProfile("Devops");
+                  setSelectedProfile("Devops");
+                }}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  userProfile === "Devops" ? "bg-green-400" : ""
+                  selectedProfile === "Devops" ? "bg-blue-400" : ""
                 }`}
               >
                 Devops
               </div>
               <div
-                onClick={() => setUserProfile("Data Scientist")}
+                onClick={() => {
+                  setUserProfile("Data Scientist");
+                  setSelectedProfile("Data Scientist");
+                }}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  userProfile === "Data Scientist" ? "bg-green-400" : ""
+                  selectedProfile === "Data Scientist" ? "bg-blue-400" : ""
                 }`}
               >
                 Data Scientist
               </div>
               <div
-                onClick={() => setUserProfile("Product Management")}
+                onClick={() => {
+                  setUserProfile("Product Management");
+                  setSelectedProfile("Product Management");
+                }}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  userProfile === "Product Management" ? "bg-green-400" : ""
+                  selectedProfile === "Product Management" ? "bg-blue-400" : ""
                 }`}
               >
                 Product Management
               </div>
               <div
-                onClick={() => setUserProfile("SRE")}
+                onClick={() => {
+                  setUserProfile("SRE");
+                  setSelectedProfile("SRE");
+                }}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  userProfile === "SRE" ? "bg-green-400" : ""
+                  selectedProfile === "SRE" ? "bg-blue-400" : ""
                 }`}
               >
                 SRE
               </div>
               <div
-                onClick={() => setUserProfile("Others")}
+                onClick={() => {
+                  setUserProfile("Others")
+                  setSelectedProfile("Others")
+                }}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  userProfile === "Others" ? "bg-green-400" : ""
+                  selectedProfile === "Others" ? "bg-blue-400" : ""
                 }`}
               >
                 Others
