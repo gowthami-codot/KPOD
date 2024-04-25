@@ -1,5 +1,5 @@
 "use client";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { toast } from "sonner";
 import { sha256 } from "js-sha256";
 
@@ -9,9 +9,13 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [accountType, setAccountType] = useState("");
-  const [userProfile, setUserProfile] = useState("Others");
-  
+  const [userProfile, setUserProfile] = useState("");
+
   const [selectedProfile, setSelectedProfile] = useState("");
+
+  useEffect(() => {
+    setSelectedProfile(userProfile);
+  }, [userProfile]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -121,67 +125,49 @@ const SignUp = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
               <div
-                onClick={() => {
-                  setUserProfile("Cloud Engineer")
-                  setSelectedProfile("Cloud Engineer");
-                }}
+                onClick={() => setUserProfile("Cloud Engineer")}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Cloud Engineer" ? "bg-blue-400" : ""
+                  selectedProfile === "Cloud Engineer" ? "bg-green-400" : ""
                 }`}
               >
                 Cloud Engineer
               </div>
               <div
-                onClick={() => {
-                  setUserProfile("Devops");
-                  setSelectedProfile("Devops");
-                }}
+                onClick={() => setUserProfile("Devops")}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Devops" ? "bg-blue-400" : ""
+                  selectedProfile === "Devops" ? "bg-green-400" : ""
                 }`}
               >
                 Devops
               </div>
               <div
-                onClick={() => {
-                  setUserProfile("Data Scientist");
-                  setSelectedProfile("Data Scientist");
-                }}
+                onClick={() => setUserProfile("Data Scientist")}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Data Scientist" ? "bg-blue-400" : ""
+                  selectedProfile === "Data Scientist" ? "bg-green-400" : ""
                 }`}
               >
                 Data Scientist
               </div>
               <div
-                onClick={() => {
-                  setUserProfile("Product Management");
-                  setSelectedProfile("Product Management");
-                }}
+                onClick={() => setUserProfile("Product Management")}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Product Management" ? "bg-blue-400" : ""
+                  selectedProfile === "Product Management" ? "bg-green-400" : ""
                 }`}
               >
                 Product Management
               </div>
               <div
-                onClick={() => {
-                  setUserProfile("SRE");
-                  setSelectedProfile("SRE");
-                }}
+                onClick={() => setUserProfile("SRE")}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "SRE" ? "bg-blue-400" : ""
+                  selectedProfile === "SRE" ? "bg-green-400" : ""
                 }`}
               >
                 SRE
               </div>
               <div
-                onClick={() => {
-                  setUserProfile("Others")
-                  setSelectedProfile("Others")
-                }}
+                onClick={() => setUserProfile("Others")}
                 className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Others" ? "bg-blue-400" : ""
+                  selectedProfile === "Others" ? "bg-green-400" : ""
                 }`}
               >
                 Others
