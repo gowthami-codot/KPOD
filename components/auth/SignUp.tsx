@@ -7,7 +7,7 @@ const SignUp = () => {
       <div className="w-full md:px-20">
         <div className="md:p-10 p-5 rounded-2xl bg-[#ffffff15] flex flex-col md:flex-row items-start justify-between md:gap-10">
           <div className="flex flex-col items-start justify-center w-full md:w-[40%] md:border-r border-white md:pr-10">
-            <span>What's your name ?</span>
+            <span>What&apos;s your name ?</span>
             <input
               type="text"
               className="bg-[#ffffff20] p-2 w-full mt-2 rounded-lg text-white focus:border-white"
