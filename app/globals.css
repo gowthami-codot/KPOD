@@ -12,3 +12,7 @@
     text-wrap: balance;
   }
 }
+
+.vertical-line {
+  border-left: 1px solid white;
+}
