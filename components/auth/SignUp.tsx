@@ -147,8 +147,8 @@ const SignUp = () => {
               <option value="" disabled className="text-white">
                 Select Your Account Type
               </option>{" "}
-              <option value="individual">Individual</option>
-              <option value="business">Business</option>
+              <option value="individual" className="text-black">Individual</option>
+              <option value="business" className="text-black">Business</option>
             </select>
             <div className="text-lg md:text-xl pb-3 md:pb-5 mt-5">
               What do you do? Choose one or more
