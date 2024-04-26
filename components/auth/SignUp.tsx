@@ -64,7 +64,7 @@ const SignUp = () => {
 
     const jsonData = JSON.stringify(data, null, 2);
     toast.success("Data Submitted.");
-    // console.log(jsonData);
+    console.log(jsonData);
     
     setIsModalOpen(true);
 
@@ -93,14 +93,14 @@ const SignUp = () => {
             <span>What&apos;s your name ?</span>
             <input
               type="text"
-              className="bg-[#ffffff20] p-2 w-full mt-2 rounded-lg text-white focus:border-white"
+              className="bg-[#ffffff20] p-2 w-full mt-2 rounded-lg text-white focus:outline-none focus-visible:outline-none"
               placeholder="First Name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
-              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:border-white"
+              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:outline-none focus-visible:outline-none"
               placeholder="Last Name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
@@ -109,7 +109,7 @@ const SignUp = () => {
             <span>Your email id</span>
             <input
               type="email"
-              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:border-white"
+              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:outline-none focus-visible:outline-none"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -118,7 +118,7 @@ const SignUp = () => {
             <span>Password</span>
             <input
               type="password"
-              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:border-white"
+              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:outline-none focus-visible:outline-none"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -127,7 +127,7 @@ const SignUp = () => {
             <span>LinkedIn / Github Profile</span>
             <input
               type="text"
-              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:border-white"
+              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:outline-none focus-visible:outline-none"
               placeholder="Your LinkedIn / Github Profile Link"
               value={profileLink}
               onChange={(e) => setProfileLink(e.target.value)}
@@ -140,7 +140,7 @@ const SignUp = () => {
             <select
               name="account"
               id="account"
-              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg focus:border-white"
+              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg focus:outline-none focus-visible:outline-none"
               value={accountType}
               onChange={(e) => setAccountType(e.target.value)}
             >
