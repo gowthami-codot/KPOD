@@ -64,7 +64,7 @@ const SignUp = () => {
 
     const jsonData = JSON.stringify(data, null, 2);
     toast.success("Data Submitted.");
-    console.log(jsonData);
+    // console.log(jsonData);
     
     setIsModalOpen(true);
 
