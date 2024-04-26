@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+
 import { Toaster } from "sonner";
+import { NextUIProvider } from "@nextui-org/react";
 
 import Header from "@/components/landing/Header";
 
@@ -20,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Header />
-        <Toaster />
-        {children}
+        <NextUIProvider>
+          <Header />
+          <Toaster />
+          {children}
+        </NextUIProvider>
       </body>
     </html>
   );

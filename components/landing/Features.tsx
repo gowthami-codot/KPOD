@@ -12,7 +12,7 @@ const Features = () => {
           className="opacity-60 overflow-hidden"
         />
       </div>
-      <div className="w-[90%] md:w-[30%] md:h-[30%] absolute -z-0 md:ml-[60%] mt-[110%] md:mt-[10%]">
+      <div className="w-[90%] md:w-[30%] md:h-[30%] absolute -z-0 md:ml-[55%] mt-[110%] md:mt-[10%]">
         <Image
           src={"/green_circle.svg"}
           alt="blue"
@@ -21,7 +21,7 @@ const Features = () => {
           className="object-cover opacity-60"
         />
       </div>
-      <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center justify-between px-5 md:px-10 py-10 md:py-32">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-center justify-between px-5 md:px-10 lg:px-36 py-10 md:py-32">
         <div className="border border-[#63E3E3] bg-[#ffffff10] px-5 py-12 rounded-2xl flex justify-between w-full z-10">
           <div className="flex flex-col gap-6">
             <div className="text-3xl md:text-4xl font-bold">Code</div>

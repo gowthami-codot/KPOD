@@ -3,6 +3,8 @@ import { useState, FormEvent, useEffect } from "react";
 import { toast } from "sonner";
 import { sha256 } from "js-sha256";
 
+import VerificationPopup from "@/components/VerificationPopUp";
+
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -10,12 +12,18 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [accountType, setAccountType] = useState("");
   const [userProfile, setUserProfile] = useState("");
+  const [profileLink, setProfileLink] = useState("");
 
   const [selectedProfile, setSelectedProfile] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setSelectedProfile(userProfile);
   }, [userProfile]);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+ };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -26,7 +34,8 @@ const SignUp = () => {
       !email ||
       !password ||
       !accountType ||
-      !userProfile
+      !userProfile ||
+      !profileLink
     ) {
       toast.error("Please fill out all fields.");
       return;
@@ -50,11 +59,14 @@ const SignUp = () => {
       password: hashedPassword,
       accountType,
       userProfile,
+      profileLink,
     };
 
     const jsonData = JSON.stringify(data, null, 2);
     toast.success("Data Submitted.");
     console.log(jsonData);
+    
+    setIsModalOpen(true);
 
     setFirstName("");
     setLastName("");
@@ -62,6 +74,7 @@ const SignUp = () => {
     setPassword("");
     setAccountType("");
     setUserProfile("");
+    setProfileLink("");
   };
 
   return (
@@ -69,9 +82,10 @@ const SignUp = () => {
       <div className="text-center my-5 md:my-10 text-xl md:text-3xl font-bold">
         Welcome, Tell us a little bit about you.
       </div>
+      <VerificationPopup isOpen={isModalOpen} onOpen={() => setIsModalOpen(true)} onClose={closeModal} />
       <div className="w-full md:px-20">
         <form
-          className="md:p-10 p-5 rounded-2xl bg-[#ffffff15] flex flex-col 
+          className="md:p-10 p-3 rounded-2xl bg-[#ffffff15] flex flex-col 
           md:flex-row items-start justify-between md:gap-10"
           onSubmit={handleSubmit}
         >
@@ -110,26 +124,42 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <div className="my-2 md:my-4" />
-            <span>Account Type</span>
+            <span>LinkedIn / Github Profile</span>
             <input
               type="text"
               className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:border-white"
-              placeholder="Account Type"
-              value={accountType}
-              onChange={(e) => setAccountType(e.target.value)}
+              placeholder="Your LinkedIn / Github Profile Link"
+              value={profileLink}
+              onChange={(e) => setProfileLink(e.target.value)}
             />
           </div>
+
           <div className="w-full md:w-[60%] flex flex-col justify-between h-full">
-            <div className="text-lg md:text-xl pb-3 md:pb-6 mt-5">
+            <div className="" />
+            <span className="mb-3">Account Type</span>
+            <select
+              name="account"
+              id="account"
+              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:border-white"
+              value={accountType}
+              onChange={(e) => setAccountType(e.target.value)}
+            >
+              <option value="" disabled>
+                Select Your Account Type
+              </option>{" "}
+              <option value="individual">Individual</option>
+              <option value="business">Business</option>
+            </select>
+            <div className="text-lg md:text-xl pb-3 md:pb-5 mt-5">
               What do you do? Choose one or more
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div
                 onClick={() => setUserProfile("Cloud Engineer")}
                 className={` ${
                   selectedProfile === "Cloud Engineer"
-                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
-                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
+                    ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Cloud Engineer
@@ -138,8 +168,8 @@ const SignUp = () => {
                 onClick={() => setUserProfile("Devops")}
                 className={`${
                   selectedProfile === "Devops"
-                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
-                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
+                    ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Devops
@@ -148,8 +178,8 @@ const SignUp = () => {
                 onClick={() => setUserProfile("Data Scientist")}
                 className={`${
                   selectedProfile === "Data Scientist"
-                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
-                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
+                    ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Data Scientist
@@ -158,8 +188,8 @@ const SignUp = () => {
                 onClick={() => setUserProfile("Product Management")}
                 className={`${
                   selectedProfile === "Product Management"
-                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
-                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
+                    ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Product Management
@@ -168,8 +198,8 @@ const SignUp = () => {
                 onClick={() => setUserProfile("SRE")}
                 className={`${
                   selectedProfile === "SRE"
-                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
-                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
+                    ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 SRE
@@ -178,8 +208,8 @@ const SignUp = () => {
                 onClick={() => setUserProfile("Others")}
                 className={`${
                   selectedProfile === "Others"
-                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
-                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
+                    ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Others
