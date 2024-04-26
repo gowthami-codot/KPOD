@@ -140,11 +140,11 @@ const SignUp = () => {
             <select
               name="account"
               id="account"
-              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg text-white focus:border-white"
+              className="bg-[#ffffff20] p-2 w-full my-2 rounded-lg focus:border-white"
               value={accountType}
               onChange={(e) => setAccountType(e.target.value)}
             >
-              <option value="" disabled>
+              <option value="" disabled className="text-white">
                 Select Your Account Type
               </option>{" "}
               <option value="individual">Individual</option>
