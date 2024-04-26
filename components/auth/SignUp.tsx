@@ -126,48 +126,60 @@ const SignUp = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
               <div
                 onClick={() => setUserProfile("Cloud Engineer")}
-                className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Cloud Engineer" ? "bg-green-400" : ""
+                className={` ${
+                  selectedProfile === "Cloud Engineer"
+                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Cloud Engineer
               </div>
               <div
                 onClick={() => setUserProfile("Devops")}
-                className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Devops" ? "bg-green-400" : ""
+                className={`${
+                  selectedProfile === "Devops"
+                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Devops
               </div>
               <div
                 onClick={() => setUserProfile("Data Scientist")}
-                className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Data Scientist" ? "bg-green-400" : ""
+                className={`${
+                  selectedProfile === "Data Scientist"
+                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Data Scientist
               </div>
               <div
                 onClick={() => setUserProfile("Product Management")}
-                className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Product Management" ? "bg-green-400" : ""
+                className={`${
+                  selectedProfile === "Product Management"
+                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Product Management
               </div>
               <div
                 onClick={() => setUserProfile("SRE")}
-                className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "SRE" ? "bg-green-400" : ""
+                className={`${
+                  selectedProfile === "SRE"
+                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 SRE
               </div>
               <div
                 onClick={() => setUserProfile("Others")}
-                className={`bg-white text-black p-5 rounded-lg text-center cursor-pointer ${
-                  selectedProfile === "Others" ? "bg-green-400" : ""
+                className={`${
+                  selectedProfile === "Others"
+                    ? "bg-green-400 text-black p-5 rounded-lg text-center cursor-pointer"
+                    : "bg-white text-black p-5 rounded-lg text-center cursor-pointer"
                 }`}
               >
                 Others
