@@ -23,7 +23,7 @@ const SignUp = () => {
 
   const closeModal = () => {
     setIsModalOpen(false);
- };
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -62,19 +62,37 @@ const SignUp = () => {
       profileLink,
     };
 
-    const jsonData = JSON.stringify(data, null, 2);
-    toast.success("Data Submitted.");
-    console.log(jsonData);
-    
-    setIsModalOpen(true);
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setPassword("");
-    setAccountType("");
-    setUserProfile("");
-    setProfileLink("");
+      const result = await response.json();
+
+      if (result.ID && result.CreatedAt) {
+        toast.success("Data Submitted.");
+        setIsModalOpen(true);
+
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setAccountType("");
+        setUserProfile("");
+        setProfileLink("");
+      } else if (result.message === "User email already exists") {
+        toast.error("User already exists. Please log in to your account.");
+      } else {
+        throw new Error("An error occurred while submitting your data.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("An error occurred while submitting your data.");
+    }
   };
 
   return (
@@ -82,7 +100,11 @@ const SignUp = () => {
       <div className="text-center my-5 md:my-10 text-xl md:text-3xl font-bold">
         Welcome, Tell us a little bit about you.
       </div>
-      <VerificationPopup isOpen={isModalOpen} onOpen={() => setIsModalOpen(true)} onClose={closeModal} />
+      <VerificationPopup
+        isOpen={isModalOpen}
+        onOpen={() => setIsModalOpen(true)}
+        onClose={closeModal}
+      />
       <div className="w-full md:px-20">
         <form
           className="md:p-10 p-3 rounded-2xl bg-[#ffffff15] flex flex-col 
@@ -147,8 +169,12 @@ const SignUp = () => {
               <option value="" disabled className="text-white">
                 Select Your Account Type
               </option>{" "}
-              <option value="individual" className="text-black">Individual</option>
-              <option value="business" className="text-black">Business</option>
+              <option value="individual" className="text-black">
+                Individual
+              </option>
+              <option value="business" className="text-black">
+                Business
+              </option>
             </select>
             <div className="text-lg md:text-xl pb-3 md:pb-5 mt-5">
               What do you do? Choose one or more
