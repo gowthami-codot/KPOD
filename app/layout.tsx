@@ -22,6 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/x-icon" href="app/favicon.ico" />
+      </head>
       <body className={poppins.className}>
         <NextUIProvider>
           <Header />

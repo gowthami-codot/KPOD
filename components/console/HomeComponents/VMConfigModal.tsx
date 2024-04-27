@@ -11,10 +11,21 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const VMConfigModal = ({ isOpen, onClose }: any) => {
   const [verified, setVerified] = useState(false);
+  const [ssh, setSsh] = useState("");
   const { onOpenChange } = useDisclosure();
+
+  const handleRequest = () => {
+    if(!ssh) {
+      toast.error("Please fill your ssh key.");
+      return;
+    }
+
+    setVerified(true);
+  }
 
   return (
     <div>
@@ -70,6 +81,8 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                     </div>
                     <input
                       type="text"
+                      value={ssh}
+                      onChange={(e) => setSsh(e.target.value)}
                       placeholder="Your ssh key"
                       className="p-4 rounded-xl bg-[#FFFFFF20] my-5 w-full border border-gray-300"
                     />
@@ -86,7 +99,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                   <Button
                     className="flex justify-center items-center mx-auto bg-[#80FFF7] px-10 rounded-full"
                     onPress={onClose}
-                    onClick={() => setVerified(true)}
+                    onClick={handleRequest}
                   >
                     Request Access
                   </Button>
