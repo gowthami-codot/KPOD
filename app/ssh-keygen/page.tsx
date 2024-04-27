@@ -13,7 +13,7 @@ const page = () => {
             Windows:
             <ul className="list-disc pl-8">
               <li>
-                If you don't have a terminal program, download and install Git
+                If you don&apos;t have a terminal program, download and install Git
                 Bash or a similar option. Please search online for instructions
                 on installation specific to your chosen program.
               </li>
@@ -40,7 +40,7 @@ const page = () => {
         </p>
         <p className="mb-4">Enter a passphrase (optional):</p>
         <p className="mb-4">
-          You'll be prompted to enter a passphrase (like a password) to protect
+          You&apos;ll be prompted to enter a passphrase (like a password) to protect
           your private key. This is optional, but highly recommended for added
           security. Enter a strong passphrase and type it again for
           confirmation.
@@ -57,8 +57,8 @@ const page = () => {
         </h2>
         <p className="mb-4">
           Once the key pair is generated, you need to find the public key. This
-          is the part you'll share with us to allow SSH access to our servers.
-          Here's how to locate it:
+          is the part you&apos;ll share with us to allow SSH access to our servers.
+          Here&apos;s how to locate it:
         </p>
         <ul className="list-disc pl-8 mb-4">
           <li>
@@ -93,7 +93,7 @@ const page = () => {
           </li>
         </ul>
         <p className="mb-4">
-          Here's an example of what a public key might look like:
+          Here&apos;s an example of what a public key might look like:
         </p>
         <pre className="bg-gray-100 p-2 rounded text-black w-fit my-3">
           ssh-rsa AAAAB3NzaC1YCjEAAABCJvb2Y8DMQUXbaCOzZzwnNEOd8gk/SfcNsjXNYMJγηC
