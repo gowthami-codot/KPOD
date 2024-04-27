@@ -7,7 +7,7 @@ const page = () => {
   const router = useRouter();
 
   const email = typeof window !== 'undefined' ? localStorage.getItem("email") : ""
-  const emailData = {email}
+  const emailData = {email, "mailTemplate" : "registration"}
 
   useEffect(() => {
     const verifyEmail = async () => {

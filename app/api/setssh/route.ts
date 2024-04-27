@@ -2,19 +2,19 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    const { email, ssh } = await request.json();
 
-    const verificationData = {
+    const sshData = {
       email,
-      "mailTemplate" : "registration"
+      ssh,
     };
 
-    const response = await fetch(`${process.env.API_BASE_URL}/verifymail`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/updateuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(verificationData),
+      body: JSON.stringify(sshData),
     });
 
     if (response.status === 200) {

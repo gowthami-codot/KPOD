@@ -18,14 +18,34 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
   const [ssh, setSsh] = useState("");
   const { onOpenChange } = useDisclosure();
 
-  const handleRequest = () => {
-    if(!ssh) {
+  const email = typeof window !== 'undefined' ? localStorage.getItem("email") : ""
+
+  const sshdata = {email, ssh}
+
+  const handleRequest = async () => {
+    if (!ssh) {
       toast.error("Please fill your ssh key.");
       return;
     }
 
-    setVerified(true);
-  }
+    try {
+      const response = await fetch("/api/setssh", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(sshdata),
+      });
+
+      const result = await response.json();
+
+      if (result.email === email) {
+        setVerified(true);
+      }
+    } catch (error) {
+      toast.error("Something went wrong, try again.")
+    }
+  };
 
   return (
     <div>
