@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       "mailTemplate" : "selection"
     };
 
-    const response = await fetch(`${process.env.API_BASE_URL}/sendmail`, {
+    const response = await fetch("http://34.69.211.182:8080/sendmail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

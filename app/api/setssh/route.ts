@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       ssh,
     };
 
-    const response = await fetch(`${process.env.API_BASE_URL}/updateuser`, {
+    const response = await fetch("http://34.69.211.182:8080/updateuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
