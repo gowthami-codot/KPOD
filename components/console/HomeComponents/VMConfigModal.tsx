@@ -9,53 +9,93 @@ import {
 } from "@nextui-org/react";
 
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
-const VMConfigModal = ({ isOpen }: any) => {
+const VMConfigModal = ({ isOpen, onClose }: any) => {
+  const [verified, setVerified] = useState(false);
   const { onOpenChange } = useDisclosure();
 
   return (
     <div>
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        size="xl"
-        className="bg-[linear-gradient(47.82deg,#0F1D2E 26.23%,#060E18 81.29%)] border border-[#80FFF7]
+      {verified ? (
+        <Modal
+          isOpen={isOpen}
+          onOpenChange={onClose}
+          size="xl"
+          className="bg-[linear-gradient(47.82deg,#0F1D2E 26.23%,#060E18 81.29%)] border border-[#80FFF7]
         py-10"
-      >
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalBody>
-                <div className="flex flex-col items-center justify-center">
-                  <div className="text-lg md:text-2xl font-bold">
-                    Tell us about your VM Configuration
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Your ssh key"
-                    className="p-4 rounded-xl bg-[#FFFFFF20] my-5 w-full border border-gray-300"
+        >
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalBody className="flex items-center justify-center">
+                  <Image
+                    src={"/Accepted.svg"}
+                    alt="accepted"
+                    width={150}
+                    height={150}
+                    className="object-cover"
                   />
-                </div>
-                <Link
-                  href={"/ssh-keygen"}
-                  target="_blank"
-                  className="text-center text-[#00BAFF] cursor-pointer my-2 hover:underline"
-                >
-                  How to generate private SSH Key
-                </Link>
-              </ModalBody>
-              <ModalFooter>
-                <Button
-                  className="flex justify-center items-center mx-auto bg-[#80FFF7] px-10 rounded-full"
-                  onPress={onClose}
-                >
-                  Request Access
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
+                  <div
+                    className="border border-gray-300 py-3 my-3 bg-[#ffffff30] w-full md:w-fit px-6 rounded-xl
+                  "
+                  >
+                    Access Requested
+                  </div>
+                  <div className="text-center my-6 md:my-10">
+                    You will be notified via email once the access is provided.
+                  </div>
+                </ModalBody>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      ) : (
+        <Modal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          size="xl"
+          className="bg-[linear-gradient(47.82deg,#0F1D2E 26.23%,#060E18 81.29%)] border border-[#80FFF7]
+        py-10"
+          hideCloseButton
+        >
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalBody>
+                  <div className="flex flex-col items-center justify-center">
+                    <div className="text-lg md:text-2xl font-bold">
+                      Tell us about your VM Configuration
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Your ssh key"
+                      className="p-4 rounded-xl bg-[#FFFFFF20] my-5 w-full border border-gray-300"
+                    />
+                  </div>
+                  <Link
+                    href={"/ssh-keygen"}
+                    target="_blank"
+                    className="text-center text-[#00BAFF] cursor-pointer my-2 hover:underline"
+                  >
+                    How to generate private SSH Key
+                  </Link>
+                </ModalBody>
+                <ModalFooter>
+                  <Button
+                    className="flex justify-center items-center mx-auto bg-[#80FFF7] px-10 rounded-full"
+                    onPress={onClose}
+                    onClick={() => setVerified(true)}
+                  >
+                    Request Access
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      )}
     </div>
   );
 };

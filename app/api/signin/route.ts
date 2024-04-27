@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       password,
     };
 
-    const response = await fetch("http://34.69.211.182:8080/login", {
+    const response = await fetch(`${process.env.API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -79,6 +79,8 @@ const SignUp = () => {
       if (result.message === "Signup successful") {
         toast.success("Data Submitted.");
         setIsModalOpen(true);
+        
+        localStorage.setItem("email", email);
 
         setFirstName("");
         setLastName("");
@@ -245,8 +247,13 @@ const SignUp = () => {
               </div>
             </div>
             <div className="flex mt-10 mb-2 mx-auto gap-1">
-                <div>Already have an account ?</div>
-                <Link href={"/signIn"} className="cursor-pointer hover:underline duration-300">Login</Link>
+              <div>Already have an account ?</div>
+              <Link
+                href={"/signIn"}
+                className="cursor-pointer hover:underline duration-300"
+              >
+                Login
+              </Link>
             </div>
             <button
               type="submit"

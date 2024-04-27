@@ -1,33 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: krutrim_landing-deployment
+  name: krutrim_landing-deployment
 spec:
- replicas: 3
- selector:
+  replicas: 3
+  selector:
     matchLabels:
       app: nextjs
- template:
+  template:
     metadata:
       labels:
         app: nextjs
     spec:
       containers:
-      - name: nextjs
-        image: ankitmohapatra/krutrim_landing:v4
-        ports:
-        - containerPort: 3000
+        - name: nextjs
+          image: ankitmohapatra/krutrim_landing:v4
+          ports:
+            - containerPort: 3000
+          env:
+            - name: API_BASE_URL
+            - value: url_value
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: krutrim_landing-service
+  name: krutrim_landing-service
 spec:
- selector:
+  selector:
     app: nextjs
- ports:
+  ports:
     - protocol: TCP
       port: 80
       targetPort: 3000
- type: LoadBalancer
+  type: LoadBalancer

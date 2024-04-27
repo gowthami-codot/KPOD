@@ -1,8 +1,16 @@
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
- try {
-    const { firstName, lastName, email, password, accountType, userProfile, profileLink } = await request.json();
+  try {
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      accountType,
+      userProfile,
+      profileLink,
+    } = await request.json();
 
     const signupData = {
       firstName,
@@ -14,7 +22,7 @@ export async function POST(request: Request) {
       profileLink,
     };
 
-    const response = await fetch("http://34.69.211.182:8080/signin", {
+    const response = await fetch(`${process.env.API_BASE_URL}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,10 +36,14 @@ export async function POST(request: Request) {
     } else if (response.ok) {
       return NextResponse.json({ message: "Signup successful" });
     } else {
-      return NextResponse.json({ message: "An error occurred while processing your request." });
+      return NextResponse.json({
+        message: "An error occurred while processing your request.",
+      });
     }
- } catch (error) {
+  } catch (error) {
     console.error(error);
-    return NextResponse.json({ message: "An error occurred while processing your request." });
- }
+    return NextResponse.json({
+      message: "An error occurred while processing your request.",
+    });
+  }
 }
