@@ -63,6 +63,10 @@ const SignUp = () => {
       profileLink,
     };
 
+    const sendMailData = {
+      email,
+    };
+
     try {
       const response = await fetch("/api/signup", {
         method: "POST",
@@ -78,9 +82,25 @@ const SignUp = () => {
 
       if (result.message === "Signup successful") {
         toast.success("Data Submitted.");
-        setIsModalOpen(true);
-        
         localStorage.setItem("email", email);
+
+        try {
+          const response = await fetch("/api/sendVerification", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(sendMailData),
+          });
+
+          const result = await response.json();
+
+          if (result.message === "Mail Sent") {
+            setIsModalOpen(true);
+          }
+        } catch (error) {
+          toast.error("An error occurred while submitting your data.");
+        }
 
         setFirstName("");
         setLastName("");
