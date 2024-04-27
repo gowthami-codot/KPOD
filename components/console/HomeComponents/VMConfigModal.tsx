@@ -8,6 +8,8 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 
+import Link from "next/link";
+
 const VMConfigModal = ({ isOpen }: any) => {
   const { onOpenChange } = useDisclosure();
 
@@ -61,7 +63,9 @@ const VMConfigModal = ({ isOpen }: any) => {
                     />
                   </form>
                 </div>
-                <div className="text-center text-[#00BAFF] cursor-pointer my-2 hover:underline">How to generate private SSH Key</div>
+                <Link href={"/ssh-keygen"} target="_blank" className="text-center text-[#00BAFF] cursor-pointer my-2 hover:underline">
+                  How to generate private SSH Key
+                </Link>
               </ModalBody>
               <ModalFooter>
                 <Button

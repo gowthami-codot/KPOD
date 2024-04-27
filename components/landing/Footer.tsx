@@ -24,6 +24,7 @@ const Footer = () => {
                 href={
                   "https://llm-spark-new.s3.amazonaws.com/krutrim_chat_policy_docs/privacy_policy_v1.pdf"
                 }
+                target="_blank"
                 className="cursor-pointer hover:underline duration-300"
               >
                 Privacy Policy
@@ -32,6 +33,7 @@ const Footer = () => {
                 href={
                   "https://llm-spark-new.s3.amazonaws.com/krutrim_chat_policy_docs/TOU_v1.pdf"
                 }
+                target="_blank"
                 className="cursor-pointer hover:underline duration-300"
               >
                 Terms and Conditions
@@ -47,6 +49,7 @@ const Footer = () => {
               href={
                 "https://olacareers.turbohire.co/dashboardv2?orgId=e0c1eb37-eb7a-4ca4-bcc5-d59ce4ce9212&type=0"
               }
+              target="_blank"
             >
               <span className="flex cursor-pointer group bg-[#63E3E3] text-sm rounded-full px-2 py-0.5 items-center">
                 Join Us
