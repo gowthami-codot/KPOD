@@ -253,7 +253,7 @@ const SignUp = () => {
               className="flex text-black bg-white py-3 px-10 w-fit mx-auto rounded-full cursor-pointer
             hover:scale-110 duration-300 border-4 hover:border-gray-500"
             >
-              Submit
+              Register
             </button>
           </div>
         </form>

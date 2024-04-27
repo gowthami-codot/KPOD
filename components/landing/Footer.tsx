@@ -1,8 +1,18 @@
+"use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+
   return (
-    <div className="bg-white text-black">
+    <div
+      className={
+        pathname.startsWith("/console")
+          ? "bg-white text-black hidden"
+          : "bg-white text-black flex"
+      }
+    >
       <div className="py-10 md:py-20 px-10 md:px-40">
         <div className="flex flex-col gap-6">
           <Link href={"/"} className="text-start text-2xl">

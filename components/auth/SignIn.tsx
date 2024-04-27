@@ -48,7 +48,7 @@ const SignIn = () => {
 
       if (result.ID && result.CreatedAt) {
         toast.success("Logged in successfully.");
-        router.push("/console");
+        router.push("/console/home");
       } else if (result.message === "Invalid Credentials") {
         toast.error("Invalid email or password. Please try again.");
       } else {
