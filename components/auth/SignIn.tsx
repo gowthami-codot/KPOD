@@ -144,7 +144,7 @@ const SignIn = () => {
                 </span>
               </div>
               <div className="flex mt-10 mb-2 mx-auto gap-1">
-                <div>Don't have an account ?</div>
+                <div>Don&apos;t have an account ?</div>
                 <Link
                   href={"/signUp"}
                   className="cursor-pointer hover:underline duration-300"
