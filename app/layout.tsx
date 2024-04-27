@@ -6,6 +6,7 @@ import { Toaster } from "sonner";
 import { NextUIProvider } from "@nextui-org/react";
 
 import Header from "@/components/landing/Header";
+import Footer from "@/components/landing/Footer";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Header />
           <Toaster />
           {children}
+          <Footer />
         </NextUIProvider>
       </body>
     </html>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Experience = () => {
   return (
     <div className="bg-black py-10 md:py-20 px-5 md:px-40">
@@ -7,12 +9,13 @@ const Experience = () => {
           <div>Experience the future of AI </div>
           <div>Get quick and helpful answers to anything you need.</div>
         </div>
-        <div
+        <Link
+          href={"/signUp"}
           className="bg-[#80FFF7] py-2 md:py-3 text-black px-3 rounded-full w-full md:w-fit text-center mt-6 md:mt-0
         cursor-pointer md:hover:scale-110 duration-300"
         >
           Try Krutrim
-        </div>
+        </Link>
       </div>
     </div>
   );

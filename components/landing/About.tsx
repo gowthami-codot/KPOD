@@ -1,4 +1,5 @@
 import { Poppins } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "100" });
 
@@ -73,8 +74,10 @@ const About = () => {
       <div className="w-full md:w-[70%] flex items-center justify-between mx-auto mt-6 md:mt-16
       border border-[#63E3E3] p-3 md:py-6 md:p-4 md:px-10 rounded-xl md:rounded-3xl flex-col md:flex-row">
         <div className="font-bold text-lg md:text-xl">Ready to implement in your product?</div>
-        <div className="bg-[#80FFF7] py-1 text-black px-3 rounded-full w-full md:w-fit text-center my-3 md:my-0
-        cursor-pointer md:hover:scale-110 duration-300">Try Krutrim</div>
+        <Link 
+        href={"/signUp"}
+        className="bg-[#80FFF7] py-1 text-black px-3 rounded-full w-full md:w-fit text-center my-3 md:my-0
+        cursor-pointer md:hover:scale-110 duration-300">Try Krutrim</Link>
       </div>
     </div>
   );

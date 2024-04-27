@@ -8,7 +8,11 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 
+import { useRouter } from "next/navigation";
+
 const VerificationPopup = ({ isOpen, onClose }: any) => {
+  const router = useRouter();
+
   return (
     <div>
       <Modal
@@ -32,6 +36,7 @@ const VerificationPopup = ({ isOpen, onClose }: any) => {
                   color="primary"
                   onPress={onClose}
                   className="py-2 px-10 w-full md:w-fit rounded-full bg-white text-black"
+                  onClick={() => router.push("/signIn")}
                 >
                   OK
                 </Button>

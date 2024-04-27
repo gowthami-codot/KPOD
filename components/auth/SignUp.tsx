@@ -74,7 +74,9 @@ const SignUp = () => {
 
       const result = await response.json();
 
-      if (result.ID && result.CreatedAt) {
+      console.log(result);
+
+      if (result.message === "Signup successful") {
         toast.success("Data Submitted.");
         setIsModalOpen(true);
 
@@ -112,7 +114,7 @@ const SignUp = () => {
           md:flex-row items-start justify-between md:gap-10"
           onSubmit={handleSubmit}
         >
-          <div className="flex flex-col items-start justify-center w-full md:w-[40%] md:border-r border-white md:pr-10">
+          <div className="flex flex-col items-start justify-center w-full md:border-r border-white md:pr-10">
             <span>What&apos;s your name ?</span>
             <input
               type="text"
@@ -157,7 +159,7 @@ const SignUp = () => {
             />
           </div>
 
-          <div className="w-full md:w-[60%] flex flex-col justify-between h-full">
+          <div className="w-full flex flex-col justify-between h-full">
             <div className="" />
             <span className="mb-3">Account Type</span>
             <select

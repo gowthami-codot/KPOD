@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nextjs
-        image: ankitmohapatra/krutrim_landing:v2
+        image: ankitmohapatra/krutrim_landing:v4
         ports:
         - containerPort: 3000
 

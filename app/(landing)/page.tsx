@@ -15,7 +15,6 @@ const page = () => {
       <About />
       <Business />
       <Experience />
-      <Footer />
     </div>
   );
 };
