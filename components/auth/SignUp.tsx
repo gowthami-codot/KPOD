@@ -65,7 +65,7 @@ const SignUp = () => {
 
     const sendMailData = {
       email,
-      "mailTemplate" : "registration"
+      mailTemplate: "registration",
     };
 
     try {
@@ -77,9 +77,9 @@ const SignUp = () => {
         body: JSON.stringify(data),
       });
 
-      const result = await response.json();
+      // console.log(data);
 
-      console.log(result);
+      const result = await response.json();
 
       if (result.message === "Signup successful") {
         toast.success("Data Submitted.");
