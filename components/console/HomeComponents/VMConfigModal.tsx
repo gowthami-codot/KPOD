@@ -54,7 +54,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
           });
 
           if(response.status === 200) {
-            toast.success("Successful.");
+            toast.success("Email Sent Successfully.");
           }
         } catch (error) {
           
