@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, FormEvent, useEffect } from "react";
 import { toast } from "sonner";
 import { sha256 } from "js-sha256";
@@ -179,7 +180,7 @@ const SignUp = () => {
             <div className="text-lg md:text-xl pb-3 md:pb-5 mt-5">
               What do you do? Choose one or more
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div
                 onClick={() => setUserProfile("Cloud Engineer")}
                 className={` ${
@@ -241,9 +242,13 @@ const SignUp = () => {
                 Others
               </div>
             </div>
+            <div className="flex mt-10 mb-2 mx-auto gap-1">
+                <div>Already have an account ?</div>
+                <Link href={"/signIn"} className="cursor-pointer hover:underline duration-300">Login</Link>
+            </div>
             <button
               type="submit"
-              className="flex text-black mt-10 bg-white py-3 px-10 w-fit mx-auto rounded-full cursor-pointer
+              className="flex text-black bg-white py-3 px-10 w-fit mx-auto rounded-full cursor-pointer
             hover:scale-110 duration-300 border-4 hover:border-gray-500"
             >
               Submit

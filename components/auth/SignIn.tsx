@@ -1,9 +1,13 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { toast } from "sonner";
+import { sha256 } from "js-sha256";
+import { useRouter } from "next/navigation";
 
 const SignIn = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("password");
@@ -22,6 +26,37 @@ const SignIn = () => {
     if (!email || !password) {
       toast.error("Please fill out all fields.");
       return;
+    }
+
+    const hashedPassword = sha256(password);
+
+    const data = {
+      email,
+      password: hashedPassword,
+    };
+
+    try {
+      const response = await fetch("/api/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.ID && result.CreatedAt) {
+        toast.success("Logged in successfully.");
+        router.push("/console");
+      } else if (result.message === "Invalid Credentials") {
+        toast.error("Invalid email or password. Please try again.");
+      } else {
+        throw new Error("An error occurred while logging in.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("An error occurred while logging in.");
     }
   };
 
@@ -51,6 +86,8 @@ const SignIn = () => {
               <span>Email</span>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="bg-[#ffffff20] p-2 md:p-4 w-full mt-2 rounded-lg text-white focus:border-white
                 focus:outline-none focus-visible:outline-none"
                 placeholder="Enter Your Email"
@@ -106,16 +143,25 @@ const SignIn = () => {
                   )}
                 </span>
               </div>
+              <div className="flex mt-10 mb-2 mx-auto gap-1">
+                <div>Don't have an account ?</div>
+                <Link
+                  href={"/signUp"}
+                  className="cursor-pointer hover:underline duration-300"
+                >
+                  Register
+                </Link>
+              </div>
               <button
                 type="submit"
-                className="flex text-black mt-10 bg-[#80FFF7] py-3 px-10 w-fit mx-auto rounded-full cursor-pointer
+                className="flex text-black bg-[#80FFF7] py-3 px-10 w-fit mx-auto rounded-full cursor-pointer
             hover:scale-110 duration-300"
               >
                 Login
               </button>
             </div>
           </form>
-          <div className="absolute -z-10 mt-6 md:-mt-24 -mr-8 md:ml-[260px] ">
+          <div className="absolute -z-10 mt-6 md:-mt-36 -mr-8 md:ml-[260px] ">
             <Image
               src={"/login_page_gradient_1.svg"}
               alt="gradient"

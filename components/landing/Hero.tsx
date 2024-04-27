@@ -12,7 +12,7 @@ const Hero = () => {
             Scale your computational capabilities and experience the GPU
             services like never before
           </span>
-          <Link href={"/auth"} className="bg-[linear-gradient(180deg,#8CFFDA,#46D8FF)] py-5 text-black font-bold px-10 rounded-full cursor-pointer
+          <Link href={"/signUp"} className="bg-[linear-gradient(180deg,#8CFFDA,#46D8FF)] py-5 text-black font-bold px-10 rounded-full cursor-pointer
           border-2 border-transparent hover:border-2 hover:border-white duration-300">
             Create your GPU instance
           </Link>
