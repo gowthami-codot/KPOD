@@ -4,9 +4,12 @@ export async function POST(request: Request) {
   try {
     const { email } = await request.json();
 
-    const verificationData = {email};
+    const verificationData = {
+      email,
+      "mailTemplate" : "selection"
+    };
 
-    const response = await fetch(`${process.env.API_BASE_URL}/verifymail`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/sendmail`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -65,6 +65,7 @@ const SignUp = () => {
 
     const sendMailData = {
       email,
+      "mailTemplate" : "registration"
     };
 
     try {

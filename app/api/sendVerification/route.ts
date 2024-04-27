@@ -6,6 +6,7 @@ export async function POST(request: Request) {
 
     const verificationData = {
       email,
+      "mailTemplate" : "registration"
     };
 
     const response = await fetch(`${process.env.API_BASE_URL}/sendmail`, {

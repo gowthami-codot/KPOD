@@ -22,6 +22,8 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
 
   const sshdata = {email, ssh}
 
+  const sendMailData = {email, "mailTemplate" : "selection"}
+
   const handleRequest = async () => {
     if (!ssh) {
       toast.error("Please fill your ssh key.");
@@ -34,13 +36,29 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(sshdata),
+        body: JSON.stringify(sendMailData),
       });
 
       const result = await response.json();
 
       if (result.email === email) {
         setVerified(true);
+
+        try {
+          const response = await fetch("/api/sendVerificationSelection", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(sshdata),
+          });
+
+          if(response.status === 200) {
+            toast.success("Successful.");
+          }
+        } catch (error) {
+          
+        }
       }
     } catch (error) {
       toast.error("Something went wrong, try again.")
