@@ -9,7 +9,9 @@ export async function POST(request: Request) {
       password,
     };
 
-    const response = await fetch("http://34.69.211.182:8080/login", {
+    console.log(signinData);
+
+    const response = await fetch(`${process.env.API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,9 +21,9 @@ export async function POST(request: Request) {
 
     if (response.status === 200) {
       const result = await response.json();
-      return NextResponse.json(result);
+      return NextResponse.json(result, { status: 200 });
     } else {
-      console.error("An error occurred while processing your request. Status:");
+      console.error("An error occurred while processing your request Status: ", response.status);
       return NextResponse.json({
         message: "An error occurred while processing your request.",
       });

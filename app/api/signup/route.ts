@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     // console.log(signupData);
 
-    const response = await fetch("http://34.69.211.182:8080/signin", {
+    const response = await fetch(`${process.env.API_BASE_URL}/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

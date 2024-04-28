@@ -44,6 +44,10 @@ const SignIn = () => {
         body: JSON.stringify(data),
       });
 
+      if (!response.ok) {
+        throw new Error("API request failed with status: " + response.status);
+      }
+
       const result = await response.json();
 
       if (result.ID && result.CreatedAt) {
@@ -52,11 +56,11 @@ const SignIn = () => {
       } else if (result.message === "Invalid Credentials") {
         toast.error("Invalid email or password. Please try again.");
       } else {
-        throw new Error("An error occurred while logging in.");
+        throw new Error("An error occurred while logging in. 1");
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error("An error occurred while logging in.");
+      toast.error("An error occurred while logging in. 2");
     }
   };
 

@@ -15,17 +15,18 @@ import { toast } from "sonner";
 
 const VMConfigModal = ({ isOpen, onClose }: any) => {
   const [verified, setVerified] = useState(false);
-  const [ssh, setSsh] = useState("");
+  const [sshKey, setSsh] = useState("");
   const { onOpenChange } = useDisclosure();
 
-  const email = typeof window !== 'undefined' ? localStorage.getItem("email") : ""
+  const email =
+    typeof window !== "undefined" ? localStorage.getItem("email") : "";
 
-  const sshdata = {email, ssh}
+  const sshdata = { email, sshKey };
 
-  const sendMailData = {email, "mailTemplate" : "selection"}
+  const sendMailData = { email, mailTemplate: "selection" };
 
   const handleRequest = async () => {
-    if (!ssh) {
+    if (!sshKey) {
       toast.error("Please fill your ssh key.");
       return;
     }
@@ -36,7 +37,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(sendMailData),
+        body: JSON.stringify(sshdata),
       });
 
       const result = await response.json();
@@ -50,18 +51,16 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(sshdata),
+            body: JSON.stringify(sendMailData),
           });
 
-          if(response.status === 200) {
+          if (response.status === 200) {
             toast.success("Email Sent Successfully.");
           }
-        } catch (error) {
-          
-        }
+        } catch (error) {}
       }
     } catch (error) {
-      toast.error("Something went wrong, try again.")
+      toast.error("Something went wrong, try again.");
     }
   };
 
@@ -87,7 +86,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                     className="object-cover"
                   />
                   <div
-                    className="border border-gray-300 py-3 my-3 bg-[#ffffff30] w-full md:w-fit px-6 rounded-xl
+                    className="border text-center border-gray-300 py-3 my-3 bg-[#ffffff30] w-full md:w-fit px-6 rounded-xl
                   "
                   >
                     Access Requested
@@ -119,7 +118,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                     </div>
                     <input
                       type="text"
-                      value={ssh}
+                      value={sshKey}
                       onChange={(e) => setSsh(e.target.value)}
                       placeholder="Your ssh key"
                       className="p-4 rounded-xl bg-[#FFFFFF20] my-5 w-full border border-gray-300"

@@ -6,10 +6,10 @@ export async function POST(request: Request) {
 
     const verificationData = {
       email,
-      "mailTemplate" : "selection"
+      mailTemplate: "selection",
     };
 
-    const response = await fetch("http://34.69.211.182:8080/sendmail", {
+    const response = await fetch(`${process.env.API_BASE_URL}/sendmail`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

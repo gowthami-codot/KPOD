@@ -51,7 +51,7 @@ const Footer = () => {
               }
               target="_blank"
             >
-              <span className="flex cursor-pointer group bg-[#63E3E3] text-sm rounded-full px-2 py-0.5 items-center">
+              <span className="flex cursor-pointer group bg-[#63E3E3] text-sm rounded-full px-2 py-0.5 items-center w-fit">
                 Join Us
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

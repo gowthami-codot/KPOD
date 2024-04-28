@@ -2,14 +2,16 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { email, ssh } = await request.json();
+    const { email, sshKey } = await request.json();
 
     const sshData = {
       email,
-      ssh,
+      sshKey,
     };
 
-    const response = await fetch("http://34.69.211.182:8080/updateuser", {
+    console.log(sshData);
+
+    const response = await fetch(`${process.env.API_BASE_URL}/updateuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

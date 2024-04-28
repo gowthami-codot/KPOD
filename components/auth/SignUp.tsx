@@ -77,8 +77,6 @@ const SignUp = () => {
         body: JSON.stringify(data),
       });
 
-      // console.log(data);
-
       const result = await response.json();
 
       if (result.message === "Signup successful") {

@@ -16,7 +16,7 @@ const Welcome = () => {
           className="flex flex-col items-center justify-center py-6 md:py-10 
       w-[75%] border border-[#63e3e3] rounded-3xl px-10 gap-6"
         >
-          <div className="text-xl md:text-3xl font-bold">
+          <div className="text-xl md:text-3xl font-bold text-center">
             Welcome to OLA Krutrim Cloud
           </div>
           <div className="text-gray-400 text-center">
@@ -27,13 +27,13 @@ const Welcome = () => {
           <div className="flex flex-col md:flex-row gap-2">
             <div
               onClick={() => setShowModal(true)}
-              className="text-center bg-[#80FFF7] text-black px-10 py-3 rounded-full cursor-pointer
+              className="text-center text-xs md:text-lg bg-[#80FFF7] text-black px-10 py-3 rounded-full cursor-pointer
         hover:scale-105 duration-300"
             >
-              Request for free VM Access
+              Request for free GPU Instance
             </div>
             <div
-              className="text-center border-2 border-[#80FFF7] text-white px-10 py-3 rounded-full cursor-pointer
+              className="text-center text-xs md:text-lg border-2 border-[#80FFF7] text-white px-10 py-3 rounded-full cursor-pointer
         hover:scale-105 duration-300"
             >
               Request for Inference as Service
