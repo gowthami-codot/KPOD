@@ -9,8 +9,6 @@ export async function POST(request: Request) {
       password,
     };
 
-    console.log(signinData);
-
     const response = await fetch(`${process.env.API_BASE_URL}/login`, {
       method: "POST",
       headers: {

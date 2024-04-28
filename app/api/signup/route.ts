@@ -22,8 +22,6 @@ export async function POST(request: Request) {
       profileLink,
     };
 
-    // console.log(signupData);
-
     const response = await fetch(`${process.env.API_BASE_URL}/signin`, {
       method: "POST",
       headers: {

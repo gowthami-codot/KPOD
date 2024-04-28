@@ -13,14 +13,12 @@ const Page = () => {
 	if (typeof window !== 'undefined') {
 		let params = new URLSearchParams(window.location.search);
 		setToken(params.get("token"));
-		console.log(params.get("token"));
 	}
   }, []);
 
 
   useEffect(() => {
     const verifyEmail = async () => {
-      // try {
         const response = await fetch(`/api/verification?token=${token}`, {
           method: "POST",
           headers: {
@@ -32,7 +30,6 @@ const Page = () => {
           console.error('Network response was not ok', response.status);
 
         const result = await response.json();
-        console.log(result);
 
         if (result.isVarified === 1 && result.userToken === token) {
           router.push("/signIn");
