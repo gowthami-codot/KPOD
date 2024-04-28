@@ -17,7 +17,7 @@ const Hero = () => {
             Register / Signup
           </Link>
         </div>
-        <video src="/ai_video.mp4" autoPlay loop muted className="-z-0 min-h-screen object-cover" />
+        <video src="/ai_video.mp4" autoPlay loop muted className="-z-0 min-h-screen w-screen object-cover" />
       </div>
     </div>
   );

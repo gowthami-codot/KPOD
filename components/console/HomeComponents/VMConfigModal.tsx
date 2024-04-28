@@ -44,7 +44,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
 
       if (result.email === email) {
         setVerified(true);
-
+        localStorage.setItem("ssh_present", "true");
         try {
           const response = await fetch("/api/sendVerificationSelection", {
             method: "POST",
@@ -114,7 +114,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                 <ModalBody>
                   <div className="flex flex-col items-center justify-center">
                     <div className="text-lg md:text-2xl font-bold">
-                      Tell us about your VM Configuration
+                      Enter your ssh key
                     </div>
                     <input
                       type="text"
