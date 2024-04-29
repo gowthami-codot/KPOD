@@ -1,6 +1,4 @@
 "use client";
-
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import MobileSidebar from "@/components/console/MobileSidebar";
@@ -20,7 +18,7 @@ const Navbar = () => {
       <MobileSidebar />
       <div className="hidden md:flex w-full justify-between items-center bg-[#162231] p-5 rounded-lg ">
         <div className="text-white text-xl font-bold">KRUTRIM</div>
-        <div className="cursor-pointer hover:scale-105" onClick={handleLogout}>
+        <div className="cursor-pointer hover:scale-105 duration-300 hover:underline" onClick={handleLogout}>
           Logout
         </div>
       </div>

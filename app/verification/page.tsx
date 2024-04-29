@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 
 const Page = () => {
   const router = useRouter();
-
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
@@ -26,6 +25,7 @@ const Page = () => {
         });
 
         const result = await response.json();
+        
 
         if (result && result.isVerified === 1 && result.userToken === token) {
           router.push("/signIn");

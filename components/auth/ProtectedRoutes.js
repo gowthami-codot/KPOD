@@ -7,9 +7,9 @@ const useProtectedRoute = () => {
  const router = useRouter();
  const { currentUser } = useAuth();
 
- if (!currentUser) {
-    router.push('/signIn');
- }
+//  if (!currentUser) {
+//     router.push('/signIn');
+//  }
 };
 
 export default useProtectedRoute;

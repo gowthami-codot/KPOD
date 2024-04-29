@@ -14,7 +14,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [type, setType] = useState("password");
 
-  const  { setCurrentUser } = useAuth();
+  const { setCurrentUser } = useAuth();
 
   const handleToggle = () => {
     if (type === "password") {
@@ -56,7 +56,11 @@ const SignIn = () => {
 
       if (result && result.ID && result.CreatedAt) {
         toast.success("Logged in successfully.");
-        setCurrentUser({ id: result.ID, email: email });
+
+        const user = { id: result.ID, email: email };
+        setCurrentUser(user);
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        
         router.push("/console/home");
       } else if (result.message === "Invalid Credentials") {
         toast.error("Invalid email or password. Please try again.");

@@ -24,7 +24,7 @@ const routes = [
     href: "/console/home",
   },
   {
-    label: "Service",
+    label: "GPU",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -41,10 +41,10 @@ const routes = [
         />
       </svg>
     ),
-    href: "/console/service",
+    href: "/console/GPU",
   },
   {
-    label: "Cost",
+    label: "Inference Service",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -61,52 +61,7 @@ const routes = [
         />
       </svg>
     ),
-    href: "/console/cost",
-  },
-  {
-    label: "Observability",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
-        />
-      </svg>
-    ),
-    href: "/console/observability",
-  },
-  {
-    label: "Model",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 0 0 2.25-2.25V6.75a2.25 2.25 0 0 0-2.25-2.25H6.75A2.25 2.25 0 0 0 4.5 6.75v10.5a2.25 2.25 0 0 0 2.25 2.25Zm.75-12h9v9h-9v-9Z"
-        />
-      </svg>
-    ),
-    href: "/console/model",
+    href: "/console/inference-service",
   },
 ];
 
@@ -131,7 +86,7 @@ const Sidebar = () => {
               </Link>
             ))}
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 px-3 cursor-pointer group">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +94,7 @@ const Sidebar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6"
+                className="w-6 h-6 group-hover:rotate-180 duration-500"
               >
                 <path
                   strokeLinecap="round"

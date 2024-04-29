@@ -1,12 +1,18 @@
 "use client";
 import VMConfigModal from "./VMConfigModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
+  const [ssh_present, setSshPresent] = useState("");
 
-  const ssh_present =
-    typeof window !== "undefined" ? localStorage.getItem("ssh_present") : "";
+  useEffect(() => {
+    const storedSshPresent =
+      typeof window !== "undefined"
+        ? localStorage.getItem("ssh_present") || ""
+        : "";
+    setSshPresent(storedSshPresent);
+  }, []);
 
   const closeModal = () => {
     setShowModal(false);
