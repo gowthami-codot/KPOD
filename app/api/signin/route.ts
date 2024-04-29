@@ -9,12 +9,14 @@ export async function POST(request: Request) {
       password,
     };
 
+    const finalData = JSON.stringify(signinData);
+
     const response = await fetch(`${process.env.API_BASE_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(signinData),
+      body: finalData,
     });
 
     if (response.status === 200) {

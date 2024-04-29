@@ -6,11 +6,15 @@ import { toast } from "sonner";
 import { sha256 } from "js-sha256";
 import { useRouter } from "next/navigation";
 
+import { useAuth } from "@/components/auth/AuthContext";
+
 const SignIn = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("password");
+
+  const  { setCurrentUser } = useAuth();
 
   const handleToggle = () => {
     if (type === "password") {
@@ -50,8 +54,9 @@ const SignIn = () => {
 
       const result = await response.json();
 
-      if (result.ID && result.CreatedAt) {
+      if (result && result.ID && result.CreatedAt) {
         toast.success("Logged in successfully.");
+        setCurrentUser({ id: result.ID, email: email });
         router.push("/console/home");
       } else if (result.message === "Invalid Credentials") {
         toast.error("Invalid email or password. Please try again.");

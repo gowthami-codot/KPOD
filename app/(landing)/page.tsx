@@ -2,7 +2,6 @@ import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import FeatureCards from "@/components/landing/FeatureCards";
 import About from "@/components/landing/About";
-import Footer from "@/components/landing/Footer";
 import Business from "@/components/landing/Business";
 import Experience from "@/components/landing/Experience";
 

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 
 const Page = () => {
   const router = useRouter();
@@ -26,15 +25,11 @@ const Page = () => {
           },
         });
 
-        if (!response.ok) {
-          console.error('Network response was not ok', response.status);
-
         const result = await response.json();
 
-        if (result.isVarified === 1 && result.userToken === token) {
+        if (result && result.isVerified === 1 && result.userToken === token) {
           router.push("/signIn");
         }
-      }
     };
 
     verifyEmail();

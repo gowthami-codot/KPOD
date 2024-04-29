@@ -8,11 +8,13 @@ import { NextUIProvider } from "@nextui-org/react";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 
+import AuthProvider from "@/components/auth/AuthContext";
+
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Krutrim",
-  description: "Krutrim",
+  description: "AI Workloads with krutrim cloud.",
 };
 
 export default function RootLayout({
@@ -27,10 +29,12 @@ export default function RootLayout({
       </head>
       <body className={poppins.className}>
         <NextUIProvider>
-          <Header />
-          <Toaster />
-          {children}
-          <Footer />
+          <AuthProvider>
+            <Header />
+            <Toaster />
+            {children}
+            <Footer />
+          </AuthProvider>
         </NextUIProvider>
       </body>
     </html>
