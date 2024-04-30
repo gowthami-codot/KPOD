@@ -8,7 +8,7 @@ const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
   const { setUserDetails, userDetails } = useUser();
 
-  const closeModal = (requestSuccess) => {
+  const closeModal = (requestSuccess: boolean) => {
     setShowModal(false);
 
     if(requestSuccess) {
@@ -54,7 +54,7 @@ const Welcome = () => {
 
             {userDetails && userDetails.vm_instance_request === 2 && (
               <div className="text-center">
-                GPU Instance IP & Port<br/>{currentUser.ip}:{currentUser.port}
+                GPU Instance IP & Port<br/>{userDetails.ip}:{userDetails.port}
               </div>
             )}
 
