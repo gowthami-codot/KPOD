@@ -19,9 +19,9 @@ const ApiKeys = () => {
   return (
     <div className="flex flex-col min-h-screen px-5 relative">
       <div className="w-full h-full bg-[#0F1B2B]  rounded-[16px]">
-        <div className="px-16 py-4 text-[26px] text-[#8BFFDD] font-bold">
-          API Keys Management
-        </div>
+      <div className="text-[27px]  font-bold mt-10 px-10  text-[#8BFFDD] ">
+           Api Keys Management
+          </div>
 
         <div className="bg-[#162231] mx-auto w-[90%] px-16 py-4 rounded-[16px]">
           <div className="text-[20px] font-bold">API Keys</div>

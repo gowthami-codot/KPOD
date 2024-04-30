@@ -3,22 +3,48 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import Image from "next/image";
 import { useState } from "react";
 import UsagePopup from "./UsagePopup";
+import MonthDropdown from "./MonthDropdown";
 
 const Usage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(3);
+  const handleClick = (direction) => {
+    if (direction === 'left') {
+      setCurrentMonthIndex((currentMonthIndex - 1 + months.length) % months.length);
+    } else if (direction === 'right') {
+      setCurrentMonthIndex((currentMonthIndex + 1) % months.length);
+    }
+  };
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const [monthPopup, setMonthPopup] = useState(false);
 
   const handleCreateApiClick = () => {
     setIsPopupOpen(true);
   };
+
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
+ 
 
   return (
     <div className="flex flex-col min-h-screen px-5 ">
       <div className="w-full h-full bg-[#0F1B2B]  rounded-[16px]">
-        <div className="flex">
-          <div className="text-[27px] font-bold mt-6 px-10 mb-5 text-[#8BFFDD] ">
+        <div className="flex py-2">
+          <div className="text-[27px]  font-bold mt-6 px-10  text-[#8BFFDD] ">
             Usage
           </div>
           <div className="flex items-end justify-end pl-[29rem] ">
@@ -41,32 +67,12 @@ const Usage = () => {
               </svg>
             </div>
           </div>
-          <div className="flex justify-end items-center bg-[#FFFFFF4D] bg-opacity-30 mt-4 mr-10 px-3 rounded-[13px] border-[#FFFFFF] border-[2px] -top-2 cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="20"
-              height="20"
-              fill="white"
-            >
-              <text x="0" y="20" font-size="20" font-family="Arial, sans-serif">
-                &lt;
-              </text>
-            </svg>
+          <div className="month-container bg-[#FFFFFF4D] mt-4 px-5 mr-10   rounded-[13px] border-[#FFFFFF] border-[2px] py-3 items-end space-x-5 cursor-pointer flex">
+  <div className="angle left-angle text-[21px] cursor-pointer" onClick={() => handleClick('left')}>&lt;</div>
+  <div className="month text-[17px] text-center pb-1">{months[currentMonthIndex]}</div>
+  <div className="angle text-[21px] right-angle cursor-pointer" onClick={() => handleClick('right')}>&gt;</div>
+</div>
 
-            <div className="text-[17px] space-x-4 ">April</div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              fill="white"
-            >
-              <text x="0" y="20" font-size="20" font-family="Arial, sans-serif">
-                &gt;
-              </text>
-            </svg>
-          </div>
 
           <div className="flex justify-end  bg-[#80FFF7] text-[17px] text-black font-bold mt-4  rounded-[20px] border-[#FFFFFF] border-[2px]  py-4 items-end  cursor-pointer">
             <div className="px-6">Export</div>
@@ -121,6 +127,7 @@ const Usage = () => {
           </div>
         </div>
         {isPopupOpen && <UsagePopup onClose={handleClosePopup} />}
+        {monthPopup && <MonthDropdown onClose={handleCloseMonth} />}
       </div>
     </div>
   );

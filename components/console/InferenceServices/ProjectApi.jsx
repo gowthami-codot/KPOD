@@ -18,8 +18,8 @@ const ProjectApi = () => {
     <div className="flex flex-col min-h-screen px-5 relative">
       <div className="flex justify-between items-center mb-3 ">
         <div className="w-full h-full  flex flex-col bg-[#0F1B2B]  rounded-[16px]">
-          <div className="px-16 py-4 text-[26px] text-[#8BFFDD] font-bold">
-            Project API keys
+        <div className="text-[27px]  font-bold mt-10 px-10  text-[#8BFFDD] ">
+            Project Api Keys
           </div>
 
           <div className="px-16 mt-20 text-[23px] font-bold capitalize">

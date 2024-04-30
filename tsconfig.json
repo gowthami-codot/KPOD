@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/verification/page.tsx", "components/console/InferenceServices/Usage.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/verification/page.tsx", "components/console/InferenceServices/Usage.jsx", "components/console/InferenceServices/Compare.jsx"],
   "exclude": ["node_modules"]
 }
