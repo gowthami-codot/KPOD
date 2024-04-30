@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const routes = [
   {
@@ -62,12 +61,14 @@ const routes = [
       </svg>
     ),
     href: "/console/inference-service",
+    additionalOptions: [
+      { label: "Option 1", href: "/console/inference-service" },
+      { label: "Option 2", href: "/console/inference-service" },
+    ],
   },
 ];
 
 const Sidebar = () => {
-  const pathname = usePathname();
-
   return (
     <div className="space-y-4 py-4 flex flex-col h-full text-white bg-gray-800 rounded-lg">
       <div className="px-3 py-2 flex-1">

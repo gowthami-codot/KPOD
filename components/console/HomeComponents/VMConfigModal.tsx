@@ -32,7 +32,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
     }
 
     try {
-      const response = await fetch("/api/requestvm", {
+      const response = await fetch("/api/setssh", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,6 +44,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
 
       if (result.email === email) {
         setVerified(true);
+        localStorage.setItem("ssh_present", "true");
         try {
           const response = await fetch("/api/sendVerificationSelection", {
             method: "POST",
@@ -55,14 +56,10 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
 
           if (response.status === 200) {
             toast.success("Email Sent Successfully.");
-            onClose(true);
           }
-        } catch (error) {
-          onClose(false);
-        }
+        } catch (error) {}
       }
     } catch (error) {
-      onClose(false)
       toast.error("Something went wrong, try again.");
     }
   };
@@ -138,6 +135,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                 <ModalFooter>
                   <Button
                     className="flex justify-center items-center mx-auto bg-[#80FFF7] px-10 rounded-full"
+                    onPress={onClose}
                     onClick={handleRequest}
                   >
                     Request Access
