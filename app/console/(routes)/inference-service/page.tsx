@@ -6,6 +6,7 @@ import { useEffect, useState, Suspense } from "react";
 import Compare from "@/components/console/InferenceServices/Compare";
 import Usage from "@/components/console/InferenceServices/Usage";
 import SidebarExtend from "@/components/console/InferenceServices/SidebarExtend";
+import ApiKeys from "@/components/console/InferenceServices/ApiKeys";
 
 const PageContent = () => {
  const searchParams = useSearchParams();
@@ -27,7 +28,7 @@ const PageContent = () => {
         {activeTab === "" && <Compare />}
         {activeTab === 'compare' && <Compare />}
         {activeTab === 'usage' && <Usage />}
-        {activeTab === 'api-keys' && ""}
+        {activeTab === 'api-keys' && <ApiKeys/>}
       </main>
     </div>
  );
