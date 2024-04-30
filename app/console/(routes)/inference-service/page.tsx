@@ -32,7 +32,11 @@ const PageContent = () => {
         {activeTab === "" && <Compare />}
         {activeTab === 'compare' && <Compare />}
         {activeTab === 'usage' && <Usage />}
-        {activeTab === 'api-keys' && (project==="true") ? <ProjectApi/>: < ApiKeys/>}
+       
+        {activeTab === 'api-keys' && (
+          project ? <ProjectApi /> : <ApiKeys />
+        )}
+       
       </main>
     </div>
  );
