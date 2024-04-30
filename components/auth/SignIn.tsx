@@ -57,7 +57,7 @@ const SignIn = () => {
       if (result && result.ID && result.CreatedAt) {
         toast.success("Logged in successfully.");
 
-        const user = { id: result.ID, email: email };
+        const user = { id: result.ID, email: email, port: result.userPort, ip: result.userIP, vm_instance_request: result.vmInstanceRequest};
         setCurrentUser(user);
         localStorage.setItem("currentUser", JSON.stringify(user));
         
