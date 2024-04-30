@@ -31,9 +31,9 @@ const Compare = () => {
           <div className="flex justify-between items-center p-3">
             <div>
               <select className="bg-[#ffffff20] rounded-lg p-0.5">
-                <option>Mistral</option>
-                <option>LAMA 3</option>
-                <option>Claude</option>
+                <option className="text-black">Mistral</option>
+                <option className="text-black">LAMA 3</option>
+                <option className="text-black">Claude</option>
               </select>
             </div>
             <div className="flex gap-2">
@@ -76,9 +76,9 @@ const Compare = () => {
             <div className="flex justify-between items-center p-3">
               <div>
                 <select className="bg-[#ffffff20] rounded-lg p-0.5">
-                  <option>LAMA 3</option>
-                  <option>Mistral</option>
-                  <option>Claude</option>
+                  <option className="text-black">LAMA 3</option>
+                  <option className="text-black">Mistral</option>
+                  <option className="text-black">Claude</option>
                 </select>
               </div>
               <div className="flex gap-2">

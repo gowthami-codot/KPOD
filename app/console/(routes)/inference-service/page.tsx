@@ -27,6 +27,7 @@ const PageContent = () => {
         {activeTab === "" && <Compare />}
         {activeTab === 'compare' && <Compare />}
         {activeTab === 'usage' && <Usage />}
+        {activeTab === 'api-keys' && ""}
       </main>
     </div>
  );

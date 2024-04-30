@@ -13,11 +13,11 @@ const routes = [
   },
   {
     label: "API Keys",
-    href: "/console/api-keys",
+    href: "/console/inference-service?section=api-keys",
   },
   {
     label: "Docs",
-    href: "/console/docs",
+    href: "/console/inference-service?section=docs",
   },
 ];
 
