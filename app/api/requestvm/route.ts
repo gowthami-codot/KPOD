@@ -9,7 +9,7 @@ export async function POST(request: Request) {
       sshKey,
     };
 
-    const response = await fetch(`${process.env.API_BASE_URL}/updateuser`, {
+    const response = await fetch(`${process.env.API_BASE_URL}/requestvm`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

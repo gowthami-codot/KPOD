@@ -32,7 +32,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
     }
 
     try {
-      const response = await fetch("/api/setssh", {
+      const response = await fetch("/api/requestvm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
