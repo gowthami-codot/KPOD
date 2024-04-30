@@ -13,7 +13,7 @@ const CreateApi = ({ onClose }) => {
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-[#3d3939] bg-opacity-50">
-        <div className="bg-[#0F1D2E] shadow-md   text-[#000000] h-[60%]  w-[60%]  rounded-[30px]">
+        <div className="bg-[#0F1D2E] shadow-md   text-[#000000] h-[74%]  w-[60%]  rounded-[30px]">
           <div className="text-[20px] text-white px-16 py-14 ">
             Create new secret key
           </div>

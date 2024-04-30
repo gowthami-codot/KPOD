@@ -15,10 +15,10 @@ const routes = [
     label: "API Keys",
     href: "/console/inference-service?section=api-keys",
   },
-  {
-    label: "Docs",
-    href: "/console/inference-service?section=docs",
-  },
+  // {
+  //   label: "Docs",
+  //   href: "/console/inference-service?section=docs",
+  // },
 ];
 
 const Sidebar = () => {
