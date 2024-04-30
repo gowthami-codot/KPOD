@@ -6,10 +6,14 @@ import { useUser } from '../../../app/context/UserContext';
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
-  const { userDetails } = useUser();
+  const { setUserDetails, userDetails } = useUser();
 
-  const closeModal = () => {
+  const closeModal = (requestSuccess) => {
     setShowModal(false);
+
+    if(requestSuccess) {
+      setUserDetails({ ...userDetails, vm_instance_request: 1 });
+    }
   };
 
   return (
