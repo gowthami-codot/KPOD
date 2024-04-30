@@ -1,21 +1,19 @@
 "use client";
+import { get } from "http";
 import VMConfigModal from "./VMConfigModal";
 import { useEffect, useState } from "react";
+import { useUser } from '../../../app/context/UserContext';
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
-  const [ssh_present, setSshPresent] = useState("");
+  const { setUserDetails, userDetails } = useUser();
 
-  useEffect(() => {
-    const storedSshPresent =
-      typeof window !== "undefined"
-        ? localStorage.getItem("ssh_present") || ""
-        : "";
-    setSshPresent(storedSshPresent);
-  }, []);
-
-  const closeModal = () => {
+  const closeModal = (requestSuccess: boolean) => {
     setShowModal(false);
+
+    if(requestSuccess) {
+      setUserDetails({ ...userDetails, vm_instance_request: 1 });
+    }
   };
 
   return (
@@ -33,20 +31,12 @@ const Welcome = () => {
             Generative AI needs from training to inferencing supported by
             platforms
           </div>
-          {ssh_present === "true" ? (
-            <div className="flex flex-col md:flex-row gap-2 items-center">
-              <div className="text-center">
-                Request Pending For GPU Instance
-              </div>
-              <div
-                className="text-center text-xs md:text-lg border-2 border-[#80FFF7] text-white px-10 py-3 rounded-full cursor-pointer
-        hover:scale-105 duration-300"
-              >
-                Request for Inference as Service
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-col md:flex-row gap-2">
+
+
+          <div className="flex flex-col md:flex-row gap-2 items-center">
+
+
+            {userDetails && userDetails.vm_instance_request === 0 && (
               <div
                 onClick={() => setShowModal(true)}
                 className="text-center text-xs md:text-lg bg-[#80FFF7] text-black px-10 py-3 rounded-full cursor-pointer
@@ -54,14 +44,29 @@ const Welcome = () => {
               >
                 Request for free GPU Instance
               </div>
-              <div
-                className="text-center text-xs md:text-lg border-2 border-[#80FFF7] text-white px-10 py-3 rounded-full cursor-pointer
-        hover:scale-105 duration-300"
-              >
-                Request for Inference as Service
+            )}
+
+            {userDetails && userDetails.vm_instance_request === 1 && (
+              <div className="text-center">
+                Request Pending For GPU Instance
               </div>
+            )}
+
+            {userDetails && userDetails.vm_instance_request === 2 && (
+              <div className="text-center">
+                GPU Instance IP & Port<br/>{userDetails.ip}:{userDetails.port}
+              </div>
+            )}
+
+
+            <div
+              className="text-center text-xs md:text-lg border-2 border-[#80FFF7] text-white px-10 py-3 rounded-full cursor-pointer
+        hover:scale-105 duration-300"
+            >
+              Request for Inference as Service
             </div>
-          )}
+          </div>
+
         </div>
       ) : (
         <VMConfigModal isOpen={showModal} onClose={closeModal} />
