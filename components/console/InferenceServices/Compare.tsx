@@ -31,14 +31,17 @@ const Compare = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen px-5 relative">
-      <div className="flex justify-between items-center mb-3 -z-10">
-        <div className="text-xl font-bold mb-3">Compare</div>
+    <div className="flex flex-col min-h-screen p-4  px-5 relative">
+     <div className="w-full h-full bg-[#0F1B2B]  rounded-[16px]">
+    <div className="flex justify-between items-center mb-3 -z-10">
+       <div className="text-[31px] font-bold mt-4 px-10 mb-5 text-[#8BFFDD] ">
+            Compare
+          </div>
         <div className="bg-[#ffffff30] p-0.5 rounded-lg border border-white px-2">
           Clear
         </div>
       </div>
-      <div className="w-full flex justify-between border border-[#80FFF7] p-5 rounded-xl z-0">
+      <div className="w-full flex  justify-between border border-[#80FFF7] p-5 rounded-xl z-0">
         <div className="w-full border-r border-[#80FFF7] flex flex-col pr-3">
           <div className="flex justify-between items-center p-3">
             <div>
@@ -91,7 +94,7 @@ const Compare = () => {
           <div className="w-full flex flex-col pl-3">
             <div className="flex justify-between items-center p-3">
               <div>
-                <select className="bg-[#ffffff20] rounded-lg p-0.5">
+                <select className="bg-[#ffffff20]  rounded-lg p-0.5">
                   <option className="text-black">LAMA 3</option>
                   <option className="text-black">Mistral</option>
                   <option className="text-black">Claude</option>
@@ -138,7 +141,7 @@ const Compare = () => {
           </div>
         </div>
       </div>
-      <div className="fixed bottom-0 md:left-96 mx-5 right-0 mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
+      <div className="fixed bg-[#0F1B2B]  bottom-0 md:left-96 mx-5 right-0 mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
         <div className="flex justify-between w-full items-end gap-3">
           <div className="w-full">
             <textarea
@@ -154,6 +157,7 @@ const Compare = () => {
           </div>
         </div>
       </div>
+    </div>
       {showPopup && <Popup />}
       {showInstructionsPopup && <ClearInstructionsPopup />}
     </div>
