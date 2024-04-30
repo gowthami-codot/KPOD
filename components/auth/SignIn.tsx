@@ -7,6 +7,7 @@ import { sha256 } from "js-sha256";
 import { useRouter } from "next/navigation";
 
 import { useAuth } from "@/components/auth/AuthContext";
+import { useUser } from '../../app/context/UserContext';
 
 const SignIn = () => {
   const router = useRouter();
@@ -15,6 +16,7 @@ const SignIn = () => {
   const [type, setType] = useState("password");
 
   const { setCurrentUser } = useAuth();
+  const { setUserDetails } = useUser();
 
   const handleToggle = () => {
     if (type === "password") {
@@ -59,7 +61,7 @@ const SignIn = () => {
 
         const user = { id: result.ID, email: email, port: result.userPort, ip: result.userIP, vm_instance_request: result.vmInstanceRequest};
         setCurrentUser(user);
-        localStorage.setItem("currentUser", JSON.stringify(user));
+        setUserDetails(user);
         
         router.push("/console/home");
       } else if (result.message === "Invalid Credentials") {

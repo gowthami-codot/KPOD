@@ -2,31 +2,11 @@
 import { get } from "http";
 import VMConfigModal from "./VMConfigModal";
 import { useEffect, useState } from "react";
+import { useUser } from '../../../app/context/UserContext';
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
-  const [ssh_present, setSshPresent] = useState("");
-  const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    getUserDetails();
-  }, []);
-
-  const getUserDetails = async () => {
-    // TODO: integrate with authentication token
-    let userString = localStorage.getItem("currentUser") || "";
-    console.log(userString);
-    setCurrentUser(JSON.parse(userString));
-  };
-
-  useEffect(() => {
-    getUserDetails();
-    const storedSshPresent =
-      typeof window !== "undefined"
-        ? localStorage.getItem("ssh_present") || ""
-        : "";
-    setSshPresent(storedSshPresent);
-  }, []);
+  const { userDetails } = useUser();
 
   const closeModal = () => {
     setShowModal(false);
@@ -52,7 +32,7 @@ const Welcome = () => {
           <div className="flex flex-col md:flex-row gap-2 items-center">
 
 
-            {currentUser && currentUser.vm_instance_request === 0 && (
+            {userDetails && userDetails.vm_instance_request === 0 && (
               <div
                 onClick={() => setShowModal(true)}
                 className="text-center text-xs md:text-lg bg-[#80FFF7] text-black px-10 py-3 rounded-full cursor-pointer
@@ -62,13 +42,13 @@ const Welcome = () => {
               </div>
             )}
 
-            {currentUser && currentUser.vm_instance_request === 1 && (
+            {userDetails && userDetails.vm_instance_request === 1 && (
               <div className="text-center">
                 Request Pending For GPU Instance
               </div>
             )}
 
-            {currentUser && currentUser.vm_instance_request === 2 && (
+            {userDetails && userDetails.vm_instance_request === 2 && (
               <div className="text-center">
                 GPU Instance IP & Port<br/>{currentUser.ip}:{currentUser.port}
               </div>

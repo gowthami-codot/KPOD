@@ -9,6 +9,7 @@ import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 
 import AuthProvider from "@/components/auth/AuthContext";
+import { Providers } from './providers';
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
@@ -28,14 +29,16 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="app/favicon.ico" />
       </head>
       <body className={poppins.className}>
-        <NextUIProvider>
-          <AuthProvider>
-            <Header />
-            <Toaster />
-            {children}
-            <Footer />
-          </AuthProvider>
-        </NextUIProvider>
+        <Providers>
+          <NextUIProvider>
+            <AuthProvider>
+              <Header />
+              <Toaster />
+              {children}
+              <Footer />
+            </AuthProvider>
+          </NextUIProvider>
+        </Providers>
       </body>
     </html>
   );
