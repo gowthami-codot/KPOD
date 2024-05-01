@@ -21,7 +21,8 @@ export async function POST(request: Request) {
 
     if (response.status === 200) {
       const result = await response.json();
-      return NextResponse.json(result, { status: 200 });
+      const user = { email: email, port: result.userPort, ip: result.userIP, vm_instance_request: result.vmInstanceRequest};
+      return NextResponse.json(user, { status: 200 });
     } else {
       console.error("An error occurred while processing your request Status: ", response.status);
       return NextResponse.json({
