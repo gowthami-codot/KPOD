@@ -3,6 +3,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div>
+      
       <div className="z-10">
         <div className="h-screen flex flex-col gap-6 justify-center items-center z-10 absolute w-full text-center">
           <span className="text-3xl md:text-6xl font-bold">
