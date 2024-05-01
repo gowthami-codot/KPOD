@@ -29,7 +29,7 @@ const Sidebar = () => {
     setClicked(index);
   };
   return (
-    <div className="py-4 flex flex-col h-full text-white bg-[#162231] border border-[#08111E] rounded-lg -ml-16">
+    <div className="py-4 flex flex-col h-full text-white bg-[#162231] border border-[#08111E] rounded-r-lg -ml-16">
       <div className="px-2 py-2 flex-1">
         <div className="space-y-1 flex flex-col h-full gap-2">
           <div className="text-[#8BFFDD]">Inference Services</div>
