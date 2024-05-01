@@ -10,7 +10,16 @@ const Compare = () => {
 
   const [showPopupLeftside, setShowPopupLeftside] = useState(false);
   const [showPopupRightside, setShowRightLeftside] = useState(false);
-  const [showInstructionsPopup, setShowInstructionsPopup] = useState(false);
+  const [showInstructionsLeftPopup, setShowInstructionsLeftPopup] =
+    useState(false);
+  const [showInstructionsRightPopup, setShowInstructionsRightPopup] =
+    useState(false);
+  const handleClosePopupLeft = () => {
+    setShowInstructionsLeftPopup(false);
+  };
+  const handleClosePopupRight = () => {
+    setShowInstructionsRightPopup(false);
+  };
 
   const systemInput1 = (e) => {
     setSysInp1(e.target.value);
@@ -31,8 +40,11 @@ const Compare = () => {
     setShowRightLeftside(!showPopupRightside);
   };
 
-  const toggleInstructionPopup = () => {
-    setShowInstructionsPopup(!showInstructionsPopup);
+  const toggleInstructionLeftPopup = () => {
+    setShowInstructionsLeftPopup(!showInstructionsLeftPopup);
+  };
+  const toggleInstructionRightPopup = () => {
+    setShowInstructionsRightPopup(!showInstructionsRightPopup);
   };
 
   return (
@@ -55,11 +67,11 @@ const Compare = () => {
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
               <div className="flex justify-between items-center p-6">
                 <div>
-                <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
-  <option className="text-black">Mistral</option>
-  <option className="text-black">LAMA 3</option>
-  <option className="text-black">Claude</option>
-</select>
+                  <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
+                    <option className="text-black">Mistral</option>
+                    <option className="text-black">LAMA 3</option>
+                    <option className="text-black">Claude</option>
+                  </select>
                 </div>
                 <div className="flex gap-2">
                   <div>
@@ -69,9 +81,9 @@ const Compare = () => {
                       height="16"
                       fill="currentColor"
                       viewBox="0 0 16 16"
-                      onClick={toggleInstructionPopup}
+                      onClick={toggleInstructionLeftPopup}
                       className="cursor-pointer "
-                      style={{ transform: 'rotate(90deg)' }}
+                      style={{ transform: "rotate(90deg)" }}
                     >
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                     </svg>
@@ -109,11 +121,11 @@ const Compare = () => {
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
               <div className="flex justify-between items-center p-6">
                 <div>
-                <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
-  <option className="text-black">Mistral</option>
-  <option className="text-black">LAMA 3</option>
-  <option className="text-black">Claude</option>
-</select>
+                  <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
+                    <option className="text-black">Mistral</option>
+                    <option className="text-black">LAMA 3</option>
+                    <option className="text-black">Claude</option>
+                  </select>
                 </div>
                 <div className="flex gap-2">
                   <div>
@@ -123,9 +135,9 @@ const Compare = () => {
                       height="16"
                       fill="currentColor"
                       viewBox="0 0 16 16"
-                      onClick={toggleInstructionPopup}
+                      onClick={toggleInstructionRightPopup}
                       className="cursor-pointer "
-                      style={{ transform: 'rotate(90deg)' }}
+                      style={{ transform: "rotate(90deg)" }}
                     >
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                     </svg>
@@ -158,7 +170,11 @@ const Compare = () => {
           </div>
         </div>
 
-        <div className="mb-[14rem] h-[80vh] m-7 rounded-[14px] bg-[#ffffff20]"></div>
+        <div className="flex  gap-0 ">
+          {" "}
+          <div className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20]">HIIII</div>
+          <div className="w-[55%] h-[80vh] mt-7 mr-7 ml-5 p-10 rounded-[14px] bg-[#ffffff20]">HIII</div>
+        </div>
         <div className="fixed bg-[#0F1B2B] m-7  bottom-0 md:left-[26rem] mx-5 right-[2rem] mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
           <div className="flex justify-between w-full items-end gap-3">
             <div className="w-full">
@@ -183,14 +199,19 @@ const Compare = () => {
           }}
         />
       )}
-       {showPopupRightside && (
+      {showPopupRightside && (
         <Popup2
           onClose={() => {
             setShowRightLeftside(false);
           }}
         />
       )}
-      {showInstructionsPopup && <ClearInstructionsPopup />}
+      {showInstructionsLeftPopup && (
+        <ClearInstructionsPopupLeft onClose={handleClosePopupLeft} />
+      )}
+      {showInstructionsRightPopup && (
+        <ClearInstructionsPopupRight onClose={handleClosePopupRight} />
+      )}
     </div>
   );
 };
@@ -327,7 +348,7 @@ const Popup2 = ({ onClose }) => {
     };
   }, [onClose]);
   return (
-    <div className="absolute inset-0 flex items-end justify-end mb-[29rem]  bg-[#3d3939] bg-opacity-50">
+    <div className="absolute inset-0 flex items-end justify-end mb-[32rem]  bg-[#3d3939] bg-opacity-50">
       <div
         ref={popupRef}
         className="absolute p-10   rounded-[20px] shadow-lg mr-24  bg-[#162231] w-1/3"
@@ -428,10 +449,55 @@ const Popup2 = ({ onClose }) => {
   );
 };
 
-const ClearInstructionsPopup = () => {
+const ClearInstructionsPopupLeft = ({ onClose }) => {
+  const popupRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
   return (
-    <div className="absolute p-4 rounded shadow-lg bg-[#162231] w-1/5">
-      Clear system Instructions
+    <div className="inset-0 absolute  flex  justify-centre items-centre bg-[#3d3939] bg-opacity-50">
+      {" "}
+      <div
+        ref={popupRef}
+        className="absolute p-4 rounded-[14px] shadow-lg mt-[12rem] ml-[20rem] bg-[#162231] w-1/5"
+      >
+        Clear system Instructions
+      </div>
+    </div>
+  );
+};
+const ClearInstructionsPopupRight = ({ onClose }) => {
+  const popupRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClose]);
+  return (
+    <div className="inset-0 absolute  flex  justify-end items-end bg-[#3d3939] bg-opacity-50">
+      {" "}
+      <div
+        ref={popupRef}
+        className="absolute p-4 rounded-[14px] shadow-lg mb-[57rem] mr-[4rem] bg-[#162231] w-1/5"
+      >
+        Clear system Instructions
+      </div>
     </div>
   );
 };
