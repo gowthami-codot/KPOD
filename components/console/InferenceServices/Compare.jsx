@@ -178,15 +178,42 @@ const Compare = () => {
 
         <div className="flex  gap-0 ">
           {" "}
-          <div className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2" style={{ overflowY: "auto" }}>
+          <div
+            className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2"
+            style={{ overflowY: "auto" }}
+          >
             According to the 2022 Global Happiness Report, the top 3 happiest
-            countries in the world are: 1. Finland: Finland has consistently
+            countries in the world are: <br />
+            1. Finland: Finland has consistently ranked as one of the happiest
+            countries in the world. It has a high level of social support, low
+            levels of corruption, and a high standard of living.
+            <br /> 2. Denmark: Denmark is known for its high standard of living,
+            generous social welfare system, and high level of social support.
+            The country also has a strong culture of work-life balance and a
+            high level of trust in institutions.
+            <br /> 3. Switzerland: Switzerland is a neutral and stable country
+            with a high standard of living. It has a low level of corruption, a
+            high level of social support, and a strong economy. The country also
+            has a high level of trust in institutions and a strong culture of
+            social cohesion. These countries have a high score on the Gross
+            Domestic Happiness (GDH) index, which measures happiness and
+            well-being across countries. The GDH index takes into account
+            factors such as GDP per capita, social support, healthy life
+            expectancy, freedom to make life choices, generosity, and
+            perceptions of corruption and trust in institutions
+          </div>
+          <div
+            className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6"
+            style={{ overflowY: "auto" }}
+          >
+            According to the 2022 Global Happiness Report, the top 3 happiest
+            countries in the world are:<br/> 1. Finland: Finland has consistently
             ranked as one of the happiest countries in the world. It has a high
             level of social support, low levels of corruption, and a high
-            standard of living. 2. Denmark: Denmark is known for its high
+            standard of living. <br/>2. Denmark: Denmark is known for its high
             standard of living, generous social welfare system, and high level
             of social support. The country also has a strong culture of
-            work-life balance and a high level of trust in institutions. 3.
+            work-life balance and a high level of trust in institutions.<br/> 3.
             Switzerland: Switzerland is a neutral and stable country with a high
             standard of living. It has a low level of corruption, a high level
             of social support, and a strong economy. The country also has a high
@@ -196,12 +223,7 @@ const Compare = () => {
             across countries. The GDH index takes into account factors such as
             GDP per capita, social support, healthy life expectancy, freedom to
             make life choices, generosity, and perceptions of corruption and
-            trust in institutions
-          </div>
-          <div className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6" style={{ overflowY: "auto" }}>
-    
-          According to the 2022 Global Happiness Report, the top 3 happiest countries in the world are: 1. Finland: Finland has consistently ranked as one of the happiest countries in the world. It has a high level of social support, low levels of corruption, and a high standard of living. 2. Denmark: Denmark is known for its high standard of living, generous social welfare system, and high level of social support. The country also has a strong culture of work-life balance and a high level of trust in institutions. 3. Switzerland: Switzerland is a neutral and stable country with a high standard of living. It has a low level of corruption, a high level of social support, and a strong economy. The country also has a high level of trust in institutions and a strong culture of social cohesion. These countries have a high score on the Gross Domestic Happiness (GDH) index, which measures happiness and well-being across countries. The GDH index takes into account factors such as GDP per capita, social support, healthy life expectancy, freedom to make life choices, generosity, and perceptions of corruption and trust in institutions
-
+            trust in institutions
           </div>
         </div>
         <div className="fixed w-[80%] bg-[#0F1B2B] m-7  bottom-0 md:left-[26rem] mx-5 right-[2rem] mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
@@ -262,29 +284,29 @@ const Popup1 = ({ onClose }) => {
     };
   }, [onClose]);
 
-  const [temperature, setTemperature] = useState(3); 
+  const [temperature, setTemperature] = useState(3);
 
   const handleTemperatureChange = (value) => {
     setTemperature(value);
   };
 
-  const [tokens, setToken] = useState(6); 
+  const [tokens, setToken] = useState(6);
 
   const handleToken = (value) => {
     setToken(value);
   };
 
-  const [top, setTop] = useState(4); 
+  const [top, setTop] = useState(4);
 
   const handleTop = (value) => {
     setTop(value);
   };
-  const [penalty, setPenalty] = useState(7); 
+  const [penalty, setPenalty] = useState(7);
 
   const handlePenalty = (value) => {
     setPenalty(value);
   };
-  const [presence, setpresence] = useState(4); 
+  const [presence, setpresence] = useState(4);
 
   const handlePresence = (value) => {
     setpresence(value);
@@ -315,31 +337,37 @@ const Popup1 = ({ onClose }) => {
           Changes apply to all the models
         </div>
         <div>
-        <div className="my-1">Temperature :<span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span></div>
-      <Slider
-        size="sm"
-        color="foreground"
-        step={1}
-        maxValue={10}
-        minValue={0}
-        aria-label="Temperature"
-        defaultValue={3}
-        className="max-w-md"
-        onChange={handleTemperatureChange}
-      />
-    </div>
-        <div>
-          <div className="my-1">Maximum Tokens :<span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span> </div>
+          <div className="my-1">
+            Temperature :
+            <span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span>
+          </div>
           <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="token"
-           defaultValue={6}
-           className="max-w-md"
-           onChange={handleToken}
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="Temperature"
+            defaultValue={3}
+            className="max-w-md"
+            onChange={handleTemperatureChange}
+          />
+        </div>
+        <div>
+          <div className="my-1">
+            Maximum Tokens :
+            <span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span>{" "}
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="token"
+            defaultValue={6}
+            className="max-w-md"
+            onChange={handleToken}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -350,46 +378,54 @@ const Popup1 = ({ onClose }) => {
           <input className="my-2 p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
         </div>
         <div>
-        <div className="my-1">Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span></div>
-        <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="top"
-           defaultValue={3}
-           className="max-w-md"
-           onChange={handleTop}
+          <div className="my-1">
+            Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span>
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="top"
+            defaultValue={3}
+            className="max-w-md"
+            onChange={handleTop}
           />
         </div>
-       
+
         <div>
-        <div className="my-1">Frequence Penalty :<span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span></div>
-        <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="top"
-           defaultValue={7}
-           className="max-w-md"
-           onChange={handlePenalty}
+          <div className="my-1">
+            Frequence Penalty :
+            <span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span>
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="top"
+            defaultValue={7}
+            className="max-w-md"
+            onChange={handlePenalty}
           />
         </div>
         <div>
-        <div className="my-1">Presence Penalty<span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span></div>
-        <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="top"
-           defaultValue={3}
-           className="max-w-md"
-           onChange={handlePresence}
+          <div className="my-1">
+            Presence Penalty
+            <span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span>
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="top"
+            defaultValue={3}
+            className="max-w-md"
+            onChange={handlePresence}
           />
         </div>
       </div>
@@ -410,28 +446,28 @@ const Popup2 = ({ onClose }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
-  const [temperature, setTemperature] = useState(3); 
+  const [temperature, setTemperature] = useState(3);
 
   const handleTemperatureChange = (value) => {
     setTemperature(value);
   };
 
-  const [tokens, setToken] = useState(6); 
+  const [tokens, setToken] = useState(6);
 
   const handleToken = (value) => {
     setToken(value);
   };
-  const [top, setTop] = useState(4); 
+  const [top, setTop] = useState(4);
 
   const handleTop = (value) => {
     setTop(value);
   };
-  const [penalty, setPenalty] = useState(7); 
+  const [penalty, setPenalty] = useState(7);
 
   const handlePenalty = (value) => {
     setPenalty(value);
   };
-  const [presence, setpresence] = useState(4); 
+  const [presence, setpresence] = useState(4);
 
   const handlePresence = (value) => {
     setpresence(value);
@@ -440,9 +476,9 @@ const Popup2 = ({ onClose }) => {
     <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50">
       <div
         ref={popupRef}
-        className="absolute p-10   rounded-[20px] mt-[13rem] ml-[45rem] shadow-lg bg-[#162231] w-1/3"
+        className="absolute p-10 transform translate-x-2/3 -translate-y-20   rounded-[20px]   shadow-lg bg-[#162231] w-1/3"
       >
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-between w-full ">
           <div>Configuration</div>
           <div className="flex items-center">
             <svg
@@ -462,31 +498,37 @@ const Popup2 = ({ onClose }) => {
           Changes apply to all the models
         </div>
         <div>
-        <div className="my-1">Temperature :<span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span></div>
-      <Slider
-        size="sm"
-        color="foreground"
-        step={1}
-        maxValue={10}
-        minValue={0}
-        aria-label="Temperature"
-        defaultValue={3}
-        className="max-w-md"
-        onChange={handleTemperatureChange}
-      />
-    </div>
-        <div>
-          <div className="my-1">Maximum Tokens :<span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span> </div>
+          <div className="my-1">
+            Temperature :
+            <span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span>
+          </div>
           <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="token"
-           defaultValue={6}
-           className="max-w-md"
-           onChange={handleToken}
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="Temperature"
+            defaultValue={3}
+            className="max-w-md"
+            onChange={handleTemperatureChange}
+          />
+        </div>
+        <div>
+          <div className="my-1">
+            Maximum Tokens :
+            <span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span>{" "}
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="token"
+            defaultValue={6}
+            className="max-w-md"
+            onChange={handleToken}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -497,46 +539,54 @@ const Popup2 = ({ onClose }) => {
           <input className="my-2 p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
         </div>
         <div>
-        <div className="my-1">Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span></div>
-        <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="top"
-           defaultValue={3}
-           className="max-w-md"
-           onChange={handleTop}
+          <div className="my-1">
+            Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span>
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="top"
+            defaultValue={3}
+            className="max-w-md"
+            onChange={handleTop}
           />
         </div>
-       
+
         <div>
-        <div className="my-1">Frequence Penalty :<span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span></div>
-        <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="top"
-           defaultValue={7}
-           className="max-w-md"
-           onChange={handlePenalty}
+          <div className="my-1">
+            Frequence Penalty :
+            <span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span>
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="top"
+            defaultValue={7}
+            className="max-w-md"
+            onChange={handlePenalty}
           />
         </div>
         <div>
-        <div className="my-1">Presence Penalty<span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span></div>
-        <Slider
-           size="sm"
-           color="foreground"
-           step={1}
-           maxValue={10}
-           minValue={0}
-           aria-label="top"
-           defaultValue={3}
-           className="max-w-md"
-           onChange={handlePresence}
+          <div className="my-1">
+            Presence Penalty
+            <span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span>
+          </div>
+          <Slider
+            size="sm"
+            color="foreground"
+            step={1}
+            maxValue={10}
+            minValue={0}
+            aria-label="top"
+            defaultValue={3}
+            className="max-w-md"
+            onChange={handlePresence}
           />
         </div>
       </div>
