@@ -55,11 +55,11 @@ const Compare = () => {
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
               <div className="flex justify-between items-center p-6">
                 <div>
-                <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
-  <option className="text-black">Mistral</option>
-  <option className="text-black">LAMA 3</option>
-  <option className="text-black">Claude</option>
-</select>
+                  <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
+                    <option className="text-black">Mistral</option>
+                    <option className="text-black">LAMA 3</option>
+                    <option className="text-black">Claude</option>
+                  </select>
                 </div>
                 <div className="flex gap-2">
                   <div>
@@ -71,7 +71,7 @@ const Compare = () => {
                       viewBox="0 0 16 16"
                       onClick={toggleInstructionPopup}
                       className="cursor-pointer "
-                      style={{ transform: 'rotate(90deg)' }}
+                      style={{ transform: "rotate(90deg)" }}
                     >
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                     </svg>
@@ -92,7 +92,10 @@ const Compare = () => {
                 </div>
               </div>
               <div className="bg-[#162231] p-5 mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
-                <div className="text-xs">SYSTEM</div>
+                <div className="flex justify-between w-full">
+                  <div className="text-xs">SYSTEM</div>
+                  <div className="text-xs text-gray-500">0/4000</div>
+                </div>
                 <input
                   value={sysInp1}
                   onChange={(e) => setSysInp1(e.target.value)}
@@ -109,11 +112,11 @@ const Compare = () => {
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
               <div className="flex justify-between items-center p-6">
                 <div>
-                <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
-  <option className="text-black">Mistral</option>
-  <option className="text-black">LAMA 3</option>
-  <option className="text-black">Claude</option>
-</select>
+                  <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
+                    <option className="text-black">Mistral</option>
+                    <option className="text-black">LAMA 3</option>
+                    <option className="text-black">Claude</option>
+                  </select>
                 </div>
                 <div className="flex gap-2">
                   <div>
@@ -125,7 +128,7 @@ const Compare = () => {
                       viewBox="0 0 16 16"
                       onClick={toggleInstructionPopup}
                       className="cursor-pointer "
-                      style={{ transform: 'rotate(90deg)' }}
+                      style={{ transform: "rotate(90deg)" }}
                     >
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                     </svg>
@@ -146,7 +149,10 @@ const Compare = () => {
                 </div>
               </div>
               <div className="bg-[#162231] p-5  mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
-                <div className="text-xs">SYSTEM</div>
+                <div className="flex justify-between w-full">
+                  <div className="text-xs">SYSTEM</div>
+                  <div className="text-xs text-gray-500">0/4000</div>
+                </div>
                 <input
                   value={sysInp1}
                   onChange={(e) => setSysInp1(e.target.value)}
@@ -183,7 +189,7 @@ const Compare = () => {
           }}
         />
       )}
-       {showPopupRightside && (
+      {showPopupRightside && (
         <Popup2
           onClose={() => {
             setShowRightLeftside(false);
