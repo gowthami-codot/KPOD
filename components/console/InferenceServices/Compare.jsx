@@ -179,7 +179,7 @@ const Compare = () => {
         <div className="flex  gap-0 ">
           {" "}
           <div
-            className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2"
+            className="mb-[14rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2"
             style={{ overflowY: "auto" }}
           >
             According to the 2022 Global Happiness Report, the top 3 happiest
@@ -203,7 +203,7 @@ const Compare = () => {
             perceptions of corruption and trust in institutions
           </div>
           <div
-            className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6"
+            className="mb-[14rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6"
             style={{ overflowY: "auto" }}
           >
             According to the 2022 Global Happiness Report, the top 3 happiest
@@ -476,7 +476,7 @@ const Popup2 = ({ onClose }) => {
     <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50">
       <div
         ref={popupRef}
-        className="absolute p-10 transform translate-x-2/3 -translate-y-20   rounded-[20px]   shadow-lg bg-[#162231] w-1/3"
+        className="absolute p-10 transform translate-x-[73%] -translate-y-20   rounded-[20px]   shadow-lg bg-[#162231] w-1/3"
       >
         <div className="flex items-center justify-between w-full ">
           <div>Configuration</div>
