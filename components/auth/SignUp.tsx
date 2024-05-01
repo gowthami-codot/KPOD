@@ -81,25 +81,8 @@ const SignUp = () => {
 
       if (result.message === "Signup successful") {
         toast.success("Data Submitted.");
+        setIsModalOpen(true);
         localStorage.setItem("email", email);
-
-        try {
-          const response = await fetch("/api/sendVerification", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(sendMailData),
-          });
-
-          const result = await response.json();
-
-          if (result.message === "Mail Sent") {
-            setIsModalOpen(true);
-          }
-        } catch (error) {
-          toast.error("An error occurred while submitting your data.");
-        }
 
         setFirstName("");
         setLastName("");
@@ -206,61 +189,55 @@ const SignUp = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div
                 onClick={() => setUserProfile("Cloud Engineer")}
-                className={` ${
-                  selectedProfile === "Cloud Engineer"
+                className={` ${selectedProfile === "Cloud Engineer"
                     ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
                     : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
-                }`}
+                  }`}
               >
                 Cloud Engineer
               </div>
               <div
                 onClick={() => setUserProfile("Devops")}
-                className={`${
-                  selectedProfile === "Devops"
+                className={`${selectedProfile === "Devops"
                     ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
                     : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
-                }`}
+                  }`}
               >
                 Devops
               </div>
               <div
                 onClick={() => setUserProfile("Data Scientist")}
-                className={`${
-                  selectedProfile === "Data Scientist"
+                className={`${selectedProfile === "Data Scientist"
                     ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
                     : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
-                }`}
+                  }`}
               >
                 Data Scientist
               </div>
               <div
                 onClick={() => setUserProfile("Product Management")}
-                className={`${
-                  selectedProfile === "Product Management"
+                className={`${selectedProfile === "Product Management"
                     ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
                     : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
-                }`}
+                  }`}
               >
                 Product Management
               </div>
               <div
                 onClick={() => setUserProfile("SRE")}
-                className={`${
-                  selectedProfile === "SRE"
+                className={`${selectedProfile === "SRE"
                     ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
                     : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
-                }`}
+                  }`}
               >
                 SRE
               </div>
               <div
                 onClick={() => setUserProfile("Others")}
-                className={`${
-                  selectedProfile === "Others"
+                className={`${selectedProfile === "Others"
                     ? "bg-green-400 text-black p-3 rounded-lg text-center cursor-pointer"
                     : "bg-white text-black p-3 rounded-lg text-center cursor-pointer"
-                }`}
+                  }`}
               >
                 Others
               </div>
