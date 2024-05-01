@@ -31,6 +31,11 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
       return;
     }
 
+    if (!sshKey.startsWith("ssh-rsa")) {
+      toast.error("Put a valid SSH Key. SSH key must start with 'ssh-rsa'.");
+      return;
+    }
+
     try {
       const response = await fetch("/api/requestvm", {
         method: "POST",
@@ -62,7 +67,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
         }
       }
     } catch (error) {
-      onClose(false)
+      onClose(false);
       toast.error("Something went wrong, try again.");
     }
   };
