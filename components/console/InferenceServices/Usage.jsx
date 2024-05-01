@@ -126,7 +126,7 @@ const Usage = () => {
           </div>
         </div>
         {isPopupOpen && <UsagePopup onClose={handleClosePopup} />}
-        {monthPopup && <MonthDropdown onClose={handleCloseMonth} />}
+        
       </div>
     </div>
   );
