@@ -14,7 +14,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const VMConfigModal = ({ isOpen, onClose }: any) => {
-  const [verified, setVerified] = useState(false);
+  const [requested, setRequested] = useState(false);
   const [sshKey, setSsh] = useState("");
   const { onOpenChange } = useDisclosure();
 
@@ -45,26 +45,10 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
         body: JSON.stringify(sshdata),
       });
 
-      const result = await response.json();
-
-      if (result.email === email) {
-        setVerified(true);
-        try {
-          const response = await fetch("/api/sendVerificationSelection", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(sendMailData),
-          });
-
-          if (response.status === 200) {
-            toast.success("Email Sent Successfully.");
-            onClose(true);
-          }
-        } catch (error) {
-          onClose(false);
-        }
+      if (response.status === 200) {
+        setRequested(true);
+        toast.success("Email Sent Successfully.");
+        //onClose(true);
       }
     } catch (error) {
       onClose(false);
@@ -74,7 +58,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
 
   return (
     <div>
-      {verified ? (
+      {requested ? (
         <Modal
           isOpen={isOpen}
           onOpenChange={onClose}
