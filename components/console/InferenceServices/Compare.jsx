@@ -226,7 +226,7 @@ const Compare = () => {
             trust in institutions
           </div>
         </div>
-        <div className="fixed w-[80%] bg-[#0F1B2B] m-7  bottom-0 md:left-[26rem] mx-5 right-[2rem] mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
+        <div className="fixed w-[50%] bg-[#0F1B2B]  ml-[14%]  bottom-0  mx-auto mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
           <div className="flex justify-between w-full items-end gap-3">
             <div className="w-full">
               <textarea
