@@ -31,11 +31,12 @@ const PageContent = () => {
       <main className="md:pl-24">
         {activeTab === "" && <Compare />}
         {activeTab === 'compare' && <Compare />}
-        {activeTab === 'usage' && <Usage />}
        
+        {activeTab === 'usage' && <Usage />}
         {activeTab === 'api-keys' && (
           project ? <ProjectApi /> : <ApiKeys />
         )}
+        
        
       </main>
     </div>

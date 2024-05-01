@@ -42,7 +42,7 @@ const Compare = () => {
           <div className="text-[26px]  font-bold mt-7 px-10 mb-5 text-[#8BFFDD] ">
             Compare
           </div>
-          <div className="bg-[#ffffff30] p-0.5 rounded-lg border border-white px-2">
+          <div className="bg-[#ffffff30] mt-7 py-2 px-8 rounded-[13px] border border-white m-7">
             Clear
           </div>
         </div>
@@ -91,7 +91,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#162231] p-10 mx-4 flex flex-col gap-2 mt-10 rounded-[16px] ">
+              <div className="bg-[#162231] p-10 mx-4 flex flex-col gap-2 mt-4 rounded-[16px] ">
                 <div className="text-xs">SYSTEM</div>
                 <input
                   value={sysInp1}
@@ -145,7 +145,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#162231] p-10 mx-4  flex flex-col gap-2 mt-10 rounded-[16px] ">
+              <div className="bg-[#162231] p-10 mx-4  flex flex-col gap-2 mt-4 rounded-[16px] ">
                 <div className="text-xs">SYSTEM</div>
                 <input
                   value={sysInp1}
@@ -158,8 +158,8 @@ const Compare = () => {
           </div>
         </div>
 
-        <div className="mb-[38rem] p-10 bg-[#ffffff20]"></div>
-        <div className="fixed bg-[#0F1B2B]  bottom-0 md:left-96 mx-5 right-0 mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
+        <div className="mb-[14rem] h-[80vh] m-7 rounded-[14px] bg-[#ffffff20]"></div>
+        <div className="fixed bg-[#0F1B2B] m-7  bottom-0 md:left-[26rem] mx-5 right-[2rem] mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
           <div className="flex justify-between w-full items-end gap-3">
             <div className="w-full">
               <textarea
