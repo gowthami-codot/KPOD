@@ -41,7 +41,7 @@ const Usage = () => {
 
   return (
     <div className="flex flex-col min-h-screen px-5 ">
-      <div className="w-full h-full bg-[#0F1B2B]  rounded-[16px]">
+      <div className="w-full  bg-[#0F1B2B]  rounded-[16px]">
         <div className="flex py-2">
           <div className="text-[27px]  font-bold mt-6 px-10  text-[#8BFFDD] ">
             Usage

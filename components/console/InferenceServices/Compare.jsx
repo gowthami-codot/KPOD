@@ -158,7 +158,7 @@ const Compare = () => {
           </div>
         </div>
 
-        <div className="mb-[38rem] bg-[#ffffff20]"></div>
+        <div className="mb-[38rem] p-10 bg-[#ffffff20]"></div>
         <div className="fixed bg-[#0F1B2B]  bottom-0 md:left-96 mx-5 right-0 mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
           <div className="flex justify-between w-full items-end gap-3">
             <div className="w-full">
