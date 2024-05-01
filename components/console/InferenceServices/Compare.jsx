@@ -104,7 +104,10 @@ const Compare = () => {
                 </div>
               </div>
               <div className="bg-[#162231] p-5 mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
-                <div className="text-xs">SYSTEM</div>
+                <div className="flex justify-between w-full">
+                  <div className="text-xs">SYSTEM</div>
+                  <div className="text-xs text-gray-500">0/4000</div>
+                </div>
                 <input
                   value={sysInp1}
                   onChange={(e) => setSysInp1(e.target.value)}
@@ -158,7 +161,10 @@ const Compare = () => {
                 </div>
               </div>
               <div className="bg-[#162231] p-5  mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
-                <div className="text-xs">SYSTEM</div>
+                <div className="flex justify-between w-full">
+                  <div className="text-xs">SYSTEM</div>
+                  <div className="text-xs text-gray-500">0/4000</div>
+                </div>
                 <input
                   value={sysInp1}
                   onChange={(e) => setSysInp1(e.target.value)}
