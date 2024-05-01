@@ -65,7 +65,7 @@ const Compare = () => {
             style={{ maxHeight: "400px", overflowY: "auto" }}
           >
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
-              <div className="flex justify-between items-center p-6">
+              <div className="flex justify-between items-center p-2 ">
                 <div>
                   <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
                     <option className="text-black">Mistral</option>
@@ -103,7 +103,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#162231] p-5 mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
+              {/* <div className="bg-[#162231] p-5 mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
                 <div className="flex justify-between w-full">
                   <div className="text-xs">SYSTEM</div>
                   <div className="text-xs text-gray-500">0/4000</div>
@@ -114,15 +114,15 @@ const Compare = () => {
                   placeholder="Enter system instructions"
                   className="w-full bg-transparent resize-none focus:outline-none focus-visible:outline-none"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           <div
-            className="w-[60%] flex flex-col justify-between border-b-[#80FFF7] border-t-[#80FFF7] border-t-[1px] border-b-[1px]  mr-9  p-5 border-r-[#80FFF7] border-r-[1px] rounded-r-[16px] z-0"
-            style={{ maxHeight: "400px", overflowY: "auto" }}
+            className="w-[60%] flex flex-col justify-between border-b-[#80FFF7] border-t-[#80FFF7] border-t-[1px] border-b-[1px]  mr-9  p-5 border-r-[#80FFF7] border-r-[1px] rounded-r-[16px] z-1"
+            style={{ overflowY: "auto" }}
           >
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
-              <div className="flex justify-between items-center p-6">
+              <div className="flex justify-between items-center p-2">
                 <div>
                   <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
                     <option className="text-black">Mistral</option>
@@ -160,7 +160,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#162231] p-5  mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
+              {/* <div className="bg-[#162231] p-5  mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
                 <div className="flex justify-between w-full">
                   <div className="text-xs">SYSTEM</div>
                   <div className="text-xs text-gray-500">0/4000</div>
@@ -171,17 +171,40 @@ const Compare = () => {
                   placeholder="Enter system instructions"
                   className="w-full bg-transparent resize-none focus:outline-none focus-visible:outline-none"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
 
         <div className="flex  gap-0 ">
           {" "}
-          <div className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20]">HIIII</div>
-          <div className="w-[55%] h-[80vh] mt-7 mr-7 ml-5 p-10 rounded-[14px] bg-[#ffffff20]">HIII</div>
+          <div className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2" style={{ overflowY: "auto" }}>
+            According to the 2022 Global Happiness Report, the top 3 happiest
+            countries in the world are: 1. Finland: Finland has consistently
+            ranked as one of the happiest countries in the world. It has a high
+            level of social support, low levels of corruption, and a high
+            standard of living. 2. Denmark: Denmark is known for its high
+            standard of living, generous social welfare system, and high level
+            of social support. The country also has a strong culture of
+            work-life balance and a high level of trust in institutions. 3.
+            Switzerland: Switzerland is a neutral and stable country with a high
+            standard of living. It has a low level of corruption, a high level
+            of social support, and a strong economy. The country also has a high
+            level of trust in institutions and a strong culture of social
+            cohesion. These countries have a high score on the Gross Domestic
+            Happiness (GDH) index, which measures happiness and well-being
+            across countries. The GDH index takes into account factors such as
+            GDP per capita, social support, healthy life expectancy, freedom to
+            make life choices, generosity, and perceptions of corruption and
+            trust in institutions
+          </div>
+          <div className="mb-[14rem] w-[55%] h-[80vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6" style={{ overflowY: "auto" }}>
+    
+          According to the 2022 Global Happiness Report, the top 3 happiest countries in the world are: 1. Finland: Finland has consistently ranked as one of the happiest countries in the world. It has a high level of social support, low levels of corruption, and a high standard of living. 2. Denmark: Denmark is known for its high standard of living, generous social welfare system, and high level of social support. The country also has a strong culture of work-life balance and a high level of trust in institutions. 3. Switzerland: Switzerland is a neutral and stable country with a high standard of living. It has a low level of corruption, a high level of social support, and a strong economy. The country also has a high level of trust in institutions and a strong culture of social cohesion. These countries have a high score on the Gross Domestic Happiness (GDH) index, which measures happiness and well-being across countries. The GDH index takes into account factors such as GDP per capita, social support, healthy life expectancy, freedom to make life choices, generosity, and perceptions of corruption and trust in institutions
+
+          </div>
         </div>
-        <div className="fixed bg-[#0F1B2B] m-7  bottom-0 md:left-[26rem] mx-5 right-[2rem] mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
+        <div className="fixed w-[80%] bg-[#0F1B2B] m-7  bottom-0 md:left-[26rem] mx-5 right-[2rem] mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
           <div className="flex justify-between w-full items-end gap-3">
             <div className="w-full">
               <textarea
@@ -238,6 +261,34 @@ const Popup1 = ({ onClose }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
+
+  const [temperature, setTemperature] = useState(3); 
+
+  const handleTemperatureChange = (value) => {
+    setTemperature(value);
+  };
+
+  const [tokens, setToken] = useState(6); 
+
+  const handleToken = (value) => {
+    setToken(value);
+  };
+
+  const [top, setTop] = useState(4); 
+
+  const handleTop = (value) => {
+    setTop(value);
+  };
+  const [penalty, setPenalty] = useState(7); 
+
+  const handlePenalty = (value) => {
+    setPenalty(value);
+  };
+  const [presence, setpresence] = useState(4); 
+
+  const handlePresence = (value) => {
+    setpresence(value);
+  };
   return (
     <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50">
       <div
@@ -264,29 +315,31 @@ const Popup1 = ({ onClose }) => {
           Changes apply to all the models
         </div>
         <div>
-          <div className="my-1">Temperature</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Temperature"
-            defaultValue={0.6}
-            className="max-w-md"
-          />
-        </div>
+        <div className="my-1">Temperature :<span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span></div>
+      <Slider
+        size="sm"
+        color="foreground"
+        step={1}
+        maxValue={10}
+        minValue={0}
+        aria-label="Temperature"
+        defaultValue={3}
+        className="max-w-md"
+        onChange={handleTemperatureChange}
+      />
+    </div>
         <div>
-          <div className="my-1">Maximum Tokens</div>
+          <div className="my-1">Maximum Tokens :<span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span> </div>
           <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="token"
+           defaultValue={6}
+           className="max-w-md"
+           onChange={handleToken}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -297,42 +350,46 @@ const Popup1 = ({ onClose }) => {
           <input className="my-2 p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
         </div>
         <div>
-          <div className="my-1">TOP P</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
+        <div className="my-1">Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span></div>
+        <Slider
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="top"
+           defaultValue={3}
+           className="max-w-md"
+           onChange={handleTop}
+          />
+        </div>
+       
+        <div>
+        <div className="my-1">Frequence Penalty :<span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span></div>
+        <Slider
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="top"
+           defaultValue={7}
+           className="max-w-md"
+           onChange={handlePenalty}
           />
         </div>
         <div>
-          <div className="my-1">Frequence Penalty</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
-          />
-        </div>
-        <div>
-          <div className="my-1">Presence Penalty</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
+        <div className="my-1">Presence Penalty<span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span></div>
+        <Slider
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="top"
+           defaultValue={3}
+           className="max-w-md"
+           onChange={handlePresence}
           />
         </div>
       </div>
@@ -353,11 +410,37 @@ const Popup2 = ({ onClose }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
+  const [temperature, setTemperature] = useState(3); 
+
+  const handleTemperatureChange = (value) => {
+    setTemperature(value);
+  };
+
+  const [tokens, setToken] = useState(6); 
+
+  const handleToken = (value) => {
+    setToken(value);
+  };
+  const [top, setTop] = useState(4); 
+
+  const handleTop = (value) => {
+    setTop(value);
+  };
+  const [penalty, setPenalty] = useState(7); 
+
+  const handlePenalty = (value) => {
+    setPenalty(value);
+  };
+  const [presence, setpresence] = useState(4); 
+
+  const handlePresence = (value) => {
+    setpresence(value);
+  };
   return (
-    <div className="absolute inset-0 flex items-end justify-end mb-[32rem]  bg-[#3d3939] bg-opacity-50">
+    <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50">
       <div
         ref={popupRef}
-        className="absolute p-10   rounded-[20px] shadow-lg mr-24  bg-[#162231] w-1/3"
+        className="absolute p-10   rounded-[20px] mt-[13rem] ml-[45rem] shadow-lg bg-[#162231] w-1/3"
       >
         <div className="flex items-center justify-between w-full">
           <div>Configuration</div>
@@ -379,29 +462,31 @@ const Popup2 = ({ onClose }) => {
           Changes apply to all the models
         </div>
         <div>
-          <div className="my-1">Temperature</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Temperature"
-            defaultValue={0.6}
-            className="max-w-md"
-          />
-        </div>
+        <div className="my-1">Temperature :<span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span></div>
+      <Slider
+        size="sm"
+        color="foreground"
+        step={1}
+        maxValue={10}
+        minValue={0}
+        aria-label="Temperature"
+        defaultValue={3}
+        className="max-w-md"
+        onChange={handleTemperatureChange}
+      />
+    </div>
         <div>
-          <div className="my-1">Maximum Tokens</div>
+          <div className="my-1">Maximum Tokens :<span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span> </div>
           <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="token"
+           defaultValue={6}
+           className="max-w-md"
+           onChange={handleToken}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -412,42 +497,46 @@ const Popup2 = ({ onClose }) => {
           <input className="my-2 p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
         </div>
         <div>
-          <div className="my-1">TOP P</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
+        <div className="my-1">Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span></div>
+        <Slider
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="top"
+           defaultValue={3}
+           className="max-w-md"
+           onChange={handleTop}
+          />
+        </div>
+       
+        <div>
+        <div className="my-1">Frequence Penalty :<span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span></div>
+        <Slider
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="top"
+           defaultValue={7}
+           className="max-w-md"
+           onChange={handlePenalty}
           />
         </div>
         <div>
-          <div className="my-1">Frequence Penalty</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
-          />
-        </div>
-        <div>
-          <div className="my-1">Presence Penalty</div>
-          <Slider
-            size="sm"
-            color="foreground"
-            step={0.01}
-            maxValue={1}
-            minValue={0}
-            aria-label="Max Tokens"
-            defaultValue={0.6}
-            className="max-w-md"
+        <div className="my-1">Presence Penalty<span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span></div>
+        <Slider
+           size="sm"
+           color="foreground"
+           step={1}
+           maxValue={10}
+           minValue={0}
+           aria-label="top"
+           defaultValue={3}
+           className="max-w-md"
+           onChange={handlePresence}
           />
         </div>
       </div>

@@ -1,16 +1,18 @@
 "use client";
 import { BarChart } from "@mui/x-charts/BarChart";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import UsagePopup from "./UsagePopup";
 
 const Usage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [currentMonthIndex, setCurrentMonthIndex] = useState(3);
   const handleClick = (direction) => {
-    if (direction === 'left') {
-      setCurrentMonthIndex((currentMonthIndex - 1 + months.length) % months.length);
-    } else if (direction === 'right') {
+    if (direction === "left") {
+      setCurrentMonthIndex(
+        (currentMonthIndex - 1 + months.length) % months.length
+      );
+    } else if (direction === "right") {
       setCurrentMonthIndex((currentMonthIndex + 1) % months.length);
     }
   };
@@ -37,7 +39,19 @@ const Usage = () => {
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
- 
+  const popupRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        // onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen px-5 ">
@@ -48,35 +62,54 @@ const Usage = () => {
           </div>
           <div className="flex items-end justify-end pl-[23rem] ">
             {" "}
+            <div className="relative">
+              {" "}
+              <div className="flex justify-between items-center mt-10 p-2 ">
+                <div>
+                  <select className="bg-white bg-opacity-15 border-white  rounded-lg  px-4 py-3 ">
+                    <option className="text-black">Mistral</option>
+                    <option className="text-black">LAMA 3</option>
+                    <option className="text-black">Claude</option>
+                  </select>
+                </div>
+               
+              </div>
+            </div>
+            {/* <div className="absolute inset-0 left-0 flex justify-end bg-[#3d3939] bg-opacity-50 min-h-screen">
+                <div
+                  ref={popupRef}
+                  className="bg-[#0F1D2E]  shadow-md mt-48 mr-[23%] text-[#000000] justify-end items-end h-[27%] w-[12%] rounded-[30px]"
+                >
+                  <div className="flex flex-col items-center justify-center p-10 space-y-4">
+                    <div className="text-white text-[16px]">Mistral</div>
+                    <div className="text-white text-[16px]">LAMA 3</div>
+                    <div className="text-white text-[16px]">Claude</div>
+                  </div>
+                  <div className="mb-[80rem]"></div>
+                </div>
+              </div> */}
+          </div>
+          <div className="month-container flex justify-end  bg-[#FFFFFF4D] bg-opacity-30 mt-12  mb-3 px-2 mr-4 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-5 cursor-pointer">
             <div
-              className="flex justify-end  bg-[#FFFFFF4D] bg-opacity-30 mt-8 px-2 mr-4 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-2 cursor-pointer"
-              onClick={handleCreateApiClick}
+              className="angle left-angle text-[21px] cursor-pointer"
+              onClick={() => handleClick("left")}
             >
-              <div className="text-[17px] pb-[2px]">Models</div>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="30"
-                height="30"
-                fill="white"
-                className="pb-1"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 17.29L18.29 11H5.71z" />
-              </svg>
+              &lt;
+            </div>
+            <div className="month text-[17px] text-center pb-1">
+              {months[currentMonthIndex]}
+            </div>
+            <div
+              className="angle text-[21px] right-angle cursor-pointer"
+              onClick={() => handleClick("right")}
+            >
+              &gt;
             </div>
           </div>
-          <div className="month-container flex justify-end  bg-[#FFFFFF4D] bg-opacity-30 mt-10  px-2 mr-4 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-5 cursor-pointer">
-  <div className="angle left-angle text-[21px] cursor-pointer" onClick={() => handleClick('left')}>&lt;</div>
-  <div className="month text-[17px] text-center pb-1">{months[currentMonthIndex]}</div>
-  <div className="angle text-[21px] right-angle cursor-pointer" onClick={() => handleClick('right')}>&gt;</div>
-</div>
 
-
-          <div className="flex justify-end  bg-[#80FFF7] text-[17px] text-black font-bold mt-10  px-2 mr-4 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-5 cursor-pointer">
+          {/* <div className="flex justify-end  bg-[#80FFF7] text-[17px] text-black font-bold mt-10  px-2 mr-4 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-5 cursor-pointer">
             <div className="px-4 pb-[2px]">Export</div>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col md:flex-row gap-4 p-10">
           <div className="px-5 bg-[#8BFFDD] border-[#80FFF7] border-[1px] w-full rounded-[30px] ">
@@ -127,7 +160,6 @@ const Usage = () => {
           </div>
         </div>
         {isPopupOpen && <UsagePopup onClose={handleClosePopup} />}
-        
       </div>
     </div>
   );
