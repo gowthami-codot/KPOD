@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/verification/page.tsx", "components/console/InferenceServices/Usage.jsx", "components/console/InferenceServices/Compare.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/verification/page.tsx", "components/console/InferenceServices/Usage.jsx", "components/console/InferenceServices/Compare.jsx", "components/auth/SignInV2.js"],
   "exclude": ["node_modules"]
 }

@@ -1,8 +1,8 @@
-import SignIn from "@/components/auth/SignIn";
+import SignIn from "@/components/auth/SignInV2";
 
 const page = () => {
   return (
-    <div className="px-5 md:px-10 py-5 pt-20 w-full min-h-screen">
+    <div className="">
       <SignIn />
     </div>
   );
