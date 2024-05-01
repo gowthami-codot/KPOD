@@ -56,12 +56,11 @@ const SignIn = () => {
 
       const result = await response.json();
 
-      if (result && result.ID && result.CreatedAt) {
+      if (result && result.email) {
         toast.success("Logged in successfully.");
 
-        const user = { id: result.ID, email: email, port: result.userPort, ip: result.userIP, vm_instance_request: result.vmInstanceRequest};
-        setCurrentUser(user);
-        setUserDetails(user);
+        setCurrentUser(result);
+        setUserDetails(result);
         
         router.push("/console/home");
       } else if (result.message === "Invalid Credentials") {
