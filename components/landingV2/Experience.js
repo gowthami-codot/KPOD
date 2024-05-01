@@ -3,24 +3,28 @@ import { Button } from "../UI/Button";
 
 export default function Experience() {
   return (
-    <div className="w-full px-5 sm:px-16 my-24 relative">
-      <div className="w-full h-[340px] sm:h-[200px] px-5 sm:px-16">
+    <div className="px-5 sm:px-16 mt-24">
+      <div className="w-full px-5 sm:px-16 h-[340px] sm:h-[200px] relative">
         <img
-          className="w-full h-full object-cover scale-[115%] rounded-lg overflow-hidden"
-          src={`./main-landing.jpeg`}
+          className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
+          src="./main-landing.jpeg"
+          alt="Main Landing"
         />
-      </div>
-      <div className="absolute top-0 left-0 w-full h-full px-5 sm:px-16">
-        <div className="w-full h-full px-5 flex items-center justify-center">
-          <div className="flex items-start justify-center flex-col w-full">
-            <p className="text-darkPrimary text-[28px] sm:text-[40px]">
-              Experience the future of AI
-            </p>
-            <p className="text-lg text-darkSecondary">
-              Scale your computational capabilities like never before
-            </p>
+        <div className="w-full h-full relative">
+          <div className="w-full h-full px-5 flex items-center justify-between sm:justify-center flex-col sm:flex-row">
+            <div className="flex items-start justify-center flex-col w-full">
+              <p className="text-darkPrimary text-[28px] sm:text-[40px]">
+                Experience the future of AI
+              </p>
+              <p className="text-lg text-darkSecondary">
+                Scale your computational capabilities like never before
+              </p>
+            </div>
+            <Button>
+              <p>Register</p>
+              <img src="./a1.svg" />
+            </Button>
           </div>
-          <Button>Register</Button>
         </div>
       </div>
     </div>

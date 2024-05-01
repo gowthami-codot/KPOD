@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../UI/Button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -21,8 +22,19 @@ export default function Hero() {
           </p>
         </section>
         <section className="flex gap-5 z-10">
-          <Button>Register</Button>
-          <Button secondary>Login</Button>
+          <Link href='/signUp'>
+          <Button>
+            <p>Register</p>
+            <img src='./a1.svg' />
+          </Button>
+          </Link>
+          <Link href='/signIn'>
+
+          <Button secondary>
+          <p>Login</p>
+          <img src='./a2.svg' />
+          </Button>
+          </Link>
         </section>
       </div>
     </div>
