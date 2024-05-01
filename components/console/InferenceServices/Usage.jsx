@@ -49,7 +49,7 @@ const Usage = () => {
           <div className="flex items-end justify-end pl-[29rem] ">
             {" "}
             <div
-              className="flex justify-end  bg-[#FFFFFF4D] bg-opacity-30 mt-4 px-3 mr-10 rounded-[13px] border-[#FFFFFF] border-[2px]  py-4 items-end space-x-5 cursor-pointer"
+              className="flex justify-end  bg-[#FFFFFF4D] bg-opacity-30 mt-8 px-3 mr-10 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-5 cursor-pointer"
               onClick={handleCreateApiClick}
             >
               <div className="text-[18px]">Models</div>
@@ -66,14 +66,14 @@ const Usage = () => {
               </svg>
             </div>
           </div>
-          <div className="month-container bg-[#FFFFFF4D] mt-4 px-5 mr-10   rounded-[13px] border-[#FFFFFF] border-[2px] py-3 items-end space-x-5 cursor-pointer flex">
+          <div className="month-container flex justify-end  bg-[#FFFFFF4D] bg-opacity-30 mt-10  px-3 mr-10 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-5 cursor-pointer">
   <div className="angle left-angle text-[21px] cursor-pointer" onClick={() => handleClick('left')}>&lt;</div>
   <div className="month text-[17px] text-center pb-1">{months[currentMonthIndex]}</div>
   <div className="angle text-[21px] right-angle cursor-pointer" onClick={() => handleClick('right')}>&gt;</div>
 </div>
 
 
-          <div className="flex justify-end  bg-[#80FFF7] text-[17px] text-black font-bold mt-4  rounded-[20px] border-[#FFFFFF] border-[2px]  py-4 items-end  cursor-pointer">
+          <div className="flex justify-end  bg-[#80FFF7] text-[17px] text-black font-bold mt-10  px-3 mr-10 rounded-[13px] border-[#FFFFFF] border-[2px]  py-1 items-end space-x-5 cursor-pointer">
             <div className="px-6">Export</div>
           </div>
         </div>

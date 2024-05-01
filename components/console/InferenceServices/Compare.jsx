@@ -53,13 +53,13 @@ const Compare = () => {
             style={{ maxHeight: "400px", overflowY: "auto" }}
           >
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
-              <div className="flex justify-between items-center p-7">
+              <div className="flex justify-between items-center p-6">
                 <div>
-                  <select className="bg-[#162231] rounded-lg px-4 py-3">
-                    <option className="text-black">Mistral</option>
-                    <option className="text-black">LAMA 3</option>
-                    <option className="text-black">Claude</option>
-                  </select>
+                <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
+  <option className="text-black">Mistral</option>
+  <option className="text-black">LAMA 3</option>
+  <option className="text-black">Claude</option>
+</select>
                 </div>
                 <div className="flex gap-2">
                   <div>
@@ -91,7 +91,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#162231] p-10 mx-4 flex flex-col gap-2 mt-4 rounded-[16px] ">
+              <div className="bg-[#162231] p-5 mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
                 <div className="text-xs">SYSTEM</div>
                 <input
                   value={sysInp1}
@@ -107,13 +107,13 @@ const Compare = () => {
             style={{ maxHeight: "400px", overflowY: "auto" }}
           >
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
-              <div className="flex justify-between items-center p-7">
+              <div className="flex justify-between items-center p-6">
                 <div>
-                <select className="bg-[#162231] rounded-lg px-4 py-3">
-                    <option className="text-black">Mistral</option>
-                    <option className="text-black">LAMA 3</option>
-                    <option className="text-black">Claude</option>
-                  </select>
+                <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
+  <option className="text-black">Mistral</option>
+  <option className="text-black">LAMA 3</option>
+  <option className="text-black">Claude</option>
+</select>
                 </div>
                 <div className="flex gap-2">
                   <div>
@@ -145,7 +145,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#162231] p-10 mx-4  flex flex-col gap-2 mt-4 rounded-[16px] ">
+              <div className="bg-[#162231] p-5  mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
                 <div className="text-xs">SYSTEM</div>
                 <input
                   value={sysInp1}
@@ -327,10 +327,10 @@ const Popup2 = ({ onClose }) => {
     };
   }, [onClose]);
   return (
-    <div className="absolute inset-0 flex items-end justify-end mb-[20rem]  bg-[#3d3939] bg-opacity-50">
+    <div className="absolute inset-0 flex items-end justify-end mb-[29rem]  bg-[#3d3939] bg-opacity-50">
       <div
         ref={popupRef}
-        className="absolute p-10   rounded-[20px] shadow-lg mr-24 bg-[#162231] w-1/3"
+        className="absolute p-10   rounded-[20px] shadow-lg mr-24  bg-[#162231] w-1/3"
       >
         <div className="flex items-center justify-between w-full">
           <div>Configuration</div>
