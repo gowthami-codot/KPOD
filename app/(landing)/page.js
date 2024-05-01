@@ -6,6 +6,7 @@ import FeatureCards from "@/components/landing/FeatureCards";
 // import About from "@/components/landing/About";
 import Business from "@/components/landingV2/Business";
 import Experience from "@/components/landingV2/Experience";
+import SignUp from "@/components/auth/SignUpModal";
 
 const page = () => {
   return (

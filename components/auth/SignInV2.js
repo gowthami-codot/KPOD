@@ -97,9 +97,9 @@ const SignIn = () => {
             label={`Email`}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className=" focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5]"
+            className=" focus:outline-none  w-full bg-[#F3F4F5]"
             placeholder="Enter Your Email"
-            autoComplete="off"
+            autocomplete="off"
           />
         </div>
         <div className="w-full">
@@ -110,7 +110,7 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
             className=" focus:outline-none focus-visible:outline-none w-full  bg-[#F3F4F5]"
-            autoComplete="off"
+            autocomplete="off"
           />
         </div>
         <div className="w-full">

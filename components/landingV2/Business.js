@@ -24,7 +24,7 @@ export default function Business() {
     },
   ];
   return (
-    <div className="w-full px-5 sm:px-16 py-12 bg-[#F3F7F9]">
+    <div className="w-full px-5 sm:px-16 py-6 sm:py-12 bg-[#F3F7F9]">
       <p className="text-[22px] sm:text-[54px] py-8">Krutrim for Business</p>
 
       <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 sm:min-h-[296px]">

@@ -34,7 +34,7 @@ export default function Features() {
     },
   ];
   return (
-    <div className="flex flex-col items-start justify-center px-5 sm:px-16 mt-5">
+    <div className="flex flex-col items-start justify-center px-5 sm:px-16 sm:mt-5">
       <p className="text-[22px] sm:text-[54px] py-8">Features</p>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5">
         {featuresList.slice(0, 2)?.map((feature, index) => (

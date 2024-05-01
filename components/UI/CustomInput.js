@@ -9,7 +9,7 @@ export const Input = ({ label, children, className, ...rest }) => {
 
   return (
     <div className="relative">
-      <input className={combined} placeholder="Placeholder here" {...rest} />
+      <input className={combined} placeholder="Placeholder here" autoComplete="off" {...rest} />
       {label && (
         <label className="absolute top-4 left-4 text-gray-500 text-xs  transition-all duration-200 ease-in-out pointer-events-none">
           {label}

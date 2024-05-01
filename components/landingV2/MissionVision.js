@@ -12,7 +12,7 @@ export default function MissionVision() {
     },
   ];
   return (
-    <div className="w-full px-5 sm:px-16 py-5 my-12">
+    <div className="w-full px-5 sm:px-16 py-5 my-5 sm:my-12">
       <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-8 ">
         {MissionVision.map((item, index) => (
           <div key={index} className="w-full h-full flex flex-col items-start justify-start rounded gap-3 sm:border-r border-gray-100 sm:p-5">
