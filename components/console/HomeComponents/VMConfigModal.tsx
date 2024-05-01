@@ -25,6 +25,10 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
 
   const sendMailData = { email, mailTemplate: "selection" };
 
+  const handleClose = () => {
+    onClose(false);
+  };
+
   const handleRequest = async () => {
     if (!sshKey) {
       toast.error("Please fill your ssh key.");
@@ -48,7 +52,6 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
       if (response.status === 200) {
         setRequested(true);
         toast.success("Email Sent Successfully.");
-        //onClose(true);
       }
     } catch (error) {
       onClose(false);
@@ -130,6 +133,12 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                     onClick={handleRequest}
                   >
                     Request Access
+                  </Button>
+                  <Button
+                    className="flex justify-center items-center mx-auto bg-[#80FFF7] px-10 rounded-full"
+                    onClick={handleClose}
+                  >
+                    Cancel
                   </Button>
                 </ModalFooter>
               </>
