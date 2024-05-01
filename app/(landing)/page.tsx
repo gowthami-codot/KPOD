@@ -1,19 +1,25 @@
-import Hero from "@/components/landing/Hero";
-import Features from "@/components/landing/Features";
+import Hero from "@/components/landingV2/Hero";
+import Features from "@/components/landingV2/Features";
+import DescriptionText from "@/components/landingV2/DescriptionText";
+import MissionVision from "@/components/landingV2/MissionVision";
 import FeatureCards from "@/components/landing/FeatureCards";
-import About from "@/components/landing/About";
-import Business from "@/components/landing/Business";
-import Experience from "@/components/landing/Experience";
+// import About from "@/components/landing/About";
+import Business from "@/components/landingV2/Business";
+import Experience from "@/components/landingV2/Experience";
 
 const page = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-[100vw] bg-white text-darkPrimary">
       <Hero />
       <Features />
-      <FeatureCards />
-      <About />
+      <DescriptionText />
+      <MissionVision />
       <Business />
       <Experience />
+      {/* <FeatureCards />
+      <About />
+      <Business />
+      <Experience /> */}
     </div>
   );
 };

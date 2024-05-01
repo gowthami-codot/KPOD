@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "100" });
 
-
 const About = () => {
   return (
     <div className="py-10 md:py-20 px-5 md:px-40">
