@@ -12,7 +12,3 @@
     text-wrap: balance;
   }
 }
-.disabled {
-  color: #ccc; /* Change the color to grey */
-  cursor: not-allowed; /* Change the cursor to not-allowed */
-}

@@ -10,10 +10,7 @@ const ProjectApi = () => {
   const handleClosePopup = () => {
     setIsPopupOpen(false);
   };
-  // const handleCreateApiClick = () => {
-  //   console.log("Create API button clicked");
-  //   
-  // };
+ 
   return (
     <div className="flex flex-col min-h-screen px-5 relative">
       <div className="flex justify-between items-center mb-3 ">

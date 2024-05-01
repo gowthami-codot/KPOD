@@ -3,7 +3,6 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import Image from "next/image";
 import { useState } from "react";
 import UsagePopup from "./UsagePopup";
-import MonthDropdown from "./MonthDropdown";
 
 const Usage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
