@@ -38,7 +38,7 @@ export default function Features() {
       <p className="text-[22px] sm:text-[54px] py-8">Features</p>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-5">
         {featuresList.slice(0, 2)?.map((feature, index) => (
-          <div className="flex flex-col items-start justify-start p-5 bg-[#F3F7F9] rounded gap-3">
+          <div key={index} className="flex flex-col items-start justify-start p-5 bg-[#F3F7F9] rounded gap-3">
             <img src={feature.image} alt={feature.title} className="w-[120px] h-[120px] mb-5" />
             <p className="w-full sm:w-[60%] text-darkPrimary text-[22px] sm:text-[32px] leading-10">
               {feature.title}
@@ -52,7 +52,7 @@ export default function Features() {
       <div className="h-5" />
       <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-5">
         {featuresList.slice(2, 5)?.map((feature, index) => (
-          <div className="flex flex-col items-start justify-start p-5 bg-[#F3F7F9] rounded gap-3">
+          <div key={index} className="flex flex-col items-start justify-start p-5 bg-[#F3F7F9] rounded gap-3">
             <img src={feature.image} alt={feature.title} className="w-[120px] h-[120px] mb-5" />
             <p className="w-full sm:w-[80%] text-darkPrimary text-[22px] sm:text-[32px] leading-10">
               {feature.title}

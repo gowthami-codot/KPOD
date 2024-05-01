@@ -29,7 +29,7 @@ export default function Business() {
 
       <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 sm:h-[296px]">
         {Business.slice(0, 2)?.map((feature, index) => (
-          <div className="w-full sm:first:w-[75%] h-full flex flex-col items-start justify-start p-5 bg-white rounded gap-3">
+          <div key={index} className="w-full sm:first:w-[75%] h-full flex flex-col items-start justify-start p-5 bg-white rounded gap-3">
             <img src={feature.image} alt={feature.title} className="w-[120px] h-[120px] mb-5" />
             <p className="w-full sm:w-[60%] text-darkPrimary text-[22px] sm:text-[32px] leading-10">
               {feature.title}
@@ -43,7 +43,7 @@ export default function Business() {
       <div className="h-5" />
       <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 sm:h-[296px]">
         {Business.slice(2, 4)?.map((feature, index) => (
-          <div className="w-full sm:first:w-[150%] h-full flex flex-col items-start justify-start p-5 bg-white rounded gap-3">
+          <div key={index} className="w-full sm:first:w-[150%] h-full flex flex-col items-start justify-start p-5 bg-white rounded gap-3">
             <img src={feature.image} alt={feature.title} className="w-[120px] h-[120px] mb-5" />
             <p className="w-full sm:w-[90%] text-darkPrimary text-[22px] sm:text-[32px] leading-10">
               {feature.title}
