@@ -27,7 +27,7 @@ export default function Business() {
     <div className="w-full px-5 sm:px-16 py-12 bg-[#F3F7F9]">
       <p className="text-[22px] sm:text-[54px] py-8">Krutrim for Business</p>
 
-      <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 sm:h-[296px]">
+      <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 sm:min-h-[296px]">
         {Business.slice(0, 2)?.map((feature, index) => (
           <div key={index} className="w-full sm:first:w-[75%] h-full flex flex-col items-start justify-start p-5 bg-white rounded gap-3">
             <img src={feature.image} alt={feature.title} className="w-[120px] h-[120px] mb-5" />
@@ -41,7 +41,7 @@ export default function Business() {
         ))}
       </div>
       <div className="h-5" />
-      <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 sm:h-[296px]">
+      <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 min-sm:h-[296px]">
         {Business.slice(2, 4)?.map((feature, index) => (
           <div key={index} className="w-full sm:first:w-[150%] h-full flex flex-col items-start justify-start p-5 bg-white rounded gap-3">
             <img src={feature.image} alt={feature.title} className="w-[120px] h-[120px] mb-5" />
