@@ -57,16 +57,16 @@ const Usage = () => {
     <div className="flex flex-col min-h-screen px-5 ">
       <div className="w-full  bg-[#0F1B2B]  rounded-[16px]">
         <div className="flex py-2">
-          <div className="text-[27px]  font-bold mt-6 px-10  text-[#8BFFDD] ">
+          <div className="text-[27px]  font-bold mt-16 px-10  text-[#8BFFDD] ">
             Usage
           </div>
-          <div className="flex items-end justify-end pl-[23rem] ">
+          <div className="flex items-end justify-end pl-[40rem] mr-5 ">
             {" "}
             <div className="relative">
               {" "}
-              <div className="flex justify-between items-center mt-10 p-2 ">
+              <div className="flex justify-between  items-center  mt-10 p-2 ">
                 <div>
-                  <select className="bg-white bg-opacity-15 border-white  rounded-lg  px-4 py-3 ">
+                  <select className="bg-white bg-opacity-15 border-white cursor-pointer border-1  rounded-lg  px-5 py-3 ">
                     <option className="text-black">Mistral</option>
                     <option className="text-black">LAMA 3</option>
                     <option className="text-black">Claude</option>
@@ -111,7 +111,7 @@ const Usage = () => {
             <div className="px-4 pb-[2px]">Export</div>
           </div> */}
         </div>
-        <div className="flex flex-col md:flex-row gap-4 p-10">
+        <div className="flex flex-col md:flex-row gap-4 mb-[36rem] p-10">
           <div className="px-5 bg-[#8BFFDD] border-[#80FFF7] border-[1px] w-full rounded-[30px] ">
             <div className="text-[#0F1B2B] text-[17px] font-bold px-10 pt-10">
               API Requests | 350
@@ -135,7 +135,7 @@ const Usage = () => {
               colors={["#0F1B2B", "#0F1B2B"]}
             />
           </div>
-          <div className="px-5 bg-[#8BFFDD] border-[#80FFF7] border-[1px] w-full rounded-[30px]">
+          <div className="px-5  bg-[#8BFFDD] border-[#80FFF7] border-[1px] w-full rounded-[30px]">
             <div className="text-[#0F1B2B] text-[17px] font-bold px-10 pt-10">
               Token Requests | 350
             </div>
@@ -158,7 +158,9 @@ const Usage = () => {
               colors={["#0F1B2B", "#0F1B2B"]}
             />
           </div>
+         
         </div>
+        
         {isPopupOpen && <UsagePopup onClose={handleClosePopup} />}
       </div>
     </div>

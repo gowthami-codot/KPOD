@@ -48,9 +48,9 @@ const Compare = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen   px-5 relative">
-      <div className="w-full h-full bg-[#0F1B2B]  rounded-[16px]">
-        <div className="flex justify-between items-center mb-3 -z-10">
+    <div className="flex flex-col min-h-screen px-5 relative">
+      <div className="w-full h-[150%] bg-[#0F1B2B]  rounded-[16px]">
+        <div className="flex justify-between items-center mb-3 ">
           <div className="text-[26px]  font-bold mt-7 px-10 mb-5 text-[#8BFFDD] ">
             Compare
           </div>
@@ -61,7 +61,7 @@ const Compare = () => {
         <div className="flex">
           {" "}
           <div
-            className="w-[60%] flex flex-col justify-between border-t-[1px] border-t-[#80FFF7] border-b-[1px] border-b-[#80FFF7] ml-8  p-5 border-r-[#80FFF7] border-r-[1px] rounded-l-[16px] border-l-[#80FFF7] border-l-[1px] z-0"
+            className="md:w-[60%] lg:w-[60%] flex flex-col justify-between border-t-[1px] border-t-[#80FFF7] border-b-[1px] border-b-[#80FFF7] ml-8  p-5 border-r-[#80FFF7] border-r-[1px] rounded-l-[16px] border-l-[#80FFF7] border-l-[1px] z-0"
             style={{ maxHeight: "400px", overflowY: "auto" }}
           >
             <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
@@ -74,20 +74,6 @@ const Compare = () => {
                   </select>
                 </div>
                 <div className="flex gap-2">
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      onClick={toggleInstructionLeftPopup}
-                      className="cursor-pointer "
-                      style={{ transform: "rotate(90deg)" }}
-                    >
-                      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                    </svg>
-                  </div>
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +117,7 @@ const Compare = () => {
                   </select>
                 </div>
                 <div className="flex gap-2">
-                  <div>
+                  {/* <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -144,7 +130,7 @@ const Compare = () => {
                     >
                       <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
                     </svg>
-                  </div>
+                  </div> */}
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -179,51 +165,76 @@ const Compare = () => {
         <div className="flex  gap-0 ">
           {" "}
           <div
-            className="mb-[14rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2"
+            className="mb-[26rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2"
             style={{ overflowY: "auto" }}
           >
             According to the 2022 Global Happiness Report, the top 3 happiest
-            countries in the world are: <br />
-            1. Finland: Finland has consistently ranked as one of the happiest
-            countries in the world. It has a high level of social support, low
-            levels of corruption, and a high standard of living.
-            <br /> 2. Denmark: Denmark is known for its high standard of living,
-            generous social welfare system, and high level of social support.
-            The country also has a strong culture of work-life balance and a
-            high level of trust in institutions.
-            <br /> 3. Switzerland: Switzerland is a neutral and stable country
-            with a high standard of living. It has a low level of corruption, a
-            high level of social support, and a strong economy. The country also
-            has a high level of trust in institutions and a strong culture of
-            social cohesion. These countries have a high score on the Gross
-            Domestic Happiness (GDH) index, which measures happiness and
-            well-being across countries. The GDH index takes into account
-            factors such as GDP per capita, social support, healthy life
-            expectancy, freedom to make life choices, generosity, and
-            perceptions of corruption and trust in institutions
+            countries in the world are:
+            <br />
+            <br />
+            <span className="font-bold mr-2 text-[17px]"> 1. Finland :</span>
+            Finland has consistently ranked as one of the happiest countries in
+            the world. It has a high level of social support, low levels of
+            corruption, and a high standard of living. <br />
+            <br />{" "}
+            <span className="font-bold mr-2  text-[17px]">
+              2. Denmark :
+            </span>{" "}
+            Denmark is known for its high standard of living, generous social
+            welfare system, and high level of social support. The country also
+            has a strong culture of work-life balance and a high level of trust
+            in institutions.
+            <br />
+            <br />
+            <span className="font-bold mr-2  text-[17px]">
+              {" "}
+              3. Switzerland :
+            </span>{" "}
+            Switzerland is a neutral and stable country with a high standard of
+            living. It has a low level of corruption, a high level of social
+            support, and a strong economy. The country also has a high level of
+            trust in institutions and a strong culture of social cohesion. These
+            countries have a high score on the Gross Domestic Happiness (GDH)
+            index, which measures happiness and well-being across countries. The
+            GDH index takes into account factors such as GDP per capita, social
+            support, healthy life expectancy, freedom to make life choices,
+            generosity, and perceptions of corruption and trust in institutions
           </div>
           <div
-            className="mb-[14rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6"
+            className="mb-[26rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6"
             style={{ overflowY: "auto" }}
           >
             According to the 2022 Global Happiness Report, the top 3 happiest
-            countries in the world are:<br/> 1. Finland: Finland has consistently
-            ranked as one of the happiest countries in the world. It has a high
-            level of social support, low levels of corruption, and a high
-            standard of living. <br/>2. Denmark: Denmark is known for its high
-            standard of living, generous social welfare system, and high level
-            of social support. The country also has a strong culture of
-            work-life balance and a high level of trust in institutions.<br/> 3.
-            Switzerland: Switzerland is a neutral and stable country with a high
-            standard of living. It has a low level of corruption, a high level
-            of social support, and a strong economy. The country also has a high
-            level of trust in institutions and a strong culture of social
-            cohesion. These countries have a high score on the Gross Domestic
-            Happiness (GDH) index, which measures happiness and well-being
-            across countries. The GDH index takes into account factors such as
-            GDP per capita, social support, healthy life expectancy, freedom to
-            make life choices, generosity, and perceptions of corruption and
-            trust in institutions
+            countries in the world are:
+            <br />
+            <br />
+            <span className="font-bold mr-2  text-[17px]"> 1. Finland :</span>
+            Finland has consistently ranked as one of the happiest countries in
+            the world. It has a high level of social support, low levels of
+            corruption, and a high standard of living. <br />
+            <br />{" "}
+            <span className="font-bold mr-2  text-[17px]">
+              2. Denmark :
+            </span>{" "}
+            Denmark is known for its high standard of living, generous social
+            welfare system, and high level of social support. The country also
+            has a strong culture of work-life balance and a high level of trust
+            in institutions.
+            <br />
+            <br />
+            <span className="font-bold mr-2  text-[17px]">
+              {" "}
+              3. Switzerland :
+            </span>{" "}
+            Switzerland is a neutral and stable country with a high standard of
+            living. It has a low level of corruption, a high level of social
+            support, and a strong economy. The country also has a high level of
+            trust in institutions and a strong culture of social cohesion. These
+            countries have a high score on the Gross Domestic Happiness (GDH)
+            index, which measures happiness and well-being across countries. The
+            GDH index takes into account factors such as GDP per capita, social
+            support, healthy life expectancy, freedom to make life choices,
+            generosity, and perceptions of corruption and trust in institutions
           </div>
         </div>
         <div className="fixed w-[50%] bg-[#0F1B2B]  ml-[14%]  bottom-0  mx-auto mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
@@ -244,19 +255,12 @@ const Compare = () => {
         </div>
       </div>
       {showPopupLeftside && (
-        <Popup1
-          onClose={() => {
-            setShowPopupLeftside(false);
-          }}
-        />
+        <Popup1 onClose={() => setShowPopupLeftside(false)} />
       )}
       {showPopupRightside && (
-        <Popup2
-          onClose={() => {
-            setShowRightLeftside(false);
-          }}
-        />
+        <Popup2 onClose={() => setShowRightLeftside(false)} />
       )}
+
       {showInstructionsLeftPopup && (
         <ClearInstructionsPopupLeft onClose={handleClosePopupLeft} />
       )}
@@ -315,7 +319,7 @@ const Popup1 = ({ onClose }) => {
     <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50">
       <div
         ref={popupRef}
-        className="absolute p-10   rounded-[20px] mt-[13rem] ml-[10rem] shadow-lg bg-[#162231] w-1/3"
+        className="absolute p-10 rounded-[20px] mt-[12rem] md:ml-[10vw] shadow-lg bg-[#162231] w-full md:w-1/3"
       >
         <div className="flex items-center justify-between w-full">
           <div>Configuration</div>
@@ -476,7 +480,7 @@ const Popup2 = ({ onClose }) => {
     <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50">
       <div
         ref={popupRef}
-        className="absolute p-10 transform translate-x-[73%] -translate-y-20   rounded-[20px]   shadow-lg bg-[#162231] w-1/3"
+        className="absolute p-10  rounded-[20px] top-[10%] md:right-[5%] mt-24 shadow-lg bg-[#162231] w-full md:w-1/3"
       >
         <div className="flex items-center justify-between w-full ">
           <div>Configuration</div>

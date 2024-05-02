@@ -16,9 +16,10 @@ const SignUp = ({ open, setOpen }) => {
   const [accountType, setAccountType] = useState("");
   const [userProfile, setUserProfile] = useState("");
   const [profileLink, setProfileLink] = useState("");
-  const [mobileNumber, setMobileNumber] = useState("");
 
   const [selectedProfile, setSelectedProfile] = useState("");
+  const [isTermsAccepted, setIsTermsAccepted] = useState(false);
+  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
   useEffect(() => {
     setSelectedProfile(userProfile);
@@ -34,9 +35,37 @@ const SignUp = ({ open, setOpen }) => {
   };
 
   const validatePassword = (password) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
   };
+
+  useEffect(() => {
+    setSelectedProfile(userProfile);
+    if (
+      firstName &&
+      lastName &&
+      email &&
+      password &&
+      accountType &&
+      userProfile &&
+      profileLink &&
+      isTermsAccepted
+    ) {
+      setIsButtonEnabled(true);
+    } else {
+      setIsButtonEnabled(false);
+    }
+  }, [
+    firstName,
+    lastName,
+    email,
+    password,
+    accountType,
+    userProfile,
+    profileLink,
+    isTermsAccepted,
+  ]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,8 +77,7 @@ const SignUp = ({ open, setOpen }) => {
       !password ||
       !accountType ||
       !userProfile ||
-      !profileLink ||
-      !mobileNumber
+      !profileLink
     ) {
       toast.error("Please fill out all fields.");
       return;
@@ -77,7 +105,6 @@ const SignUp = ({ open, setOpen }) => {
       accountType,
       userProfile,
       profileLink,
-      mobileNumber,
     };
 
     try {
@@ -111,14 +138,17 @@ const SignUp = ({ open, setOpen }) => {
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error("An error occurred while submitting your data.");
     }
   };
 
   return (
     <div>
       <Transition appear show={open} as={Fragment}>
-        <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={closeModal}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={closeModal}
+        >
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
               as={Fragment}
@@ -132,7 +162,10 @@ const SignUp = ({ open, setOpen }) => {
               <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
             </Transition.Child>
 
-            <span className="inline-block h-screen align-middle" aria-hidden="true">
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
               &#8203;
             </span>
 
@@ -146,7 +179,10 @@ const SignUp = ({ open, setOpen }) => {
               leaveTo="opacity-0 scale-95"
             >
               <div className="inline-block max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white rounded sm:min-w-[500px] w-full h-[80vh]">
-                <Dialog.Title as="h3" className="text-[24px] font-semibold leading-6 text-gray-900">
+                <Dialog.Title
+                  as="h3"
+                  className="text-[24px] font-semibold leading-6 text-gray-900"
+                >
                   Sign up
                 </Dialog.Title>
                 <section className="h-full w-full flex flex-col gap-3 ">
@@ -226,18 +262,6 @@ const SignUp = ({ open, setOpen }) => {
                       <div className="flex items-center justify-center gap-5 w-full">
                         <div className="w-full">
                           <Input
-                            label="Mobile Number"
-                            type="tel"
-                            id="mobileNumber"
-                            className="text-black"
-                            placeholder="Mobile Number"
-                            value={mobileNumber}
-                            onChange={(e) => setMobileNumber(e.target.value)}
-                            required
-                          />
-                        </div>
-                        <div className="w-full">
-                          <Input
                             label="LinkedIn / GitHub Profile"
                             type="text"
                             id="profileLink"
@@ -249,7 +273,11 @@ const SignUp = ({ open, setOpen }) => {
                           />
                         </div>
                       </div>
-<div><p className=" text-[#798E9E]">What do you do? Choose one or more</p></div>
+                      <div>
+                        <p className=" text-[#798E9E]">
+                          What do you do? Choose one or more
+                        </p>
+                      </div>
                       <div className="flex flex-col w-full">
                         <div className="grid grid-cols-2 gap-2">
                           <div
@@ -314,13 +342,55 @@ const SignUp = ({ open, setOpen }) => {
                           </div>
                         </div>
                       </div>
-
-                     
                     </form>
-                    
                   </div>
                   <div className="h-auto">
-                    <Button type="submit" onClick={handleSubmit} className={`w-full`}>
+                    <div className="flex items-center justify-center my-3 md:my-5">
+                      <input
+                        type="checkbox"
+                        value=""
+                        checked={isTermsAccepted}
+                        onChange={(e) => setIsTermsAccepted(e.target.checked)}
+                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 "
+                      />
+                      <label className="ms-2 text-sm font-medium text-gray-700">
+                        I agree with the
+                        <a
+                          href="https://llm-spark-new.s3.amazonaws.com/krutrim_chat_policy_docs/TOU_v1.pdf"
+                          className="text-blue-600 hover:underline ml-1"
+                          target="_blank"
+                        >
+                          terms and conditions
+                        </a>
+                        <span className="mx-1">&</span>
+                        <a
+                          href="https://llm-spark-new.s3.amazonaws.com/krutrim_chat_policy_docs/privacy_policy_v1.pdf"
+                          className="text-blue-600 hover:underline ml-1"
+                          target="_blank"
+                        >
+                          privacy policy
+                        </a>
+                        <span className="mx-1">&</span>
+                        <a
+                          href="#"
+                          className="text-blue-600 hover:underline ml-1"
+                          target="_blank"
+                        >
+                          EULA
+                        </a>
+                        .
+                      </label>
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={!isButtonEnabled}
+                      onClick={handleSubmit}
+                      className={`flex text-black w-full py-3 px-10 w-fit mx-auto rounded-full cursor-pointer ${
+                        isButtonEnabled
+                          ? "hover:scale-105 duration-300 bg-[#80FFF7]"
+                          : "bg-gray-300 cursor-not-allowed"
+                      }`}
+                    >
                       Register
                     </Button>
                     <div className="flex items-center gap-2 text-black w-full text-xm justify-center my-5 pt-3">

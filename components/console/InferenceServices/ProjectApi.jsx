@@ -28,7 +28,7 @@ const ProjectApi = () => {
             <div>CREATED</div>
             <div></div>
           </div>
-          <div className="grid grid-cols-4 gap-20 py-3 px-16 mt-8  w-full">
+          <div className="grid grid-cols-4 gap-20  py-3 px-16 mt-8  w-full">
             <div>Test</div>
             <div>ak************dfv55dfvdf</div>
             <div>April 27, 2024</div>
@@ -53,7 +53,7 @@ const ProjectApi = () => {
             </div>
           </div>
 
-          <button className="w-[40%] mb-36  mt-20 px-16 " onClick={()=>setIsPopupOpen(true)}>
+          <button className="w-[40%] mb-[38rem] mt-20 px-16 " onClick={()=>setIsPopupOpen(true)}>
             {" "}
             <div
               className="flex mt-3 space-x-5 bg-[#80FFF7] rounded-[13px] p-4 cursor-pointer"
