@@ -26,7 +26,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/x-icon" href="app/favicon.ico" />
         <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <title>Krutrim - India's own AI</title>
+        <title>Krutrim - India&#39;s own AI</title>
         <meta name="description" content="Scale your computational capabilities and experience the GPU services like never before" />
         <meta property="og:url" content="https://cloud.olakrutrim.com" />
         <meta property="og:image" content="https://olakrutrim.com/wp-content/uploads/2023/12/Krutrim-fevicon.png" />
