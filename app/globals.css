@@ -48,7 +48,8 @@
   cursor: pointer;
   padding-right: 50px;
   padding-left: 10px; /* Adjust the padding to accommodate the arrow */
-  outline: none; 
+  outline: none;
+ 
   font-size: x-small;/* Remove outline on focus */
 }
 

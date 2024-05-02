@@ -51,7 +51,7 @@ const Compare = () => {
     <div className="flex  lg:flex-col bg-[#FFFFFF] min-h-screen px-5 relative">
       <div className="w-full h-[150%] bg-[#FFFFFF]  ">
         <div className="flex justify-between items-center mb-3 ">
-          <div className="lg:text-[26px] md:text-[19px] lg:mt-0    font-bold mt-10 px-10 mb-5 text-[#181E22] ">
+          <div className="lg:text-[26px] md:text-[19px] lg:mt-10    font-bold mt-10 px-10 mb-5 text-[#181E22] ">
             Compare
           </div>
           <div className="bg-[#F3F4F5]  flex space-x-3 justify-center my-auto items-center   text-[#687986]  mt-7 py-3 px-4 rounded-[4px] border border-white m-7">
@@ -283,7 +283,7 @@ const Compare = () => {
         value={message}
         onChange={updateText}
         placeholder="Enter system instructions..."
-        className="w-full input-with-small-placeholder bg-transparent p-3 resize-none focus:outline-none focus-visible:outline-none"
+        className="w-full input-with-small-placeholder bg-transparent p-3 resize-none focus:outline-none text-black focus-visible:outline-none"
       />
     </div>
     <div className=" py-2 px-8 bg-[#00000066] bg-opacity-45 rounded-[4px] cursor-pointer">
