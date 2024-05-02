@@ -4,7 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { NextUIProvider } from "@nextui-org/react";
 import Header from "@/components/landingV2/Header";
-import Footer from "@/components/landing/Footer";
+import Footer from "@/components/landingV2/Footer";
 import AuthProvider from "@/components/auth/AuthContext";
 import { Providers } from './providers';
 
