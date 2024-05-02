@@ -4,12 +4,10 @@ import { Button } from "../UI/Button";
 import Link from "next/link";
 import SignUp from "../auth/SignUpModal";
 
-export default function Hero() {
-  const [open, setOpen] = React.useState(false);
-  console.log(open,"w")
+export default function Hero({setOpen}) {
   return (
     <div className="w-[100vw] h-[100vh] overflow-hidden ">
-      <SignUp open={open} setOpen={setOpen} />
+
       <div className="w-full h-[80vh] sm:h-[70vh] flex flex-col items-center justify-center px-5 gap-8 text-darkPrimary relative ">
         <div className="absolute top-[40vh] right-0 w-[100vw] h-[180px] bg-gradient-to-b from-white to-transparent z-10" />
         <section className="absolute top-[45vh] right-0 w-[100vw]">

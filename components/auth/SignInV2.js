@@ -9,9 +9,11 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/auth/AuthContext";
 import { useUser } from "../../app/context/UserContext";
 import { Input } from "@/components/UI/CustomInput";
+import SignUp from "./SignUpModal";
 
 const SignIn = () => {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [type, setType] = useState("password");
@@ -77,6 +79,8 @@ const SignIn = () => {
 
   return (
     <div className="w-[100vw] h-[100vh] bg-white flex items-center justify-center text-darkPrimary">
+      <SignUp open={open} setOpen={setOpen} />
+
       <div className="w-full h-full relative hidden sm:block">
         <img
           src={`./main-landing.jpeg`}
@@ -115,7 +119,9 @@ const SignIn = () => {
         </div>
         <div className="w-full">
           <button
-            onClick={handleSubmit}
+            onClick={() => {
+              handleSubmit();
+            }}
             className={`w-full flex items-center justify-center px-4 py-2 h-[56px] bg-black text-white`}
           >
             Login
@@ -123,9 +129,16 @@ const SignIn = () => {
         </div>
         <div className="flex gap-2 w-full items-center justify-center ">
           <p className="text-[#798E9E]">New to Krutrim Cloud?</p>
-          <Link href={"/signUp"} className="cursor-pointer hover:underline duration-300 underline-[#C4CACF]">
-            <p className="text-[#72C83E]">Sign Up</p>
-          </Link>
+          {/* <Link href={"/signUp"} className="cursor-pointer hover:underline duration-300 underline-[#C4CACF]"> */}
+          <p
+            className="text-[#72C83E]"
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            Sign Up
+          </p>
+          {/* </Link> */}
         </div>
       </div>
     </div>

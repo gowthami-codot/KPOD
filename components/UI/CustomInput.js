@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 export const Input = ({ label, children, className, ...rest }) => {
   const combined = twMerge(
-    `border-[1px] border-gray-100 rounded text-[14px] px-4 py-2 pt-8 focus:border-gray-600 outline-none border-solid w-full text-sm translate-y-[5px]`,
+    `border-[1px] border-gray-100 rounded text-[14px] px-4 py-2 pt-8 focus:border-gray-600 outline-none border-solid w-full text-base translate-y-[5px]`,
     className
   );
 

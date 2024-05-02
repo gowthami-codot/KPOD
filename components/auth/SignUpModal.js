@@ -16,6 +16,7 @@ const SignUp = ({ open, setOpen }) => {
   const [accountType, setAccountType] = useState("");
   const [userProfile, setUserProfile] = useState("");
   const [profileLink, setProfileLink] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
 
   const [selectedProfile, setSelectedProfile] = useState("");
 
@@ -47,7 +48,8 @@ const SignUp = ({ open, setOpen }) => {
       !password ||
       !accountType ||
       !userProfile ||
-      !profileLink
+      !profileLink ||
+      !mobileNumber
     ) {
       toast.error("Please fill out all fields.");
       return;
@@ -75,6 +77,7 @@ const SignUp = ({ open, setOpen }) => {
       accountType,
       userProfile,
       profileLink,
+      mobileNumber,
     };
 
     try {
@@ -100,6 +103,7 @@ const SignUp = ({ open, setOpen }) => {
         setAccountType("");
         setUserProfile("");
         setProfileLink("");
+        setMobileNumber("");
       } else if (result.message === "User email already exists") {
         toast.error("User already exists. Please log in to your account.");
       } else {
@@ -141,183 +145,199 @@ const SignUp = ({ open, setOpen }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white rounded sm:min-w-[500px] w-full">
-                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
+              <div className="inline-block max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white rounded sm:min-w-[500px] w-full h-[80vh]">
+                <Dialog.Title as="h3" className="text-[24px] font-semibold leading-6 text-gray-900">
                   Sign up
                 </Dialog.Title>
-
-                <div className="mt-2">
-                  <form
-                    className=" flex flex-col items-start justify-between gap-4"
-                    onSubmit={handleSubmit}
-                  >
-                    <div className="flex items-center justify-center gap-5 w-full">
-                      <div className="w-full">
-
-                      <Input
-                        label="First Name"
-                        type="text"
-                        placeholder="First Name"
-                        className={`text-black`}
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        required
-                        />
+                <section className="h-full w-full flex flex-col gap-3 ">
+                  <div className="mt-2  h-full overflow-auto">
+                    <form
+                      className=" flex flex-col items-start justify-between gap-4"
+                      // onSubmit={handleSubmit}
+                    >
+                      <div className="flex items-center justify-center gap-5 w-full">
+                        <div className="w-full">
+                          <Input
+                            label="First Name"
+                            type="text"
+                            placeholder="First Name"
+                            className={`text-black`}
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            required
+                          />
                         </div>
-                      <div className="w-full">
-
-                      <Input
-                        label="Last Name"
-                        type="text"
-                        className="text-black"
-                        placeholder="Last Name"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        required
-                      />
-                    </div>
-                    </div>
-
-                    
-
-                    <div className="flex flex-col w-full">
-                      <Input
-                        label="Email"
-                        type="email"
-                        id="email"
-                        className="text-black"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </div>
-
-                    <div className="flex flex-col w-full">
-                      <Input
-                        label={"Password"}
-                        type="password"
-                        id="password"
-                        className="text-black"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                      />
-                    </div>
-
-                    <div className="flex flex-col w-full">
-                      <label htmlFor="accountType" className="text-sm">
-                        Account Type
-                      </label>
-                      <select
-                        id="accountType"
-                        className="bg-white p-2 rounded-lg text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 border border-gray-300 w-full "
-                        value={accountType}
-                        onChange={(e) => setAccountType(e.target.value)}
-                        required
-                      >
-                        <option value="">Select Account Type</option>
-                        <option value="individual">Individual</option>
-                        <option value="business">Business</option>
-                      </select>
-                    </div>
-
-                    <div className="flex flex-col w-full">
-                      <Input
-                        label="LinkedIn / GitHub Profile"
-                        type="text"
-                        id="profileLink"
-                        className="text-black"
-                        placeholder="Profile Link"
-                        value={profileLink}
-                        onChange={(e) => setProfileLink(e.target.value)}
-                        required
-                      />
-                    </div>
-
-                    <div className="flex flex-col w-full">
-                      <div className="grid grid-cols-2 gap-2">
-                        <div
-                          className={`p-2 rounded-lg text-center cursor-pointer ${
-                            selectedProfile === "Cloud Engineer"
-                              ? "bg-white border border-[#72C83E] text-black"
-                              : "bg-[#F3F4F5] text-gray-900"
-                          }`}
-                          onClick={() => setUserProfile("Cloud Engineer")}
-                        >
-                          Cloud Engineer
-                        </div>
-                        <div
-                          className={`p-2 rounded-lg text-center cursor-pointer ${
-                            selectedProfile === "Devops"
-                              ? "bg-white border border-[#72C83E] text-black"
-                              : "bg-[#F3F4F5] text-gray-900"
-                          }`}
-                          onClick={() => setUserProfile("Devops")}
-                        >
-                          Devops
-                        </div>
-                        <div
-                          className={`p-2 rounded-lg text-center cursor-pointer ${
-                            selectedProfile === "Data Scientist"
-                              ? "bg-white border border-[#72C83E] text-black"
-                              : "bg-[#F3F4F5] text-gray-900"
-                          }`}
-                          onClick={() => setUserProfile("Data Scientist")}
-                        >
-                          Data Scientist
-                        </div>
-                        <div
-                          className={`p-2 rounded-lg text-center cursor-pointer ${
-                            selectedProfile === "Product Management"
-                              ? "bg-white border border-[#72C83E] text-black"
-                              : "bg-[#F3F4F5] text-gray-900"
-                          }`}
-                          onClick={() => setUserProfile("Product Management")}
-                        >
-                          Product Management
-                        </div>
-                        <div
-                          className={`p-2 rounded-lg text-center cursor-pointer ${
-                            selectedProfile === "SRE"
-                              ? "bg-white border border-[#72C83E] text-black"
-                              : "bg-[#F3F4F5] text-gray-900"
-                          }`}
-                          onClick={() => setUserProfile("SRE")}
-                        >
-                          SRE
-                        </div>
-                        <div
-                          className={`p-2 rounded-lg text-center cursor-pointer ${
-                            selectedProfile === "Others"
-                              ? "bg-white border border-[#72C83E] text-black"
-                              : "bg-[#F3F4F5] text-gray-900"
-                          }`}
-                          onClick={() => setUserProfile("Others")}
-                        >
-                          Others
+                        <div className="w-full">
+                          <Input
+                            label="Last Name"
+                            type="text"
+                            className="text-black"
+                            placeholder="Last Name"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                            required
+                          />
                         </div>
                       </div>
-                    </div>
 
+                      <div className="flex flex-col w-full">
+                        <Input
+                          label="Email"
+                          type="email"
+                          id="email"
+                          className="text-black"
+                          placeholder="Email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                      </div>
 
-                    <Button
-                      type="submit"
-                      className={`w-full`} 
-                    >
+                      <div className="flex flex-col w-full">
+                        <Input
+                          label={"Password"}
+                          type="password"
+                          id="password"
+                          className="text-black"
+                          placeholder="Password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          required
+                        />
+                      </div>
+
+                      <div className="flex flex-col w-full">
+                        <label htmlFor="accountType" className="text-sm">
+                          Account Type
+                        </label>
+                        <select
+                          id="accountType"
+                          className="bg-white p-2 rounded text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 border border-gray-300 w-full "
+                          value={accountType}
+                          onChange={(e) => setAccountType(e.target.value)}
+                          required
+                        >
+                          <option value="">Select Account Type</option>
+                          <option value="individual">Individual</option>
+                          <option value="business">Business</option>
+                        </select>
+                      </div>
+
+                      <div className="flex items-center justify-center gap-5 w-full">
+                        <div className="w-full">
+                          <Input
+                            label="Mobile Number"
+                            type="tel"
+                            id="mobileNumber"
+                            className="text-black"
+                            placeholder="Mobile Number"
+                            value={mobileNumber}
+                            onChange={(e) => setMobileNumber(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div className="w-full">
+                          <Input
+                            label="LinkedIn / GitHub Profile"
+                            type="text"
+                            id="profileLink"
+                            className="text-black"
+                            placeholder="Profile Link"
+                            value={profileLink}
+                            onChange={(e) => setProfileLink(e.target.value)}
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col w-full">
+                        <div className="grid grid-cols-2 gap-2">
+                          <div
+                            className={`p-2 rounded text-center cursor-pointer ${
+                              selectedProfile === "Cloud Engineer"
+                                ? "bg-white border border-[#72C83E] text-black"
+                                : "bg-[#F3F4F5] text-gray-900 border border-[#F3F4F5]"
+                            }`}
+                            onClick={() => setUserProfile("Cloud Engineer")}
+                          >
+                            Cloud Engineer
+                          </div>
+                          <div
+                            className={`p-2 rounded text-center cursor-pointer ${
+                              selectedProfile === "Devops"
+                                ? "bg-white border border-[#72C83E] text-black"
+                                : "bg-[#F3F4F5] text-gray-900 border border-[#F3F4F5]"
+                            }`}
+                            onClick={() => setUserProfile("Devops")}
+                          >
+                            Devops
+                          </div>
+                          <div
+                            className={`p-2 rounded text-center cursor-pointer ${
+                              selectedProfile === "Data Scientist"
+                                ? "bg-white border border-[#72C83E] text-black"
+                                : "bg-[#F3F4F5] text-gray-900 border border-[#F3F4F5]"
+                            }`}
+                            onClick={() => setUserProfile("Data Scientist")}
+                          >
+                            Data Scientist
+                          </div>
+                          <div
+                            className={`p-2 rounded text-center cursor-pointer ${
+                              selectedProfile === "Product Management"
+                                ? "bg-white border border-[#72C83E] text-black"
+                                : "bg-[#F3F4F5] text-gray-900 border border-[#F3F4F5]"
+                            }`}
+                            onClick={() => setUserProfile("Product Management")}
+                          >
+                            Product Management
+                          </div>
+                          <div
+                            className={`p-2 rounded text-center cursor-pointer ${
+                              selectedProfile === "SRE"
+                                ? "bg-white border border-[#72C83E] text-black"
+                                : "bg-[#F3F4F5] text-gray-900 border border-[#F3F4F5]"
+                            }`}
+                            onClick={() => setUserProfile("SRE")}
+                          >
+                            SRE
+                          </div>
+                          <div
+                            className={`p-2 rounded text-center cursor-pointer ${
+                              selectedProfile === "Others"
+                                ? "bg-white border border-[#72C83E] text-black"
+                                : "bg-[#F3F4F5] text-gray-900 border border-[#F3F4F5]"
+                            }`}
+                            onClick={() => setUserProfile("Others")}
+                          >
+                            Others
+                          </div>
+                        </div>
+                      </div>
+
+                     
+                    </form>
+                    
+                  </div>
+                  <div className="h-auto">
+                    <Button type="submit" onClick={handleSubmit} className={`w-full`}>
                       Register
                     </Button>
-                  </form>
                     <div className="flex items-center gap-2 text-black w-full text-xm justify-center my-5 pt-3">
                       <span>Already have an account?</span>
                       <Link href="/signIn">
-                   
-                          <p className="text-[#72C83E] ">Login</p>
-                          
+                        <p
+                          className="text-[#72C83E] "
+                          onClick={() => {
+                            setOpen(false);
+                          }}
+                        >
+                          Login
+                        </p>
                       </Link>
                     </div>
-                </div>
+                  </div>
+                </section>
               </div>
             </Transition.Child>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../UI/Button";
 
-export default function Experience() {
+export default function Experience({setOpen}) {
   return (
     <div className="px-5 sm:px-16 mt-12 sm:mt-24">
       <div className="w-full px-5 sm:px-16 h-[340px] sm:h-[200px] relative">
@@ -20,7 +20,7 @@ export default function Experience() {
                 Scale your computational capabilities like never before
               </p>
             </div>
-            <Button>
+            <Button onClick={()=>{setOpen(true)}}>
               <p className="sm:flex hidden">Register</p>
               <p className="flex sm:hidden">Try Krutrim</p>
               <img src="./a1.svg" />
