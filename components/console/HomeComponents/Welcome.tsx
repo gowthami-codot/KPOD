@@ -55,11 +55,12 @@ const Welcome = () => {
               </div>
               <div className="flex ">
                 {" "}
-                <div className="bg-[#181E22] px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
+                <div className="bg-[#181E22] cursor-pointer hover:scale-105 duration-200 px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
                   Request for GPU Instance
                 </div>
               </div>
             </div>
+            
             <div className="bg-[#F3F7F9] lg:w-[40%] w-full  border-[2px] rounded-[8px] border-[#181E220F] lg:mr-4 lg:mb-0 mb-4">
               <div className="flex mt-4 ml-6 ">
                 {" "}
@@ -76,10 +77,10 @@ const Welcome = () => {
               <div className="text-[#181E22] ml-6 mt-4 text-[32px] font-bold">
                 Get API Access
               </div>
-              <div className="text-[#0000005C] ml-6 mt-2 mb-4 text-[12px] font-medium">
+              <div className="text-[#0000005C]  ml-6 mt-2 mb-4 text-[12px] font-medium">
                 Integrate Inference API into your application or business app
               </div>
-              <div className="flex ">
+              <div className="flex cursor-pointer hover:scale-105 duration-200 ">
                 {" "}
                 <div className="text-[#181E22] bg-white font-semibold px-10 py-3 mb-5 lg:ml-6 mx-3 mt-6 rounded-[8px]">
                   Request for Inference Service
