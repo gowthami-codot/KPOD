@@ -3,8 +3,8 @@ import { Button } from "../UI/Button";
 
 export default function Experience({setOpen}) {
   return (
-    <div className="px-5 sm:px-16 mt-12 sm:mt-24">
-      <div className="w-full px-5 sm:px-16 h-[340px] sm:h-[200px] relative">
+    <div className="px-5 sm:px-16 my-12 sm:my-24 ">
+      <div className="w-full px-5 sm:px-16 h-[440px] sm:h-[200px] relative">
         <img
           className="absolute top-0 left-0 w-full h-full object-cover rounded-lg"
           src="./main-landing.jpeg"
