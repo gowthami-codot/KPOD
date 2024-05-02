@@ -249,7 +249,7 @@ const SignUp = ({ open, setOpen }) => {
                           />
                         </div>
                       </div>
-
+<div><p className=" text-[#798E9E]">What do you do? Choose one or more</p></div>
                       <div className="flex flex-col w-full">
                         <div className="grid grid-cols-2 gap-2">
                           <div
