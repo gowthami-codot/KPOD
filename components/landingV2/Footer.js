@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         </div>
         <Link href={"/"}>
-            <div className="flex flex-col gap-5 items-start justify-start">
+            <div className="flex flex-col gap-5 items-start justify-start sm:hidden ">
               <Image
                 src={"/logo-black.png"}
                 alt="logo"
