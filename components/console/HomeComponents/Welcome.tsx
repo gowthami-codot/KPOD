@@ -42,7 +42,7 @@ const Welcome = () => {
           </div>
 
           <div className="flex ml-4 flex-col lg:flex-row justify-start mt-10 mx-7 items-start">
-            <div className="bg-[#F3F7F9] lg:w-[40%] w-full  border-[2px] rounded-[8px] border-[#181E220F] lg:mr-4 lg:mb-0 mb-4">
+            <div className="bg-[#F3F7F9] lg:w-[40%] w-full h-[80%]  border-[2px] rounded-[8px] border-[#181E220F] lg:mr-4 lg:mb-0 mb-4">
               <div className="flex mt-4 ml-6 ">
                 {" "}
                 <div className="p-6 rounded-full bg-[#DEE8EC]">
@@ -58,11 +58,11 @@ const Welcome = () => {
               <div className="text-[#181E22] ml-6 mt-4 text-[32px] font-bold">
                 Get GPU Instance
               </div>
-              <div className="text-[#0000005C] ml-6 mt-2 text-[12px] font-medium">
+              <div className="text-[#0000005C] pr-16 pl-6 text-[12px] font-medium">
                 Managed AI cloud services for full lifecycle of Generative AI
-                needs from training to inferencing supported by platforms.
+                needs from training to inferencing supported by platforms.<br/>
               </div>
-              <div className="flex px-1  "onClick={handleGPUClick}>
+              <div className="flex px-1 pt-4 "onClick={handleGPUClick}>
                 {" "}
                 <div className="bg-[#181E22] cursor-pointer hover:scale-105 duration-200 px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
                   Request for GPU Instance
@@ -73,7 +73,7 @@ const Welcome = () => {
               </div>
             </div>
             
-            <div className="bg-[#F3F7F9] lg:w-[40%] w-full  border-[2px] rounded-[8px] border-[#181E220F] lg:mr-4 lg:mb-0 mb-4">
+            <div className="bg-[#F3F7F9] lg:w-[40%] h-[80%] w-full  border-[2px] rounded-[8px] border-[#181E220F] lg:mr-4 lg:mb-0 mb-4">
               <div className="flex mt-4 ml-6 ">
                 {" "}
                 <div className="p-6 rounded-full bg-[#DEE8EC]">
@@ -89,12 +89,12 @@ const Welcome = () => {
               <div className="text-[#181E22] ml-6 mt-4 text-[32px] font-bold">
                 Get API Access
               </div>
-              <div className="text-[#0000005C]  ml-6 mt-2 mb-4 text-[12px] font-medium">
-                Integrate Inference API into your application or business app
+              <div className="text-[#0000005C]  pr-20 pl-6  text-[12px] font-medium">
+                Integrate Inference API into your application or business app.<br/>&nbsp;<br/>
               </div>
               <div className="flex cursor-pointer hover:scale-105 duration-200 ">
                 {" "}
-                <div className="text-[#181E22] bg-white font-semibold px-10 py-3 mb-5 lg:ml-6 mx-3 mt-6 rounded-[8px]" >
+                <div className="text-[#181E22]  bg-white font-semibold px-10 py-3 mb-5 lg:ml-6 mx-3 mt-6 rounded-[8px]" >
                   Request for Inference Service
                 </div>
               </div>

@@ -277,7 +277,7 @@ const Compare = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-0 md:mb-0 mb-[40rem] mx-5 md:mx-0 ">
+        <div className="flex flex-col md:flex-row gap-0 mx-5 md:mx-0 ">
           {" "}
           <div
             className="md:mb-[26rem] md:w-[55%] w-full md:h-[35vh] h-[20vh] md:ml-7 mt-7 z-50 p-10 rounded-[14px] text-black bg-[#F3F4F5] mr-2 overflow-y-auto"
@@ -316,7 +316,7 @@ const Compare = () => {
             generosity, and perceptions of corruption and trust in institutions
           </div>
           <div
-            className="md:mb-[26rem] mb-[12rem] z-10 text-black bg-[#F3F4F5] md:w-[55%] w-full md:h-[35vh] h-[25vh] md:ml-7 mt-7 p-10 rounded-[14px]  overflow-y-auto mr-6"
+            className="md:mb-[26rem] mb-[12rem] z text-black bg-[#F3F4F5] md:w-[55%] w-full h-[35vh] md:ml-7 mt-7 p-10 rounded-[14px]  overflow-y-auto mr-6"
             
           >
             According to the 2022 Global Happiness Report, the top 3 happiest
@@ -352,7 +352,7 @@ const Compare = () => {
             generosity, and perceptions of corruption and trust in institutions
           </div>
         </div>
-        <div className="flex fixed md:mb-0  w-[90%] mx-auto p-2  justify-end top-0 bottom-0 items-end gap-0 md:z-0 z-10 "> 
+        <div className="flex fixed w-[90%] mx-auto p-2  justify-end top-0 bottom-0 items-end gap-0 md:z-0 z-10 "> 
        <div className=" w-full bg-[#F3F4F5]  bottom-0 mx-auto mb-1 p-3 flex flex-grow justify-center items-center rounded-[8px] z-50">
   <div className="flex justify-between w-full items-end gap-3">
     <div className="w-full">

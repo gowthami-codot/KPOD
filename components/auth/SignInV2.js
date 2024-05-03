@@ -93,7 +93,7 @@ const SignIn = () => {
         </div>
       </div>
       <div className="sm:w-[550px] w-[100vw] h-full bg-white px-8 py-12 flex flex-col items-start justify-start gap-5 sm:mt-0 mt-12">
-        <p className="text-lightPrimary font-semibold text-[24px]">Login</p>
+        <p className="text-lightPrimary  font-semibold text-[24px]">Login</p>
         <p className="text-lightSecondary text-sm">Enter your registered email ID and password</p>
         <div className="w-full">
           <Input
@@ -124,7 +124,7 @@ const SignIn = () => {
             onClick={() => {
               handleSubmit();
             }}
-            className={`w-full flex items-center justify-center px-4 py-2 h-[56px] bg-black text-white`}
+            className={`w-full flex items-center justify-center px-4 py-2 h-[56px] border-black border-2 rounded-[4px] bg-[#F3F4F5] text-black`}
           >
             Login
           </button>
