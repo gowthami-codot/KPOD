@@ -53,10 +53,13 @@ const Welcome = () => {
                 Managed AI cloud services for full lifecycle of Generative AI
                 needs from training to inferencing supported by platforms.
               </div>
-              <div className="flex ">
+              <div className="flex px-1 ">
                 {" "}
-                <div className="bg-[#181E22] cursor-pointer hover:scale-105 duration-200 px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
+                {/* <div className="bg-[#181E22] cursor-pointer hover:scale-105 duration-200 px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
                   Request for GPU Instance
+                </div> */}
+                <div className="bg-[#72C83E1A] text-[#72C83E] text-[14px] font-bold cursor-pointer hover:scale-105 duration-200 px-3 py-3 mb-5 ml-6 mt-6 border-[1px] border-[#72C83E] rounded-[8px]">
+                GPU VM Access: Pending Admin Approval
                 </div>
               </div>
             </div>
