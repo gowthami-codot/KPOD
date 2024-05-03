@@ -116,6 +116,8 @@ const SignIn = () => {
             className=" focus:outline-none focus-visible:outline-none w-full  bg-[#F3F4F5]"
             autocomplete="off"
           />
+          <Link href={"/forgetPassword"} className="hover:underline hover:font-semibold"><p className="text-right mt-5">Forgot Password?</p></Link>
+          
         </div>
         <div className="w-full">
           <button
