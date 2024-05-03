@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CreateScrecet from "@/components/console/InferenceServices/CreateScrecet";
+import Image from "next/image";
 
 const CreateApi = ({ onClose }) => {
   const [screcetKeyPopup, SetscrecetKeyPopup] = useState(false);
@@ -13,47 +14,52 @@ const CreateApi = ({ onClose }) => {
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-[#3d3939] bg-opacity-50">
-        <div className="bg-[#0F1D2E] shadow-md   text-[#000000] h-[74%]  w-[60%]  rounded-[30px]">
-          <div className="text-[20px] text-white px-16 py-14 ">
-            Create new secret key
+        <div className="bg-[#FFFFFF] shadow-md   text-[#000000] h-fit  w-[36%]   rounded-[8px] p-5 ">
+          <div className="text-[20px] text-[#181E22]  flex justify-between ">
+            <h2 className=" font-bold"> Create new secret key </h2>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="#000"
+              viewBox="0 0 16 16"
+              className="cursor-pointer"
+              onClick={onClose}
+            >
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg>
           </div>
 
-          <div className="mt-6 px-16">
-            <div className="text-[16px] text-white">Name</div>
+          <div className="mt-3">
             <div>
-              {" "}
               <input
+                value={createApi}
                 onChange={inputkey}
-                placeholder="My Test Key"
-                className="mt-3 text-white border-[#80FFF7] rounded-[14px] border-[1px] px-10 focus:outline-none focus-visible:outline-none w-full bg-transparent p-2 md:p-4"
+                placeholder="Enter Name"
+                className="mt-3 text-black  rounded-[4px]  px-10 focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-2 md:p-4"
               />
             </div>
           </div>
 
-          <div className="mt-20 justify-end items-end pr-20 flex space-x-4">
+          <div className="mt-10 justify-end items-end  flex space-x-4">
             <div
-              className="text-white text-[16px] bg-[#B0B0B033] px-5 py-3 rounded-[10px] cursor-pointer"
+              className="text-[#181E22] font-bold text-[16px] bg-[#B0B0B033] px-5 py-3 rounded-[4px] cursor-pointer"
               onClick={onClose}
             >
               Cancel
             </div>
             <div
-              className="text-[16px] bg-[#80FFF7] px-5 py-3 font-bold rounded-[14px] cursor-pointer"
+              className="text-[16px] bg-black text-white px-5 py-3 font-bold rounded-[4px] cursor-pointer"
               onClick={handleShowHiText}
             >
               Create secret key
             </div>
           </div>
-          {screcetKeyPopup && (
-            <CreateScrecet
-              onClose={onClose}
-             
-              
-            />
-          )}
+          {screcetKeyPopup && <CreateScrecet onClose={onClose} />}
         </div>
       </div>
     </>
   );
 };
+
 export default CreateApi;

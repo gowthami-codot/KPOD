@@ -66,7 +66,7 @@ export default function SideBar() {
 
     return (
         <React.Fragment>
-            <div className="flex flex-col w-[80px] bg-[#F3F7F9] h-full py-10 px-5 shadow-inner justify-between items-center">
+            <div className="flex flex-col w-[80px] bg-[#F3F7F9] h-full py-10 px-5 shadow-inner justify-between items-center fixed z-[9999]">
                 <div className="flex flex-col h-[218px] w-full min-h-[218px] gap-6">
                     <div className="-mt-5 mb-6">
                         <Image
@@ -79,9 +79,9 @@ export default function SideBar() {
                     </div>
                     {topItems.map((item, index) => (
                         <div
-                            className="flex h-12 w-10 items-center justify-center hover:bg-[#DEE8EC] p-2 rounded-lg cursor-pointer "
+                            className="flex h-12 w-10 items-center justify-center hover:bg-[#DEE8EC] p-2 rounded-lg cursor-pointer"
                             key={index}
-                            onClick={openDrawer}
+                            onMouseEnter={openDrawer}
                         >
                             <Image
                                 src={item.src}
@@ -97,7 +97,7 @@ export default function SideBar() {
                         <div
                             className="flex h-12 w-10 items-center justify-center hover:bg-[#DEE8EC] p-2 rounded-lg cursor-pointer "
                             key={index}
-                            onClick={openDrawer}
+                            onMouseEnter={openDrawer}
                         >
                             <Image
                                 src={item.src}
@@ -112,9 +112,33 @@ export default function SideBar() {
 
             <Drawer
                 open={open}
-                className="bg-[#F3F7F9] w-[230px] h-full flex flex-col "
+                className="bg-[#F3F7F9] w-[230px] h-full flex flex-col z-[9999]"
                 onClose={closeDrawer}
                 onFocus={closeDrawer}
+                onMouseLeave={closeDrawer}
+                transition={{
+                    type: "tween",
+                    duration: 0.5,
+                }}
+                style={{
+                    base: {
+                        drawer: {
+                            position: "fixed",
+                            zIndex: 9999,
+                        },
+                        overlay: {
+                            position: "absolute",
+                            inset: "inset-0",
+                            width: "w-full",
+                            height: "h-full",
+                            pointerEvents: "pointer-events-auto",
+                            zIndex: "z-[9995]",
+                            backgroundColor: "bg-black",
+                            backgroundOpacity: "bg-opacity-60",
+                            backdropBlur: "backdrop-blur-sm",
+                        },
+                    },
+                }}
             >
                 <div className="w-fit h-fit mt-6 ml-5">
                     <Image
