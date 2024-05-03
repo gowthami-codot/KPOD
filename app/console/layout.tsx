@@ -11,7 +11,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex bg-white">
       <div
         className={`w-[80px] h-[100vh] bg-white text-darkPrimary ${
-          showSidebar ? "flex" : "hidden"
+          showSidebar ? "flex md:hidden" : "hidden md:flex"
         }`}
       >
         <SideBar />
