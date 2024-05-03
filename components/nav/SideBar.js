@@ -48,13 +48,13 @@ export default function SideBar() {
                 },
             ],
         },
-        {
-            name: "Admin Settings",
-            link: "/console/home",
-            src: "/Krutrim-vector.svg",
-            height: 20,
-            width: 20,
-        },
+        // {
+        //     name: "Admin Settings",
+        //     link: "/console/home",
+        //     src: "/Krutrim-vector.svg",
+        //     height: 20,
+        //     width: 20,
+        // },
     ];
 
     const lowerItems = [
@@ -65,20 +65,20 @@ export default function SideBar() {
             height: 20,
             width: 20,
         },
-        {
-            name: "Notification",
-            link: "/console/home",
-            src: "/bell.svg",
-            height: 18,
-            width: 18,
-        },
-        {
-            name: "Profile",
-            link: "/console/home",
-            src: "/profile.svg",
-            height: 18,
-            width: 18,
-        },
+        // {
+        //     name: "Notification",
+        //     link: "/console/home",
+        //     src: "/bell.svg",
+        //     height: 18,
+        //     width: 18,
+        // },
+        // {
+        //     name: "Profile",
+        //     link: "/console/home",
+        //     src: "/profile.svg",
+        //     height: 18,
+        //     width: 18,
+        // },
     ];
 
     return (

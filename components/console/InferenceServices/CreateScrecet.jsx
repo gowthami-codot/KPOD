@@ -24,7 +24,7 @@ const CreateScrecet = ({ onClose }) => {
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-[#3d3939] bg-opacity-50">
-        <div className="bg-[#FFFFFF] shadow-md   text-[#000000] h-fit  w-[36%]   rounded-[8px] p-5 ">
+        <div className="bg-[#FFFFFF] shadow-md   text-[#000000] h-fit  md:w-[36%] w-full md:mx-0 mx-5   rounded-[8px] p-5 ">
           <div className="text-[20px] text-[#181E22]  flex justify-between ">
             <h2 className=" font-bold"> Save your key </h2>
 

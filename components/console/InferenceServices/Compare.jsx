@@ -48,13 +48,13 @@ const Compare = () => {
   };
 
   return (
-    <div className="flex md:mb-0 mb-[80px] lg:flex-col bg-[#FFFFFF] w-ful h-full min-h-screen px-5 relative md:ml-0 ml-[80px]">
+    <div className="flex md:mb-0 mb-[80px] lg:flex-col bg-[#FFFFFF] w-ful h-full min-h-screen px-5 relative md:ml-0 ">
       <div className="w-full h-[150%] bg-[#FFFFFF]   ">
         <div className="flex  md:flex-row flex-col justify-between items-center mb-3 ">
-          <div className="lg:text-[26px] md:text-[19px] lg:mt-10 font-bold mt-10 px-10 mb-5 text-[#181E22] ">
+          <div className="lg:text-[26px] text-[20px]  lg:mt-10 font-bold mt-10 px-10 mb-5 text-[#181E22] ">
             Compare
           </div>
-          <div className="bg-[#F3F4F5]  flex space-x-3 justify-center my-auto items-center   text-[#687986]  md:mt-7 py-3 px-4 rounded-[4px] border border-white m-7">
+          <div className="bg-[#F3F4F5]  flex space-x-3 justify-center my-auto items-center   text-[#687986]  md:mt-7 md:py-3 md:px-4 py-2 px-2 rounded-[4px] border border-white m-7">
             <svg
               width="17"
               height="16"
@@ -114,7 +114,7 @@ const Compare = () => {
                   <div></div>
                 </div>
                 <div className="flex gap-1">
-                  <div className="bg-[#FFFFFF] rounded-[4px] p-2">
+                  {/* <div className="bg-[#FFFFFF] rounded-[4px] p-2">
                     <svg
                       width="21"
                       height="20"
@@ -137,7 +137,7 @@ const Compare = () => {
                         fill="#687986"
                       />
                     </svg>
-                  </div>
+                  </div> */}
                   <div className="bg-[#FFFFFF] rounded-[4px] p-2">
                     <svg
                       width="21"
@@ -209,7 +209,7 @@ const Compare = () => {
                   <div></div>
                 </div>
                 <div className="flex gap-1">
-                  <div className="bg-[#FFFFFF] rounded-[4px] p-2">
+                  {/* <div className="bg-[#FFFFFF] rounded-[4px] p-2">
                     <svg
                       width="21"
                       height="20"
@@ -232,7 +232,7 @@ const Compare = () => {
                         fill="#687986"
                       />
                     </svg>
-                  </div>
+                  </div> */}
                   <div className="bg-[#FFFFFF] rounded-[4px] p-2">
                     <svg
                       width="21"
@@ -278,7 +278,7 @@ const Compare = () => {
           </div>
         </div>
 
-        <div className="flex p-2 mt-52  justify-end top-0 bottom-0 items-end gap-0 "> 
+        <div className="flex fixed w-[90%] mx-auto p-2 mt-52  justify-end top-0 bottom-0 items-end gap-0 "> 
        <div className=" w-full bg-[#F3F4F5]  bottom-0 mx-auto mb-1 p-3 flex flex-grow justify-center items-center rounded-[8px] z-50">
   <div className="flex justify-between w-full items-end gap-3">
     <div className="w-full">

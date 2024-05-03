@@ -14,7 +14,7 @@ const CreateApi = ({ onClose }) => {
   return (
     <>
       <div className="fixed inset-0 flex items-center justify-center bg-[#3d3939] bg-opacity-50">
-        <div className="bg-[#FFFFFF] shadow-md   text-[#000000] h-fit  w-[36%]   rounded-[8px] p-5 ">
+        <div className="bg-[#FFFFFF] shadow-md   text-[#000000] h-fit  md:w-[36%] w-full md:mx-0 mx-5   rounded-[8px] p-5 ">
           <div className="text-[20px] text-[#181E22]  flex justify-between ">
             <h2 className=" font-bold"> Create new secret key </h2>
             <svg
@@ -43,13 +43,13 @@ const CreateApi = ({ onClose }) => {
 
           <div className="mt-10 justify-end items-end  flex space-x-4">
             <div
-              className="text-[#181E22] font-bold text-[16px] bg-[#B0B0B033] px-5 py-3 rounded-[4px] cursor-pointer"
+              className="text-[#181E22] font-bold md:text-[16px] text-[12px] bg-[#B0B0B033] px-5 py-3 rounded-[4px] cursor-pointer"
               onClick={onClose}
             >
               Cancel
             </div>
             <div
-              className="text-[16px] bg-black text-white px-5 py-3 font-bold rounded-[4px] cursor-pointer"
+              className="md:text-[16px] text-[12px] bg-black text-white px-5 py-3 font-bold rounded-[4px] cursor-pointer"
               onClick={handleShowHiText}
             >
               Create secret key

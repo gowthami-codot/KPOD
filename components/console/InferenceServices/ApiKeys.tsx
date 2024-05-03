@@ -21,8 +21,8 @@ const ApiKeys = () => {
           API Keys Management
         </div>
 
-        <div className="flex flex-col items-center mx-auto my-40 justify-center">
-          <div className=" flex justify-center bg-[#F3F4F5] w-[500px] h-[280px] px-[40px] mx-auto">
+        <div className="flex flex-col items-center w-full mx-auto my-40 justify-center">
+          <div className=" flex justify-center bg-[#F3F4F5] md:w-[500px] w-full h-[280px] px-[40px] mx-auto">
             <div className="flex flex-col justify-center items-center mt-[20px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
