@@ -3,11 +3,20 @@ import { get } from "http";
 import VMConfigModal from "./VMConfigModal";
 import { useEffect, useState } from "react";
 import { useUser } from "../../../app/context/UserContext";
+import RequestGPU from "../../../components/console/HomeComponents/RequestGPU";
 import Image from "next/image";
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
   const { setUserDetails, userDetails } = useUser();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleGPUClick = () => {
+    setIsPopupOpen(true);
+  };
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
 
   const closeModal = (requestSuccess: boolean) => {
     setShowModal(false);
@@ -53,14 +62,14 @@ const Welcome = () => {
                 Managed AI cloud services for full lifecycle of Generative AI
                 needs from training to inferencing supported by platforms.
               </div>
-              <div className="flex px-1 ">
+              <div className="flex px-1  "onClick={handleGPUClick}>
                 {" "}
-                {/* <div className="bg-[#181E22] cursor-pointer hover:scale-105 duration-200 px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
+                <div className="bg-[#181E22] cursor-pointer hover:scale-105 duration-200 px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
                   Request for GPU Instance
-                </div> */}
-                <div className="bg-[#72C83E1A] text-[#72C83E] text-[14px] font-bold cursor-pointer hover:scale-105 duration-200 px-3 py-3 mb-5 ml-6 mt-6 border-[1px] border-[#72C83E] rounded-[8px]">
-                GPU VM Access: Pending Admin Approval
                 </div>
+                {/* <div className="bg-[#72C83E1A] text-[#72C83E] text-[14px] font-bold cursor-pointer hover:scale-105 duration-200 px-3 py-3 mb-5 ml-6 mt-6 border-[1px] border-[#72C83E] rounded-[8px]">
+                GPU VM Access: Pending Admin Approval
+                </div> */}
               </div>
             </div>
             
@@ -85,12 +94,13 @@ const Welcome = () => {
               </div>
               <div className="flex cursor-pointer hover:scale-105 duration-200 ">
                 {" "}
-                <div className="text-[#181E22] bg-white font-semibold px-10 py-3 mb-5 lg:ml-6 mx-3 mt-6 rounded-[8px]">
+                <div className="text-[#181E22] bg-white font-semibold px-10 py-3 mb-5 lg:ml-6 mx-3 mt-6 rounded-[8px]" >
                   Request for Inference Service
                 </div>
               </div>
             </div>
           </div>
+          {isPopupOpen && <RequestGPU onClose={handleClosePopup} />}
         </>
       ) : (
         <VMConfigModal isOpen={showModal} onClose={closeModal} />
