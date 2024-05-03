@@ -6,7 +6,6 @@ const page = () => {
 
   return (
    <div className="bg-white min-h-screen flex justify-center items-center">
-     
       <div
         className="flex flex-col  bg-[#F3F4F5] items-center justify-center py-6 md:py-10 mx-auto  
 md:w-[78%] w-full border-[2px] border-[#F3F4F5]  rounded-[8px] px-20 md:px-10 gap-6"
