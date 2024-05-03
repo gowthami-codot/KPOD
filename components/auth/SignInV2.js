@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { sha256 } from "js-sha256";
 import { useRouter } from "next/navigation";
@@ -29,9 +29,9 @@ const SignIn = () => {
     }
   };
 
-  const handleSubmit = async () => {
-    // e.preventDefault();
+  const isButtonDisabled = !email || !password;
 
+  const handleSubmit = async () => {
     if (!email || !password) {
       toast.error("Please fill out all fields.");
       return;
@@ -89,12 +89,17 @@ const SignIn = () => {
         />
         <div className="sm:flex hidden flex-col gap-5   relative z-10">
           <p className="text-[56px] font-semibold px-16 pt-16">Krutrim Cloud</p>
-           <p className="lg:text-[12px]  md:text-[13px] px-16 -mt-5 pr-10   text-darkSecondary font-semibold">Scale your computational capabilities and experience the GPU services like never before</p> 
+          <p className="lg:text-[12px]  md:text-[13px] px-16 -mt-5 pr-10   text-darkSecondary font-semibold">
+            Scale your computational capabilities and experience the GPU
+            services like never before
+          </p>
         </div>
       </div>
       <div className="sm:w-[550px] w-[100vw] h-full bg-white px-8 py-12 flex flex-col items-start justify-start gap-5 sm:mt-0 mt-12">
-        <p className="text-lightPrimary  font-semibold text-[24px]">Login</p>
-        <p className="text-lightSecondary text-sm">Enter your registered email ID and password</p>
+        <p className="text-lightPrimary font-semibold text-[24px]">Login</p>
+        <p className="text-lightSecondary text-sm">
+          Enter your registered email ID and password
+        </p>
         <div className="w-full">
           <Input
             type="email"
@@ -116,22 +121,26 @@ const SignIn = () => {
             className=" focus:outline-none focus-visible:outline-none w-full  bg-[#F3F4F5]"
             autocomplete="off"
           />
-          <Link href={"/forgetPassword"} className="hover:underline hover:font-semibold"><p className="text-right mt-5">Forgot Password?</p></Link>
-          
+          <Link
+            href={"/forgetPassword"}
+            className="hover:underline duration-300"
+          >
+            <p className="text-right mt-5">Forgot Password?</p>
+          </Link>
         </div>
         <div className="w-full">
           <button
             onClick={() => {
               handleSubmit();
             }}
-            className={`w-full flex items-center justify-center px-4 py-2 h-[56px] border-black border-2 rounded-[4px] bg-[#F3F4F5] text-black`}
+            className={`w-full flex items-center justify-center px-4 py-2 h-[56px] text-white
+            ${isButtonDisabled ? "bg-gray-400" : "bg-black"}`}
           >
             Login
           </button>
         </div>
         <div className="flex gap-2 w-full items-center justify-center ">
           <p className="text-[#798E9E]">New to Krutrim Cloud?</p>
-          {/* <Link href={"/signUp"} className="cursor-pointer hover:underline duration-300 underline-[#C4CACF]"> */}
           <p
             className="text-[#72C83E]"
             onClick={() => {
