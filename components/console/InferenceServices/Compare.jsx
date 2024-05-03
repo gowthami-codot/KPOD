@@ -48,211 +48,250 @@ const Compare = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen px-5 relative">
-      <div className="w-full h-[150%] bg-[#0F1B2B]  rounded-[16px]">
+    <div className="flex  lg:flex-col bg-[#FFFFFF] min-h-screen px-5 relative">
+      <div className="w-full h-[150%] bg-[#FFFFFF]  ">
         <div className="flex justify-between items-center mb-3 ">
-          <div className="text-[26px]  font-bold mt-7 px-10 mb-5 text-[#8BFFDD] ">
+          <div className="lg:text-[26px] md:text-[19px] lg:mt-10 font-bold mt-10 px-10 mb-5 text-[#181E22] ">
             Compare
           </div>
-          <div className="bg-[#ffffff30] mt-7 py-2 px-8 rounded-[13px] border border-white m-7">
-            Clear
+          <div className="bg-[#F3F4F5]  flex space-x-3 justify-center my-auto items-center   text-[#687986]  mt-7 py-3 px-4 rounded-[4px] border border-white m-7">
+            <svg
+              width="17"
+              height="16"
+              viewBox="0 0 17 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="font-bold"
+            >
+              <path
+                d="M12.3877 2.58112L11.2011 1.40112L4.60774 8.00112L11.2077 14.6011L12.3877 13.4211L6.96774 8.00112L12.3877 2.58112Z"
+                fill="#687986"
+              />
+            </svg>{" "}
+            <div className="font-medium cursor-pointer">Clear</div>
+            <svg
+              width="17"
+              height="16"
+              viewBox="0 0 17 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="font-bold"
+            >
+              <path
+                d="M5.04097 2.58112L6.22764 1.40112L12.821 8.00112L6.22097 14.6011L5.04097 13.4211L10.461 8.00112L5.04097 2.58112Z"
+                fill="#687986"
+              />
+            </svg>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex lg:flex-row flex-col lg:space-y-0 space-y-5">
           {" "}
-          <div
-            className="md:w-[60%] lg:w-[60%] flex flex-col justify-between border-t-[1px] border-t-[#80FFF7] border-b-[1px] border-b-[#80FFF7] ml-8  p-5 border-r-[#80FFF7] border-r-[1px] rounded-l-[16px] border-l-[#80FFF7] border-l-[1px] z-0"
-            style={{ maxHeight: "400px", overflowY: "auto" }}
-          >
-            <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
+          <div className="lg:w-[60%] w-full  flex flex-col  bg-[#F3F4F5] justify-between    mr-3  px-2 py-2 border-[#F3F4F5]  rounded-[8px] z-1">
+            <div className="w-full   flex flex-col ">
               <div className="flex justify-between items-center p-2 ">
-                <div>
-                  <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
-                    <option className="text-black">Mistral</option>
-                    <option className="text-black">LAMA 3</option>
-                    <option className="text-black">Claude</option>
-                  </select>
-                </div>
-                <div className="flex gap-2">
-                  <div>
+                <div className="flex justify-center space-x-10 items-center">
+                  <div className="custom-select  ">
+                    <select className="bg-[#FFFFFF]  font-semibold  text-[#000000] rounded-[4px] px-5">
+                      <option className="text-black py-2">Mistral</option>
+                      <option className="text-black">LAMA 3</option>
+                      <option className="text-black">Claude</option>
+                    </select>
                     <svg
+                      className="select-arrow"
+                      width="13"
+                      height="12"
+                      viewBox="0 0 13 12"
+                      fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      onClick={togglePopup1}
-                      className="cursor-pointer hover:rotate-180 duration-500"
                     >
-                      <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                      <path
+                        d="M1.71436 3.5L6.71436 8.5L11.7144 3.5H1.71436Z"
+                        fill="#687986"
+                      />
+                    </svg>
+                  </div>
+
+                  <div></div>
+                </div>
+                <div className="flex gap-1">
+                  <div className="bg-[#FFFFFF] rounded-[4px] p-2">
+                    <svg
+                      width="21"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      
+                    >
+                      <path
+                        d="M11.9644 4.58325C11.9644 5.27361 11.4047 5.83325 10.7144 5.83325C10.024 5.83325 9.46436 5.27361 9.46436 4.58325C9.46436 3.8929 10.024 3.33325 10.7144 3.33325C11.4047 3.33325 11.9644 3.8929 11.9644 4.58325Z"
+                        fill="#687986"
+                      />
+                      <path
+                        d="M11.9644 15.4166C11.9644 16.1069 11.4047 16.6666 10.7144 16.6666C10.024 16.6666 9.46436 16.1069 9.46436 15.4166C9.46436 14.7262 10.024 14.1666 10.7144 14.1666C11.4047 14.1666 11.9644 14.7262 11.9644 15.4166Z"
+                        fill="#687986"
+                      />
+                      <path
+                        d="M11.9644 9.99992C11.9644 10.6903 11.4047 11.2499 10.7144 11.2499C10.024 11.2499 9.46436 10.6903 9.46436 9.99992C9.46436 9.30956 10.024 8.74992 10.7144 8.74992C11.4047 8.74992 11.9644 9.30956 11.9644 9.99992Z"
+                        fill="#687986"
+                      />
+                    </svg>
+                  </div>
+                  <div className="bg-[#FFFFFF] rounded-[4px] p-2">
+                    <svg
+                      width="21"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                     
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="cursor-pointer  "
+                    >
+                      <path
+                        d="M8.46436 4.75L6.02686 4.1875L4.90186 5.3125L5.46436 7.75L3.21436 9.25V10.75L5.46436 12.25L4.90186 14.6875L6.02686 15.8125L8.46436 15.25L9.96436 17.5H11.4644L12.9644 15.25L15.4019 15.8125L16.5269 14.6875L15.9644 12.25L18.2144 10.75V9.25L15.9644 7.75L16.5269 5.3125L15.4019 4.1875L12.9644 4.75L11.4644 2.5H9.96436L8.46436 4.75Z"
+                        stroke="#687986"
+                        strokeWidth="1.66667"
+                      />
+                      <path
+                        d="M13.2144 10C13.2144 11.3807 12.0951 12.5 10.7144 12.5C9.33364 12.5 8.21436 11.3807 8.21436 10C8.21436 8.61929 9.33364 7.5 10.7144 7.5C12.0951 7.5 13.2144 8.61929 13.2144 10Z"
+                        stroke="#687986"
+                        strokeWidth="1.66667"
+                      />
                     </svg>
                   </div>
                 </div>
               </div>
-              {/* <div className="bg-[#162231] p-5 mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
-                <div className="flex justify-between w-full">
-                  <div className="text-xs">SYSTEM</div>
-                  <div className="text-xs text-gray-500">0/4000</div>
+              <div className="bg-[#FFFFFF]  py-3 px-5 mx-2 mb-2 flex flex-col gap-2 mt-6 rounded-[8px] ">
+                <div className="flex justify-between w-full border-b-[1px] pb-3 border-b-[#F3F4F5]">
+                  <div className="text-xs text-[#000000] pt-1 font-medium">
+                    System
+                  </div>
+                  <div className="text-xs text-gray-500 pt-1 text-[14px] font-medium">
+                    0/4000
+                  </div>
                 </div>
                 <input
                   value={sysInp1}
                   onChange={(e) => setSysInp1(e.target.value)}
                   placeholder="Enter system instructions"
-                  className="w-full bg-transparent resize-none focus:outline-none focus-visible:outline-none"
+                  className="w-full bg-transparent resize-none input-with-small-placeholder focus:outline-none focus-visible:outline-none"
                 />
-              </div> */}
+              </div>
             </div>
           </div>
-          <div
-            className="w-[60%] flex flex-col justify-between border-b-[#80FFF7] border-t-[#80FFF7] border-t-[1px] border-b-[1px]  mr-9  p-5 border-r-[#80FFF7] border-r-[1px] rounded-r-[16px] z-1"
-            style={{ overflowY: "auto" }}
-          >
-            <div className="w-full  border-[#80FFF7] flex flex-col pr-3">
-              <div className="flex justify-between items-center p-2">
-                <div>
-                  <select className="bg-white bg-opacity-15 rounded-lg px-4 py-3 ">
-                    <option className="text-black">Mistral</option>
-                    <option className="text-black">LAMA 3</option>
-                    <option className="text-black">Claude</option>
-                  </select>
-                </div>
-                <div className="flex gap-2">
-                  {/* <div>
+          <div className="lg:w-[60%] w-full flex flex-col bg-[#F3F4F5] justify-between    mr-3  px-2 py-2 border-[#F3F4F5]  rounded-[8px] z-1">
+            <div className="w-full   flex flex-col ">
+              <div className="flex justify-between items-center p-2 ">
+                <div className="flex justify-center space-x-10 items-center">
+                  <div className="custom-select  ">
+                    <select className="bg-[#FFFFFF]  font-semibold  text-[#000000] rounded-[4px] px-5">
+                      <option className="text-black py-2">Mistral</option>
+                      <option className="text-black">LAMA 3</option>
+                      <option className="text-black">Claude</option>
+                    </select>
                     <svg
+                      className="select-arrow"
+                      width="13"
+                      height="12"
+                      viewBox="0 0 13 12"
+                      fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      onClick={toggleInstructionRightPopup}
-                      className="cursor-pointer "
-                      style={{ transform: "rotate(90deg)" }}
                     >
-                      <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+                      <path
+                        d="M1.71436 3.5L6.71436 8.5L11.7144 3.5H1.71436Z"
+                        fill="#687986"
+                      />
                     </svg>
-                  </div> */}
-                  <div>
+                  </div>
+
+                  <div></div>
+                </div>
+                <div className="flex gap-1">
+                  <div className="bg-[#FFFFFF] rounded-[4px] p-2">
                     <svg
+                      width="21"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      onClick={togglePopup2}
-                      className="cursor-pointer hover:rotate-180 duration-500"
+                      
                     >
-                      <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                      <path
+                        d="M11.9644 4.58325C11.9644 5.27361 11.4047 5.83325 10.7144 5.83325C10.024 5.83325 9.46436 5.27361 9.46436 4.58325C9.46436 3.8929 10.024 3.33325 10.7144 3.33325C11.4047 3.33325 11.9644 3.8929 11.9644 4.58325Z"
+                        fill="#687986"
+                      />
+                      <path
+                        d="M11.9644 15.4166C11.9644 16.1069 11.4047 16.6666 10.7144 16.6666C10.024 16.6666 9.46436 16.1069 9.46436 15.4166C9.46436 14.7262 10.024 14.1666 10.7144 14.1666C11.4047 14.1666 11.9644 14.7262 11.9644 15.4166Z"
+                        fill="#687986"
+                      />
+                      <path
+                        d="M11.9644 9.99992C11.9644 10.6903 11.4047 11.2499 10.7144 11.2499C10.024 11.2499 9.46436 10.6903 9.46436 9.99992C9.46436 9.30956 10.024 8.74992 10.7144 8.74992C11.4047 8.74992 11.9644 9.30956 11.9644 9.99992Z"
+                        fill="#687986"
+                      />
+                    </svg>
+                  </div>
+                  <div className="bg-[#FFFFFF] rounded-[4px] p-2">
+                    <svg
+                      width="21"
+                      height="20"
+                      viewBox="0 0 21 20"
+                      fill="none"
+                     
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="cursor-pointer  "
+                    >
+                      <path
+                        d="M8.46436 4.75L6.02686 4.1875L4.90186 5.3125L5.46436 7.75L3.21436 9.25V10.75L5.46436 12.25L4.90186 14.6875L6.02686 15.8125L8.46436 15.25L9.96436 17.5H11.4644L12.9644 15.25L15.4019 15.8125L16.5269 14.6875L15.9644 12.25L18.2144 10.75V9.25L15.9644 7.75L16.5269 5.3125L15.4019 4.1875L12.9644 4.75L11.4644 2.5H9.96436L8.46436 4.75Z"
+                        stroke="#687986"
+                        strokeWidth="1.66667"
+                      />
+                      <path
+                        d="M13.2144 10C13.2144 11.3807 12.0951 12.5 10.7144 12.5C9.33364 12.5 8.21436 11.3807 8.21436 10C8.21436 8.61929 9.33364 7.5 10.7144 7.5C12.0951 7.5 13.2144 8.61929 13.2144 10Z"
+                        stroke="#687986"
+                        strokeWidth="1.66667"
+                      />
                     </svg>
                   </div>
                 </div>
               </div>
-              {/* <div className="bg-[#162231] p-5  mx-4 flex flex-col gap-2 mt-2 rounded-[16px] ">
-                <div className="flex justify-between w-full">
-                  <div className="text-xs">SYSTEM</div>
-                  <div className="text-xs text-gray-500">0/4000</div>
+              <div className="bg-[#FFFFFF]  py-3 px-5 mx-2 mb-2 flex flex-col gap-2 mt-6 rounded-[8px] ">
+                <div className="flex justify-between w-full border-b-[1px] pb-3 border-b-[#F3F4F5]">
+                  <div className="text-xs text-[#000000] pt-1 font-medium">
+                    System
+                  </div>
+                  <div className="text-xs text-gray-500 pt-1 text-[14px] font-medium">
+                    0/4000
+                  </div>
                 </div>
                 <input
                   value={sysInp1}
                   onChange={(e) => setSysInp1(e.target.value)}
                   placeholder="Enter system instructions"
-                  className="w-full bg-transparent resize-none focus:outline-none focus-visible:outline-none"
+                  className="w-full bg-transparent resize-none input-with-small-placeholder focus:outline-none focus-visible:outline-none"
                 />
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex  gap-0 ">
-          {" "}
-          <div
-            className="mb-[26rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-2"
-            style={{ overflowY: "auto" }}
-          >
-            According to the 2022 Global Happiness Report, the top 3 happiest
-            countries in the world are:
-            <br />
-            <br />
-            <span className="font-bold mr-2 text-[17px]"> 1. Finland :</span>
-            Finland has consistently ranked as one of the happiest countries in
-            the world. It has a high level of social support, low levels of
-            corruption, and a high standard of living. <br />
-            <br />{" "}
-            <span className="font-bold mr-2  text-[17px]">
-              2. Denmark :
-            </span>{" "}
-            Denmark is known for its high standard of living, generous social
-            welfare system, and high level of social support. The country also
-            has a strong culture of work-life balance and a high level of trust
-            in institutions.
-            <br />
-            <br />
-            <span className="font-bold mr-2  text-[17px]">
-              {" "}
-              3. Switzerland :
-            </span>{" "}
-            Switzerland is a neutral and stable country with a high standard of
-            living. It has a low level of corruption, a high level of social
-            support, and a strong economy. The country also has a high level of
-            trust in institutions and a strong culture of social cohesion. These
-            countries have a high score on the Gross Domestic Happiness (GDH)
-            index, which measures happiness and well-being across countries. The
-            GDH index takes into account factors such as GDP per capita, social
-            support, healthy life expectancy, freedom to make life choices,
-            generosity, and perceptions of corruption and trust in institutions
-          </div>
-          <div
-            className="mb-[26rem] w-[55%] h-[35vh] ml-7 mt-7 p-10 rounded-[14px] bg-[#ffffff20] mr-6"
-            style={{ overflowY: "auto" }}
-          >
-            According to the 2022 Global Happiness Report, the top 3 happiest
-            countries in the world are:
-            <br />
-            <br />
-            <span className="font-bold mr-2  text-[17px]"> 1. Finland :</span>
-            Finland has consistently ranked as one of the happiest countries in
-            the world. It has a high level of social support, low levels of
-            corruption, and a high standard of living. <br />
-            <br />{" "}
-            <span className="font-bold mr-2  text-[17px]">
-              2. Denmark :
-            </span>{" "}
-            Denmark is known for its high standard of living, generous social
-            welfare system, and high level of social support. The country also
-            has a strong culture of work-life balance and a high level of trust
-            in institutions.
-            <br />
-            <br />
-            <span className="font-bold mr-2  text-[17px]">
-              {" "}
-              3. Switzerland :
-            </span>{" "}
-            Switzerland is a neutral and stable country with a high standard of
-            living. It has a low level of corruption, a high level of social
-            support, and a strong economy. The country also has a high level of
-            trust in institutions and a strong culture of social cohesion. These
-            countries have a high score on the Gross Domestic Happiness (GDH)
-            index, which measures happiness and well-being across countries. The
-            GDH index takes into account factors such as GDP per capita, social
-            support, healthy life expectancy, freedom to make life choices,
-            generosity, and perceptions of corruption and trust in institutions
-          </div>
-        </div>
-        <div className="fixed w-[50%] bg-[#0F1B2B]  ml-[14%]  bottom-0  mx-auto mb-4 border border-[#80FFF7] p-3 flex justify-center items-center rounded-xl z-50">
-          <div className="flex justify-between w-full items-end gap-3">
-            <div className="w-full">
-              <textarea
-                rows={3}
-                value={message}
-                onChange={updateText}
-                placeholder="Enter your message..."
-                className="w-full bg-transparent p-3 resize-none focus:outline-none focus-visible:outline-none"
-              />
-            </div>
-            <div className="bg-[#80FFF740] py-0.5 px-3 border border-[#80FFF7] rounded-md cursor-pointer">
-              Enter
-            </div>
-          </div>
-        </div>
+        <div className="flex p-2 mt-52  justify-end top-0 bottom-0 items-end gap-0 "> 
+       <div className=" w-full bg-[#F3F4F5]  bottom-0 mx-auto mb-1 p-3 flex flex-grow justify-center items-center rounded-[8px] z-50">
+  <div className="flex justify-between w-full items-end gap-3">
+    <div className="w-full">
+      <textarea
+        rows={3}
+        value={message}
+        onChange={updateText}
+        placeholder="Enter system instructions..."
+        className="w-full input-with-small-placeholder bg-transparent p-3 resize-none focus:outline-none text-black focus-visible:outline-none"
+      />
+    </div>
+    <div className=" py-2 px-8 bg-[#00000066] bg-opacity-45 rounded-[4px] cursor-pointer">
+      Enter
+    </div>
+  </div>
+</div>
+</div>
       </div>
       {showPopupLeftside && (
         <Popup1 onClose={() => setShowPopupLeftside(false)} />

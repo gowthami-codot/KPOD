@@ -30,3 +30,45 @@
   font-style: normal;
   font-display: swap;
 }
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #FFFFFF;
+  font-size: 14px;
+  padding: 12px 12px 12px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  padding-right: 50px;
+  padding-left: 10px; /* Adjust the padding to accommodate the arrow */
+  outline: none;
+ 
+  font-size: x-small;/* Remove outline on focus */
+}
+
+.custom-select select:focus {
+  border: none; /* Remove border on focus */
+}
+
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Ensure SVG doesn't interfere with select */
+}
+
+
+
+.input-with-small-placeholder::placeholder {
+  font-size: 0.8em; /* Adjust the font size as needed */
+  opacity: 0.7; /* Adjust the opacity if desired */
+}
+

@@ -2,7 +2,8 @@
 import { get } from "http";
 import VMConfigModal from "./VMConfigModal";
 import { useEffect, useState } from "react";
-import { useUser } from '../../../app/context/UserContext';
+import { useUser } from "../../../app/context/UserContext";
+import Image from "next/image";
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
@@ -11,63 +12,83 @@ const Welcome = () => {
   const closeModal = (requestSuccess: boolean) => {
     setShowModal(false);
 
-    if(requestSuccess) {
+    if (requestSuccess) {
       setUserDetails({ ...userDetails, vm_instance_request: 1 });
     }
   };
 
   return (
-    <div className="flex items-center justify-center mt-40 md:mt-56 w-full">
+    <div className=" bg-[#ffff] min-h-screen    w-full">
       {!showModal ? (
-        <div
-          className="flex flex-col items-center justify-center py-6 md:py-10 
-      w-[75%] border border-[#63e3e3] rounded-3xl px-10 gap-6"
-        >
-          <div className="text-xl md:text-3xl font-bold text-center">
+        <>
+          <div className="text-[20px] text-[#72C83E] px-10 pt-10 ">
+            Hi Tanish ,
+          </div>
+          <div className="flex items-end justify-end">
+            {" "}
+            
+          </div>
+          <div className="text-[#181E22] text-[32px] font-bold px-10 border-b-[1px] border-b-[#181E220F] pb-10">
             Welcome to OLA Krutrim Cloud
           </div>
-          <div className="text-gray-400 text-center">
-            AI Cloud - Managed AI cloud services for full lifecycle of
-            Generative AI needs from training to inferencing supported by
-            platforms
-          </div>
 
-
-          <div className="flex flex-col md:flex-row gap-2 items-center">
-
-
-            {userDetails && userDetails.vm_instance_request === 0 && (
-              <div
-                onClick={() => setShowModal(true)}
-                className="text-center text-xs md:text-lg bg-[#80FFF7] text-black px-10 py-3 rounded-full cursor-pointer
-        hover:scale-105 duration-300"
-              >
-                Request for free GPU Instance
+          <div className="flex ml-4 flex-col lg:flex-row justify-start mt-10 mx-7 items-start">
+            <div className="bg-[#F3F7F9] lg:w-[40%] w-full  border-[2px] rounded-[8px] border-[#181E220F] lg:mr-4 lg:mb-0 mb-4">
+              <div className="flex mt-4 ml-6 ">
+                {" "}
+                <div className="p-6 rounded-full bg-[#DEE8EC]">
+                  <Image
+                    src={require("../../../public/gpu_home.png")}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="bg-transparent"
+                  />
+                </div>
               </div>
-            )}
-
-            {userDetails && userDetails.vm_instance_request === 1 && (
-              <div className="text-center">
-                Request Pending For GPU Instance
+              <div className="text-[#181E22] ml-6 mt-4 text-[32px] font-bold">
+                Get GPU Instance
               </div>
-            )}
-
-            {userDetails && userDetails.vm_instance_request === 2 && (
-              <div className="text-center">
-                GPU Instance IP & Port<br/>{userDetails.ip}:{userDetails.port}
+              <div className="text-[#0000005C] ml-6 mt-2 text-[12px] font-medium">
+                Managed AI cloud services for full lifecycle of Generative AI
+                needs from training to inferencing supported by platforms.
               </div>
-            )}
-
-
-            <div
-              className="text-center text-xs md:text-lg border-2 border-[#80FFF7] text-white px-10 py-3 rounded-full cursor-pointer
-        hover:scale-105 duration-300"
-            >
-              Request for Inference as Service
+              <div className="flex ">
+                {" "}
+                <div className="bg-[#181E22] cursor-pointer hover:scale-105 duration-200 px-10 py-3 mb-5 ml-6 mt-6 rounded-[8px]">
+                  Request for GPU Instance
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-[#F3F7F9] lg:w-[40%] w-full  border-[2px] rounded-[8px] border-[#181E220F] lg:mr-4 lg:mb-0 mb-4">
+              <div className="flex mt-4 ml-6 ">
+                {" "}
+                <div className="p-6 rounded-full bg-[#DEE8EC]">
+                  <Image
+                    src={require("../../../public/gpu_home.png")}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className="bg-transparent"
+                  />
+                </div>
+              </div>
+              <div className="text-[#181E22] ml-6 mt-4 text-[32px] font-bold">
+                Get API Access
+              </div>
+              <div className="text-[#0000005C]  ml-6 mt-2 mb-4 text-[12px] font-medium">
+                Integrate Inference API into your application or business app
+              </div>
+              <div className="flex cursor-pointer hover:scale-105 duration-200 ">
+                {" "}
+                <div className="text-[#181E22] bg-white font-semibold px-10 py-3 mb-5 lg:ml-6 mx-3 mt-6 rounded-[8px]">
+                  Request for Inference Service
+                </div>
+              </div>
             </div>
           </div>
-
-        </div>
+        </>
       ) : (
         <VMConfigModal isOpen={showModal} onClose={closeModal} />
       )}

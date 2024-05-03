@@ -14,7 +14,7 @@ const PageContent = () => {
  const section = searchParams.get("section");
 
  const [activeTab, setActiveTab] = useState("");
- console.log(activeTab);
+ 
  const project =
     typeof window !== "undefined" ? localStorage.getItem("done") : false;
 
