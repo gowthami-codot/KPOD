@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { toast } from "sonner";
 
 const CreateScrecet = ({ onClose }) => {
   const [screcetKey, setScreteKey] = useState("");
+  
 
   const inputRef = useRef(null);
 
