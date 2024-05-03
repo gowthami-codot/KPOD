@@ -1,7 +1,9 @@
 const page = () => {
   return (
-    <div className="container mx-auto px-4 py-8 pt-20 md:pt-40">
-      <h1 className="text-4xl font-bold mb-8 text-center">SSH Key Generation Guide</h1>
+    <div className="mx-auto px-4 md:px-10 lg:px-20 py-8 pt-20 md:pt-40 bg-white text-black">
+      <h1 className="text-4xl font-bold mb-8 text-center">
+        SSH Key Generation Guide
+      </h1>
 
       <section>
         <h2 className="text-2xl font-semibold mb-4">
@@ -13,9 +15,9 @@ const page = () => {
             Windows:
             <ul className="list-disc pl-8">
               <li>
-                If you don&apos;t have a terminal program, download and install Git
-                Bash or a similar option. Please search online for instructions
-                on installation specific to your chosen program.
+                If you don&apos;t have a terminal program, download and install
+                Git Bash or a similar option. Please search online for
+                instructions on installation specific to your chosen program.
               </li>
               <li>
                 Once installed, launch the terminal program (e.g., Git Bash).
@@ -33,16 +35,18 @@ const page = () => {
           </li>
         </ul>
         <p className="mb-4">Run the ssh-keygen command:</p>
-        <pre className="bg-gray-100 text-black p-2 rounded w-fit my-3">ssh-keygen</pre>
+        <pre className="bg-gray-100 text-black p-2 rounded w-fit my-3">
+          ssh-keygen
+        </pre>
         <p className="mb-4">
           You might be prompted to specify a location to save the keys. Press
           Enter to accept the default location (usually ~/.ssh/).
         </p>
         <p className="mb-4">Enter a passphrase (optional):</p>
         <p className="mb-4">
-          You&apos;ll be prompted to enter a passphrase (like a password) to protect
-          your private key. This is optional, but highly recommended for added
-          security. Enter a strong passphrase and type it again for
+          You&apos;ll be prompted to enter a passphrase (like a password) to
+          protect your private key. This is optional, but highly recommended for
+          added security. Enter a strong passphrase and type it again for
           confirmation.
         </p>
         <p className="mb-4">
@@ -57,8 +61,8 @@ const page = () => {
         </h2>
         <p className="mb-4">
           Once the key pair is generated, you need to find the public key. This
-          is the part you&apos;ll share with us to allow SSH access to our servers.
-          Here&apos;s how to locate it:
+          is the part you&apos;ll share with us to allow SSH access to our
+          servers. Here&apos;s how to locate it:
         </p>
         <ul className="list-disc pl-8 mb-4">
           <li>

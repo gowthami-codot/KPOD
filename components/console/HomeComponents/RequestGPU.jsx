@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CreateScrecet from "@/components/console/InferenceServices/CreateScrecet";
 import Image from "next/image";
+import Link from "next/link";
 
 const RequestGPU = ({ onClose }) => {
   
@@ -36,7 +37,7 @@ const RequestGPU = ({ onClose }) => {
                 placeholder="Public SSH Key"
                 className="mt-3 text-black  rounded-[4px]  md:px-10 focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-2 md:p-4"
               />
-              <div className="text-[12px] text-[#72C83E] mt-2">How to generate private SSH Key</div>
+              <Link href={"/ssh-keygen"} className="text-[12px] text-[#72C83E] mt-2">How to generate private SSH Key</Link>
             </div>
           </div>
 
