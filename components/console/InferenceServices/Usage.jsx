@@ -78,18 +78,18 @@ const Usage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white p-10 gap-8 ">
       <div className="w-full min-h-10 flex  md:flex-row justify-between items-center">
-        <p className="text-[32px] text-[#181E22] font-medium leading-6">
+        <p className="text-[32px] md:mt-0 -mt-32 text-[#181E22] font-medium leading-6">
           Usage
         </p>
-        <div className="flex gap-3 h-full">
+        <div className="flex md:flex-row flex-col md:mt-0 mt-6 gap-3 h-full">
           {/*  */}
           <div className="flex w-[119px] h-[46px] justify-center items-center px-4 bg-[#F3F4F5] rounded-md">
-            <select className="bg-[#F3F4F5] w-full text-[#687986] text-[14px] focus:ring-0">
+            <select className="bg-[#F3F4F5] w-full text-[#687986] text-[14px]  focus:ring-0">
               <option>Models</option>
             </select>
           </div>
           {/*  */}
-          <div className="flex  w-[119px] h-[46px] justify-between items-center px-2 bg-[#F3F4F5] rounded-md">
+          <div className="flex space-x-5  w-[119px] h-[46px] justify-between items-center px-2 bg-[#F3F4F5] rounded-md">
             <span
               className="cursor-pointer bg-[#F3F4F5] w-full text-[#687986] text-[20px]"
               onClick={prevMonth}
@@ -109,11 +109,11 @@ const Usage = () => {
             </span>
           </div>
           {/*  */}
-          <div className="flex w-[119px] h-[46px] justify-center items-center px-2 bg-black rounded-md">
+          {/* <div className="flex w-[119px] h-[46px] justify-center items-center px-2 bg-black rounded-md">
             <p className="cursor-pointer text-center text-[#FFFFFF] w-full text-[16px]">
               Export
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-4 ">
