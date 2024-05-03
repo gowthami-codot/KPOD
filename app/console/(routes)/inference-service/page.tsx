@@ -25,10 +25,7 @@ const PageContent = () => {
 
  return (
     <div className="h-full flex flex-col">
-      <div className="hidden mt-24 mb-4 md:flex md:flex-col md:fixed md:inset-y-0 rounded">
-        <SidebarExtend />
-      </div>
-      <main className="md:pl-24">
+      <main>
         {activeTab === "" && <Compare />}
         {activeTab === 'compare' && <Compare />}
        
@@ -36,8 +33,6 @@ const PageContent = () => {
         {activeTab === 'api-keys' && (
           project ? <ProjectApi /> : <ApiKeys />
         )}
-        
-       
       </main>
     </div>
  );
