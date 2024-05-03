@@ -51,7 +51,7 @@ const Compare = () => {
     <div className="flex  lg:flex-col bg-[#FFFFFF] min-h-screen px-5 relative">
       <div className="w-full h-[150%] bg-[#FFFFFF]  ">
         <div className="flex justify-between items-center mb-3 ">
-          <div className="lg:text-[26px] md:text-[19px] lg:mt-10    font-bold mt-10 px-10 mb-5 text-[#181E22] ">
+          <div className="lg:text-[26px] md:text-[19px] lg:mt-10 font-bold mt-10 px-10 mb-5 text-[#181E22] ">
             Compare
           </div>
           <div className="bg-[#F3F4F5]  flex space-x-3 justify-center my-auto items-center   text-[#687986]  mt-7 py-3 px-4 rounded-[4px] border border-white m-7">
@@ -68,7 +68,7 @@ const Compare = () => {
                 fill="#687986"
               />
             </svg>{" "}
-            <div className="font-medium">Clear</div>
+            <div className="font-medium cursor-pointer">Clear</div>
             <svg
               width="17"
               height="16"
@@ -90,14 +90,14 @@ const Compare = () => {
             <div className="w-full   flex flex-col ">
               <div className="flex justify-between items-center p-2 ">
                 <div className="flex justify-center space-x-10 items-center">
-                  <div class="custom-select  ">
+                  <div className="custom-select  ">
                     <select className="bg-[#FFFFFF]  font-semibold  text-[#000000] rounded-[4px] px-5">
                       <option className="text-black py-2">Mistral</option>
                       <option className="text-black">LAMA 3</option>
                       <option className="text-black">Claude</option>
                     </select>
                     <svg
-                      class="select-arrow"
+                      className="select-arrow"
                       width="13"
                       height="12"
                       viewBox="0 0 13 12"
@@ -150,12 +150,12 @@ const Compare = () => {
                       <path
                         d="M8.46436 4.75L6.02686 4.1875L4.90186 5.3125L5.46436 7.75L3.21436 9.25V10.75L5.46436 12.25L4.90186 14.6875L6.02686 15.8125L8.46436 15.25L9.96436 17.5H11.4644L12.9644 15.25L15.4019 15.8125L16.5269 14.6875L15.9644 12.25L18.2144 10.75V9.25L15.9644 7.75L16.5269 5.3125L15.4019 4.1875L12.9644 4.75L11.4644 2.5H9.96436L8.46436 4.75Z"
                         stroke="#687986"
-                        stroke-width="1.66667"
+                        strokeWidth="1.66667"
                       />
                       <path
                         d="M13.2144 10C13.2144 11.3807 12.0951 12.5 10.7144 12.5C9.33364 12.5 8.21436 11.3807 8.21436 10C8.21436 8.61929 9.33364 7.5 10.7144 7.5C12.0951 7.5 13.2144 8.61929 13.2144 10Z"
                         stroke="#687986"
-                        stroke-width="1.66667"
+                        strokeWidth="1.66667"
                       />
                     </svg>
                   </div>
@@ -183,14 +183,14 @@ const Compare = () => {
             <div className="w-full   flex flex-col ">
               <div className="flex justify-between items-center p-2 ">
                 <div className="flex justify-center space-x-10 items-center">
-                  <div class="custom-select  ">
+                  <div className="custom-select  ">
                     <select className="bg-[#FFFFFF]  font-semibold  text-[#000000] rounded-[4px] px-5">
                       <option className="text-black py-2">Mistral</option>
                       <option className="text-black">LAMA 3</option>
                       <option className="text-black">Claude</option>
                     </select>
                     <svg
-                      class="select-arrow"
+                      className="select-arrow"
                       width="13"
                       height="12"
                       viewBox="0 0 13 12"
@@ -243,12 +243,12 @@ const Compare = () => {
                       <path
                         d="M8.46436 4.75L6.02686 4.1875L4.90186 5.3125L5.46436 7.75L3.21436 9.25V10.75L5.46436 12.25L4.90186 14.6875L6.02686 15.8125L8.46436 15.25L9.96436 17.5H11.4644L12.9644 15.25L15.4019 15.8125L16.5269 14.6875L15.9644 12.25L18.2144 10.75V9.25L15.9644 7.75L16.5269 5.3125L15.4019 4.1875L12.9644 4.75L11.4644 2.5H9.96436L8.46436 4.75Z"
                         stroke="#687986"
-                        stroke-width="1.66667"
+                        strokeWidth="1.66667"
                       />
                       <path
                         d="M13.2144 10C13.2144 11.3807 12.0951 12.5 10.7144 12.5C9.33364 12.5 8.21436 11.3807 8.21436 10C8.21436 8.61929 9.33364 7.5 10.7144 7.5C12.0951 7.5 13.2144 8.61929 13.2144 10Z"
                         stroke="#687986"
-                        stroke-width="1.66667"
+                        strokeWidth="1.66667"
                       />
                     </svg>
                   </div>
