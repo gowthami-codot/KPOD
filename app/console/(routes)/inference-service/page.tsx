@@ -18,10 +18,10 @@ const PageContent = () => {
  const project =
     typeof window !== "undefined" ? localStorage.getItem("done") : false;
 
- useEffect(() => {
-    setActiveTab(section || "");
+//  useEffect(() => {
+//     setActiveTab(section || "");
   
- }, [project,section]);
+//  }, [project,section]);
 
  return (
     <div className="h-full flex flex-col">
