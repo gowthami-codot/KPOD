@@ -8,9 +8,10 @@ import { Input } from "@/components/UI/CustomInput";
 const ForgotPassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-const [confirmType, setConfirmType] = useState("password");
+  const [confirmType, setConfirmType] = useState("password");
   const [type, setType] = useState("password");
   
+  const isButtonEnabled = !password || !confirmPassword;
 
   const handleToggle = () => {
     if (type === "password") {
@@ -62,9 +63,9 @@ const [confirmType, setConfirmType] = useState("password");
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your New password"
-            className=" focus:outline-none  w-full bg-[#F3F4F5]"
-           
+            className="focus:outline-none  w-full bg-[#F3F4F5]"
             autocomplete="off"
+            label="New Password"
           />
         </div>
         <div className="w-full">
@@ -73,16 +74,16 @@ const [confirmType, setConfirmType] = useState("password");
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Confirm your password"
-          
-            className=" focus:outline-none focus-visible:outline-none w-full  bg-[#F3F4F5]"
+            className=" focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5]"
             autocomplete="off"
+            label="Confirm Password"
           />
        
         </div>
         <div className="w-full ">
           <button type="submit"
-           
-            className={`w-full flex items-center justify-center px-4 py-2 h-[56px] border-black border-2 rounded-[4px] bg-[#F3F4F5] text-black`}
+            className={`w-full flex items-center justify-center px-4 py-2 h-[56px] rounded-[4px] text-white
+            ${isButtonEnabled ? "bg-gray-400" : "bg-black"}`}
           >
             Submit
           </button>
