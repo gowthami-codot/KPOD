@@ -7,9 +7,16 @@ const CreateScrecet = ({ onClose }) => {
   const inputRef = useRef(null);
 
   const copyToClipboard = () => {
-    const input = inputRef.current;
-    input.select();
-    document.execCommand("copy");
+    if (inputRef.current) {
+      navigator.clipboard.writeText(inputRef.current.value).then(
+        function () {
+          toast.success("Copying to clipboard was successful!");
+        },
+        function (err) {
+          toast.error("Could not copy text: ", err);
+        }
+      );
+    }
   };
 
   const handleChangekey = (e) => {
