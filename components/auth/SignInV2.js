@@ -89,7 +89,7 @@ const SignIn = () => {
         />
         <div className="sm:flex hidden flex-col gap-5 p-16 relative z-10">
           <p className="text-[56px] font-semibold">Ola Krutrim Cloud</p>
-          {/* <p className="text-lg">Some description here</p> */}
+           <p className="lg:text-[17px] md:text-[13px]  text-darkSecondary font-semibold">Scale your computational capabilities and experience the GPU services like never before</p> 
         </div>
       </div>
       <div className="sm:w-[550px] w-[100vw] h-full bg-white px-8 py-12 flex flex-col items-start justify-start gap-5 sm:mt-0 mt-12">
