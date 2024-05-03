@@ -87,9 +87,9 @@ const SignIn = () => {
           alt="Login Page"
           className="w-full h-full absolute top-0 left-0 object-cover"
         />
-        <div className="sm:flex hidden flex-col gap-5 p-16 relative z-10">
-          <p className="text-[56px] font-semibold">Ola Krutrim Cloud</p>
-           <p className="lg:text-[17px] md:text-[13px]  text-darkSecondary font-semibold">Scale your computational capabilities and experience the GPU services like never before</p> 
+        <div className="sm:flex hidden flex-col gap-5   relative z-10">
+          <p className="text-[56px] font-semibold px-16 pt-16">Krutrim Cloud</p>
+           <p className="lg:text-[12px]  md:text-[13px] px-16 -mt-5 pr-10   text-darkSecondary font-semibold">Scale your computational capabilities and experience the GPU services like never before</p> 
         </div>
       </div>
       <div className="sm:w-[550px] w-[100vw] h-full bg-white px-8 py-12 flex flex-col items-start justify-start gap-5 sm:mt-0 mt-12">
