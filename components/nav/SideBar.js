@@ -66,7 +66,7 @@ export default function SideBar() {
 
     return (
         <React.Fragment>
-            <div className="flex flex-col w-[80px] bg-[#F3F7F9] h-full py-10 px-5 shadow-inner justify-between items-center fixed">
+            <div className="flex flex-col w-[80px] bg-[#F3F7F9] h-full py-10 px-5 shadow-inner justify-between items-center fixed z-[9999]">
                 <div className="flex flex-col h-[218px] w-full min-h-[218px] gap-6">
                     <div className="-mt-5 mb-6">
                         <Image
@@ -112,7 +112,7 @@ export default function SideBar() {
 
             <Drawer
                 open={open}
-                className="bg-[#F3F7F9] w-[230px] h-full flex flex-col"
+                className="bg-[#F3F7F9] w-[230px] h-full flex flex-col z-[9999]"
                 onClose={closeDrawer}
                 onFocus={closeDrawer}
                 onMouseLeave={closeDrawer}
@@ -124,7 +124,7 @@ export default function SideBar() {
                     base: {
                         drawer: {
                             position: "fixed",
-                            boxShadow: "shadow-xl shadow-blue-gray-1000/10",
+                            boxShadow: "shadow-xl shadow-blue-gray-900/10",
                         },
                     },
                 }}
