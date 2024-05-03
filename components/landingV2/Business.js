@@ -4,28 +4,28 @@ export default function Business() {
   const Business = [
     {
       title: "Silicon for AI",
-      text: "In house development and manufacturing of chips optimised for AI compute",
+      text: "Leverage in-house, AI-optimised chips for unparalleled performance.",
       image: "./chip.png",
     },
     {
       title: "Generative AI Platform",
-      text: "APIs to build apps, hosted inferencing capability in the Krutrim cloud",
+      text: "Access a curated repository of AI models hosted on scalable compute resources.",
       image: "./analysis.png",
     },
     {
       title: "Foundational Models for Everyone",
-      text: "For enterprises, researchers, and developers to build Generative AI applications",
+      text: "Build next-generation AI applications trained on a dataset of over 2 trillion tokens, with a strong focus on Indic languages and reflecting the Indian ethos.",
       image: "./krutrim.png",
     },
     {
       title: "AI Cloud",
-      text: "Managed access to model repository and AI compute at scale",
+      text: "High-performance GPUs that simplify complex computational tasks.",
       image: "./cloud.png",
     },
   ];
   return (
     <div className="w-full px-5 sm:px-16 py-6 sm:py-12 bg-[#F3F7F9]">
-      <p className="text-[22px] sm:text-[54px] py-8">Krutrim for Business</p>
+      <p className="text-[22px] sm:text-[54px] py-8">Why choose Krutrim</p>
 
       <div className="w-full flex-col sm:flex-row flex items-center justify-center gap-5 sm:min-h-[296px]">
         {Business.slice(0, 2)?.map((feature, index) => (

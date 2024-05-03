@@ -17,7 +17,7 @@ export default function Experience({setOpen}) {
                 Experience the future of AI
               </p>
               <p className="text-lg text-darkSecondary">
-                Scale your computational capabilities like never before
+              Scale computational capabilities and experience GPU services like never before
               </p>
             </div>
             <Button onClick={()=>{setOpen(true)}}>

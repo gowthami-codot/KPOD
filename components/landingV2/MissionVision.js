@@ -4,11 +4,11 @@ export default function MissionVision() {
   const MissionVision = [
     {
       title: "Mission",
-      text: "Our mission is to democratize access to advanced GPU technology, empowering users across industries to accelerate their projects, enhance productivity, and drive innovation.",
+      text: "To democratise access to advanced GPU technology, empowering users across industries to accelerate their projects, enhance productivity, and drive innovation.",
     },
     {
       title: "Vision",
-      text: "Our vision is to enable each of the 1.4B+ Indian consumers, developers, entrepreneurs and enterprises by putting the power of AI in their hands.",
+      text: "To enable each of the 1.4B+ Indian consumers, developers, entrepreneurs and enterprises by putting the power of AI in their hands.",
     },
   ];
   return (

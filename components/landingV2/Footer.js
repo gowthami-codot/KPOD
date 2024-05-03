@@ -19,9 +19,9 @@ const Footer = () => {
           <Link href={"/"}>
             <div className="flex-col gap-5 items-start justify-start hidden sm:flex">
               <Image
-                src={"/logo-black.png"}
+                src={"/K1.png"}
                 alt="logo"
-                width="200"
+                width="150"
                 height="40"
                 className="object-cover"
               />
