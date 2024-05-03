@@ -277,8 +277,82 @@ const Compare = () => {
             </div>
           </div>
         </div>
-
-        <div className="flex fixed w-[90%] mx-auto p-2 mt-52  justify-end top-0 bottom-0 items-end gap-0 "> 
+        <div className="flex flex-col md:flex-row gap-0 md:mb-0 mb-[40rem] mx-5 md:mx-0 ">
+          {" "}
+          <div
+            className="md:mb-[26rem] md:w-[55%] w-full md:h-[35vh] h-[20vh] md:ml-7 mt-7 z-50 p-10 rounded-[14px] text-black bg-[#F3F4F5] mr-2 overflow-y-auto"
+            
+          >
+            According to the 2022 Global Happiness Report, the top 3 happiest
+            countries in the world are:
+            <br />
+            <br />
+            <span className="font-bold mr-2 text-[17px]"> 1. Finland :</span>
+            Finland has consistently ranked as one of the happiest countries in
+            the world. It has a high level of social support, low levels of
+            corruption, and a high standard of living. <br />
+            <br />{" "}
+            <span className="font-bold mr-2  text-[17px]">
+              2. Denmark :
+            </span>{" "}
+            Denmark is known for its high standard of living, generous social
+            welfare system, and high level of social support. The country also
+            has a strong culture of work-life balance and a high level of trust
+            in institutions.
+            <br />
+            <br />
+            <span className="font-bold mr-2  text-[17px]">
+              {" "}
+              3. Switzerland :
+            </span>{" "}
+            Switzerland is a neutral and stable country with a high standard of
+            living. It has a low level of corruption, a high level of social
+            support, and a strong economy. The country also has a high level of
+            trust in institutions and a strong culture of social cohesion. These
+            countries have a high score on the Gross Domestic Happiness (GDH)
+            index, which measures happiness and well-being across countries. The
+            GDH index takes into account factors such as GDP per capita, social
+            support, healthy life expectancy, freedom to make life choices,
+            generosity, and perceptions of corruption and trust in institutions
+          </div>
+          <div
+            className="md:mb-[26rem] mb-[12rem] z-10 text-black bg-[#F3F4F5] md:w-[55%] w-full md:h-[35vh] h-[25vh] md:ml-7 mt-7 p-10 rounded-[14px]  overflow-y-auto mr-6"
+            
+          >
+            According to the 2022 Global Happiness Report, the top 3 happiest
+            countries in the world are:
+            <br />
+            <br />
+            <span className="font-bold mr-2  text-[17px]"> 1. Finland :</span>
+            Finland has consistently ranked as one of the happiest countries in
+            the world. It has a high level of social support, low levels of
+            corruption, and a high standard of living. <br />
+            <br />{" "}
+            <span className="font-bold mr-2  text-[17px]">
+              2. Denmark :
+            </span>{" "}
+            Denmark is known for its high standard of living, generous social
+            welfare system, and high level of social support. The country also
+            has a strong culture of work-life balance and a high level of trust
+            in institutions.
+            <br />
+            <br />
+            <span className="font-bold mr-2  text-[17px]">
+              {" "}
+              3. Switzerland :
+            </span>{" "}
+            Switzerland is a neutral and stable country with a high standard of
+            living. It has a low level of corruption, a high level of social
+            support, and a strong economy. The country also has a high level of
+            trust in institutions and a strong culture of social cohesion. These
+            countries have a high score on the Gross Domestic Happiness (GDH)
+            index, which measures happiness and well-being across countries. The
+            GDH index takes into account factors such as GDP per capita, social
+            support, healthy life expectancy, freedom to make life choices,
+            generosity, and perceptions of corruption and trust in institutions
+          </div>
+        </div>
+        <div className="flex fixed md:mb-0  w-[90%] mx-auto p-2  justify-end top-0 bottom-0 items-end gap-0 md:z-0 z-10 "> 
        <div className=" w-full bg-[#F3F4F5]  bottom-0 mx-auto mb-1 p-3 flex flex-grow justify-center items-center rounded-[8px] z-50">
   <div className="flex justify-between w-full items-end gap-3">
     <div className="w-full">
@@ -361,7 +435,7 @@ const Popup1 = ({ onClose }) =>
     setpresence(value);
   };
   return (
-    <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50 z-50 ">
+    <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50  ">
       <div
         ref={popupRef}
         className="absolute p-10 rounded-[20px] md:mt-[12rem] mt-[10rem] md:ml-[10vw] ml-[2vh] shadow-lg bg-[#F3F4F5] w-[90%] md:w-1/3"
