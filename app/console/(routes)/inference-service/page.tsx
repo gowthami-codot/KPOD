@@ -5,9 +5,7 @@ import { useEffect, useState, Suspense } from "react";
 
 import Compare from "@/components/console/InferenceServices/Compare";
 import Usage from "@/components/console/InferenceServices/Usage";
-import SidebarExtend from "@/components/console/InferenceServices/SidebarExtend";
 import ApiKeys from "@/components/console/InferenceServices/ApiKeys";
-import ProjectApi from "@/components/console/InferenceServices/ProjectApi";
 
 const PageContent = () => {
  const searchParams = useSearchParams();
@@ -20,7 +18,6 @@ const PageContent = () => {
 
  useEffect(() => {
     setActiveTab(section || "");
-  
  }, [project,section]);
 
  return (
@@ -30,9 +27,7 @@ const PageContent = () => {
         {activeTab === 'compare' && <Compare />}
        
         {activeTab === 'usage' && <Usage />}
-        {activeTab === 'api-keys' && (
-          project ? <ProjectApi /> : <ApiKeys />
-        )}
+        {activeTab === 'api-keys' && <ApiKeys />}
       </main>
     </div>
  );

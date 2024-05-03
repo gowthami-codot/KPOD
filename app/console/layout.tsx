@@ -7,7 +7,7 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   useProtectedRoute();
 
   return (
-    <div className="flex">
+    <div className="flex bg-white">
     <div className="w-[80px] h-[100vh] bg-white text-darkPrimary">
       <SideBar />
     </div>
