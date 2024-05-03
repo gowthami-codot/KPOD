@@ -86,7 +86,7 @@ const Compare = () => {
         </div>
         <div className="flex lg:flex-row flex-col lg:space-y-0 space-y-5">
           {" "}
-          <div className="lg:w-[60%] w-full  flex flex-col  bg-[#F3F4F5] justify-between    mr-3  px-2 py-2 border-[#F3F4F5]  rounded-[8px] z-1">
+          <div className="lg:w-[60%] w-full  flex flex-col  bg-[#F3F4F5] justify-between    mr-3  px-2 py-2 border-[#F3F4F5]  rounded-[8px] ">
             <div className="w-full   flex flex-col ">
               <div className="flex justify-between items-center p-2 ">
                 <div className="flex justify-center space-x-10 items-center">
@@ -144,7 +144,6 @@ const Compare = () => {
                       height="20"
                       viewBox="0 0 21 20"
                       fill="none"
-                     
                       xmlns="http://www.w3.org/2000/svg"
                       className="cursor-pointer  "
                       onClick={togglePopup1}
@@ -181,7 +180,7 @@ const Compare = () => {
               </div> */}
             </div>
           </div>
-          <div className="lg:w-[60%] w-full flex flex-col bg-[#F3F4F5] justify-between    mr-3  px-2 py-2 border-[#F3F4F5]  rounded-[8px] z-1">
+          <div className="lg:w-[60%] w-full flex flex-col bg-[#F3F4F5] justify-between    mr-3  px-2 py-2 border-[#F3F4F5]  rounded-[8px]">
             <div className="w-full   flex flex-col ">
               <div className="flex justify-between items-center p-2 ">
                 <div className="flex justify-center space-x-10 items-center">
@@ -239,7 +238,6 @@ const Compare = () => {
                       height="20"
                       viewBox="0 0 21 20"
                       fill="none"
-                     
                       xmlns="http://www.w3.org/2000/svg"
                       className="cursor-pointer  "
                       onClick={togglePopup2}
@@ -277,11 +275,11 @@ const Compare = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-0 mx-5 md:mx-0 ">
+        <div className="flex relative md:mb-0 mb-28  md:flex-row flex-col ">
           {" "}
           <div
-            className="md:mb-[26rem] md:w-[55%] w-full md:h-[35vh] h-[20vh] md:ml-7 mt-7 z-50 p-10 rounded-[14px] text-black bg-[#F3F4F5] mr-2 overflow-y-auto"
-            
+            className="w-full md:h-[40vh] h-[25vh] mt-7  text-black p-10 rounded-[14px] bg-[#F3F4F5] mr-2"
+            style={{ overflowY: "auto" }}
           >
             According to the 2022 Global Happiness Report, the top 3 happiest
             countries in the world are:
@@ -316,14 +314,14 @@ const Compare = () => {
             generosity, and perceptions of corruption and trust in institutions
           </div>
           <div
-            className="md:mb-[26rem] mb-[12rem] z text-black bg-[#F3F4F5] md:w-[55%] w-full h-[35vh] md:ml-7 mt-7 p-10 rounded-[14px]  overflow-y-auto mr-6"
-            
+            className="w-full md:h-[40vh] h-[25vh] mt-7 text-black p-10 rounded-[14px] bg-[#F3F4F5] mr-2"
+            style={{ overflowY: "auto" }}
           >
             According to the 2022 Global Happiness Report, the top 3 happiest
             countries in the world are:
             <br />
             <br />
-            <span className="font-bold mr-2  text-[17px]"> 1. Finland :</span>
+            <span className="font-bold mr-2 text-[17px]"> 1. Finland :</span>
             Finland has consistently ranked as one of the happiest countries in
             the world. It has a high level of social support, low levels of
             corruption, and a high standard of living. <br />
@@ -352,24 +350,24 @@ const Compare = () => {
             generosity, and perceptions of corruption and trust in institutions
           </div>
         </div>
-        <div className="flex fixed w-[90%] mx-auto p-2  justify-end top-0 bottom-0 items-end gap-0 md:z-0 z-10 "> 
-       <div className=" w-full bg-[#F3F4F5]  bottom-0 mx-auto mb-1 p-3 flex flex-grow justify-center items-center rounded-[8px] z-50">
-  <div className="flex justify-between w-full items-end gap-3">
-    <div className="w-full">
-      <textarea
-        rows={3}
-        value={message}
-        onChange={updateText}
-        placeholder="Enter system instructions..."
-        className="w-full input-with-small-placeholder bg-transparent p-3 resize-none focus:outline-none text-black focus-visible:outline-none"
-      />
-    </div>
-    <div className=" py-2 px-8 bg-[#00000066] bg-opacity-45 rounded-[4px] cursor-pointer">
-      Enter
-    </div>
-  </div>
-</div>
-</div>
+        <div className="flex fixed w-[90%] mx-auto p-2 md:mt-[30%] mt-[40rem]  justify-end top-0 bottom-0 items-end gap-0 ">
+          <div className=" w-full bg-[#F3F4F5]  bottom-0 mx-auto mb-1 p-3 flex flex-grow justify-center items-center rounded-[8px] z-0">
+            <div className="flex justify-between w-full items-end gap-3">
+              <div className="w-full">
+                <textarea
+                  rows={3}
+                  value={message}
+                  onChange={updateText}
+                  placeholder="Enter system instructions..."
+                  className="w-full input-with-small-placeholder bg-transparent p-3 resize-none focus:outline-none text-black focus-visible:outline-none"
+                />
+              </div>
+              <div className=" py-2 px-8 bg-[#00000066] bg-opacity-45 rounded-[4px] cursor-pointer">
+                Enter
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       {showPopupLeftside && (
         <Popup1 onClose={() => setShowPopupLeftside(false)} />
@@ -390,9 +388,7 @@ const Compare = () => {
 
 export default Compare;
 
-const Popup1 = ({ onClose }) => 
-{
-  
+const Popup1 = ({ onClose }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -435,7 +431,7 @@ const Popup1 = ({ onClose }) =>
     setpresence(value);
   };
   return (
-    <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50  ">
+    <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50 z-0 ">
       <div
         ref={popupRef}
         className="absolute p-10 rounded-[20px] md:mt-[12rem] mt-[10rem] md:ml-[10vw] ml-[2vh] shadow-lg bg-[#F3F4F5] w-[90%] md:w-1/3"
@@ -596,7 +592,7 @@ const Popup2 = ({ onClose }) => {
     setpresence(value);
   };
   return (
-    <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50 z-50">
+    <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50 z-0">
       <div
         ref={popupRef}
         className="absolute p-10  rounded-[20px] top-[6%] md:right-[5%] md:mt-[10rem] mt-[8rem] md:ml-[10vw] ml-[0vh] shadow-lg bg-[#F3F4F5] w-[90%] md:w-1/3"
