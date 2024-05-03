@@ -134,8 +134,8 @@ export default function SideBar() {
                             pointerEvents: "pointer-events-auto",
                             zIndex: "z-[9995]",
                             backgroundColor: "bg-black",
-                            backgroundOpacity: "bg-opacity-50",
-                            backdropBlur: "backdrop-blur",
+                            backgroundOpacity: "bg-opacity-60",
+                            backdropBlur: "backdrop-blur-sm",
                         },
                     },
                 }}
