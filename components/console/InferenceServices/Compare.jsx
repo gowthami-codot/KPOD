@@ -48,13 +48,13 @@ const Compare = () => {
   };
 
   return (
-    <div className="flex  lg:flex-col bg-[#FFFFFF] min-h-screen px-5 relative">
-      <div className="w-full h-[150%] bg-[#FFFFFF]  ">
-        <div className="flex justify-between items-center mb-3 ">
+    <div className="flex md:mb-0 mb-[80px] lg:flex-col bg-[#FFFFFF] w-ful h-full min-h-screen px-5 relative md:ml-0 ml-[80px]">
+      <div className="w-full h-[150%] bg-[#FFFFFF]   ">
+        <div className="flex  md:flex-row flex-col justify-between items-center mb-3 ">
           <div className="lg:text-[26px] md:text-[19px] lg:mt-10 font-bold mt-10 px-10 mb-5 text-[#181E22] ">
             Compare
           </div>
-          <div className="bg-[#F3F4F5]  flex space-x-3 justify-center my-auto items-center   text-[#687986]  mt-7 py-3 px-4 rounded-[4px] border border-white m-7">
+          <div className="bg-[#F3F4F5]  flex space-x-3 justify-center my-auto items-center   text-[#687986]  md:mt-7 py-3 px-4 rounded-[4px] border border-white m-7">
             <svg
               width="17"
               height="16"
@@ -121,6 +121,7 @@ const Compare = () => {
                       viewBox="0 0 21 20"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                     
                       
                     >
                       <path
@@ -146,6 +147,7 @@ const Compare = () => {
                      
                       xmlns="http://www.w3.org/2000/svg"
                       className="cursor-pointer  "
+                      onClick={togglePopup1}
                     >
                       <path
                         d="M8.46436 4.75L6.02686 4.1875L4.90186 5.3125L5.46436 7.75L3.21436 9.25V10.75L5.46436 12.25L4.90186 14.6875L6.02686 15.8125L8.46436 15.25L9.96436 17.5H11.4644L12.9644 15.25L15.4019 15.8125L16.5269 14.6875L15.9644 12.25L18.2144 10.75V9.25L15.9644 7.75L16.5269 5.3125L15.4019 4.1875L12.9644 4.75L11.4644 2.5H9.96436L8.46436 4.75Z"
@@ -215,6 +217,7 @@ const Compare = () => {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                       
+                      
                     >
                       <path
                         d="M11.9644 4.58325C11.9644 5.27361 11.4047 5.83325 10.7144 5.83325C10.024 5.83325 9.46436 5.27361 9.46436 4.58325C9.46436 3.8929 10.024 3.33325 10.7144 3.33325C11.4047 3.33325 11.9644 3.8929 11.9644 4.58325Z"
@@ -239,6 +242,7 @@ const Compare = () => {
                      
                       xmlns="http://www.w3.org/2000/svg"
                       className="cursor-pointer  "
+                      onClick={togglePopup2}
                     >
                       <path
                         d="M8.46436 4.75L6.02686 4.1875L4.90186 5.3125L5.46436 7.75L3.21436 9.25V10.75L5.46436 12.25L4.90186 14.6875L6.02686 15.8125L8.46436 15.25L9.96436 17.5H11.4644L12.9644 15.25L15.4019 15.8125L16.5269 14.6875L15.9644 12.25L18.2144 10.75V9.25L15.9644 7.75L16.5269 5.3125L15.4019 4.1875L12.9644 4.75L11.4644 2.5H9.96436L8.46436 4.75Z"
@@ -312,8 +316,9 @@ const Compare = () => {
 
 export default Compare;
 
-const Popup1 = ({ onClose }) => {
-  const popupRef = useRef(null);
+const Popup1 = ({ onClose }) => 
+{
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -328,6 +333,7 @@ const Popup1 = ({ onClose }) => {
   }, [onClose]);
 
   const [temperature, setTemperature] = useState(3);
+  const popupRef = useRef(null);
 
   const handleTemperatureChange = (value) => {
     setTemperature(value);
@@ -355,14 +361,14 @@ const Popup1 = ({ onClose }) => {
     setpresence(value);
   };
   return (
-    <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50">
+    <div className="absolute inset-0 flex  items-start justify-start bg-[#3d3939] bg-opacity-50 z-50 ">
       <div
         ref={popupRef}
-        className="absolute p-10 rounded-[20px] mt-[12rem] md:ml-[10vw] shadow-lg bg-[#162231] w-full md:w-1/3"
+        className="absolute p-10 rounded-[20px] md:mt-[12rem] mt-[10rem] md:ml-[10vw] ml-[2vh] shadow-lg bg-[#F3F4F5] w-[90%] md:w-1/3"
       >
-        <div className="flex items-center justify-between w-full">
-          <div>Configuration</div>
-          <div className="flex items-center">
+        <div className="flex items-center  justify-between w-full">
+          <div className="text-black">Configuration</div>
+          <div className="flex items-center text-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="36"
@@ -380,9 +386,9 @@ const Popup1 = ({ onClose }) => {
           Changes apply to all the models
         </div>
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Temperature :
-            <span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span>
+            <span className="ml-5 text-black font-bold">{temperature}</span>
           </div>
           <Slider
             size="sm"
@@ -397,9 +403,9 @@ const Popup1 = ({ onClose }) => {
           />
         </div>
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Maximum Tokens :
-            <span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span>{" "}
+            <span className="ml-5 text-[black] font-bold">{tokens}</span>{" "}
           </div>
           <Slider
             size="sm"
@@ -414,15 +420,15 @@ const Popup1 = ({ onClose }) => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <div>Stop sequences</div>
+          <div className="text-black">Stop sequences</div>
           <div className="text-sm text-gray-500">
             Enter sequence and press Tab
           </div>
-          <input className="my-2 p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
+          <input className="my-2 border-[black] border-2 text-[black] p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
         </div>
         <div>
-          <div className="my-1">
-            Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span>
+          <div className="my-1 text-black">
+            Top P :<span className="ml-5 text-[black] font-bold">{top}</span>
           </div>
           <Slider
             size="sm"
@@ -438,9 +444,9 @@ const Popup1 = ({ onClose }) => {
         </div>
 
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Frequence Penalty :
-            <span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span>
+            <span className="ml-5 text-[black] font-bold">{penalty}</span>
           </div>
           <Slider
             size="sm"
@@ -455,9 +461,9 @@ const Popup1 = ({ onClose }) => {
           />
         </div>
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Presence Penalty
-            <span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span>
+            <span className="ml-5 text-[black] font-bold">{presence}</span>
           </div>
           <Slider
             size="sm"
@@ -516,14 +522,14 @@ const Popup2 = ({ onClose }) => {
     setpresence(value);
   };
   return (
-    <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50">
+    <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50 z-50">
       <div
         ref={popupRef}
-        className="absolute p-10  rounded-[20px] top-[10%] md:right-[5%] mt-24 shadow-lg bg-[#162231] w-full md:w-1/3"
+        className="absolute p-10  rounded-[20px] top-[6%] md:right-[5%] md:mt-[10rem] mt-[8rem] md:ml-[10vw] ml-[0vh] shadow-lg bg-[#F3F4F5] w-[90%] md:w-1/3"
       >
-        <div className="flex items-center justify-between w-full ">
-          <div>Configuration</div>
-          <div className="flex items-center">
+        <div className="flex items-center  justify-between w-full">
+          <div className="text-black">Configuration</div>
+          <div className="flex items-center text-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="36"
@@ -541,9 +547,9 @@ const Popup2 = ({ onClose }) => {
           Changes apply to all the models
         </div>
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Temperature :
-            <span className="ml-5 text-[#8BFFDD] font-bold">{temperature}</span>
+            <span className="ml-5 text-black font-bold">{temperature}</span>
           </div>
           <Slider
             size="sm"
@@ -558,9 +564,9 @@ const Popup2 = ({ onClose }) => {
           />
         </div>
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Maximum Tokens :
-            <span className="ml-5 text-[#8BFFDD] font-bold">{tokens}</span>{" "}
+            <span className="ml-5 text-[black] font-bold">{tokens}</span>{" "}
           </div>
           <Slider
             size="sm"
@@ -575,15 +581,15 @@ const Popup2 = ({ onClose }) => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <div>Stop sequences</div>
+          <div className="text-black">Stop sequences</div>
           <div className="text-sm text-gray-500">
             Enter sequence and press Tab
           </div>
-          <input className="my-2 p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
+          <input className="my-2 border-[black] border-2 text-[black] p-1 bg-[#ffffff20] rounded-md focus:outline-none focus-visible:outline-none" />
         </div>
         <div>
-          <div className="my-1">
-            Top P :<span className="ml-5 text-[#8BFFDD] font-bold">{top}</span>
+          <div className="my-1 text-black">
+            Top P :<span className="ml-5 text-[black] font-bold">{top}</span>
           </div>
           <Slider
             size="sm"
@@ -599,9 +605,9 @@ const Popup2 = ({ onClose }) => {
         </div>
 
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Frequence Penalty :
-            <span className="ml-5 text-[#8BFFDD] font-bold">{penalty}</span>
+            <span className="ml-5 text-[black] font-bold">{penalty}</span>
           </div>
           <Slider
             size="sm"
@@ -616,9 +622,9 @@ const Popup2 = ({ onClose }) => {
           />
         </div>
         <div>
-          <div className="my-1">
+          <div className="my-1 text-black">
             Presence Penalty
-            <span className="ml-5 text-[#8BFFDD] font-bold">{presence}</span>
+            <span className="ml-5 text-[black] font-bold">{presence}</span>
           </div>
           <Slider
             size="sm"
