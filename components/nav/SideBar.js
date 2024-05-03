@@ -118,13 +118,24 @@ export default function SideBar() {
                 onMouseLeave={closeDrawer}
                 transition={{
                     type: "tween",
-                    duration: 0.6,
+                    duration: 0.5,
                 }}
                 style={{
                     base: {
                         drawer: {
                             position: "fixed",
-                            boxShadow: "shadow-xl shadow-blue-gray-900/10",
+                            zIndex: 9999,
+                        },
+                        overlay: {
+                            position: "absolute",
+                            inset: "inset-0",
+                            width: "w-full",
+                            height: "h-full",
+                            pointerEvents: "pointer-events-auto",
+                            zIndex: "z-[9995]",
+                            backgroundColor: "bg-black",
+                            backgroundOpacity: "bg-opacity-50",
+                            backdropBlur: "backdrop-blur",
                         },
                     },
                 }}
