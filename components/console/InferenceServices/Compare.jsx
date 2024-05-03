@@ -161,7 +161,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#FFFFFF]  py-3 px-5 mx-2 mb-2 flex flex-col gap-2 mt-6 rounded-[8px] ">
+              {/* <div className="bg-[#FFFFFF]  py-3 px-5 mx-2 mb-2 flex flex-col gap-2 mt-6 rounded-[8px] ">
                 <div className="flex justify-between w-full border-b-[1px] pb-3 border-b-[#F3F4F5]">
                   <div className="text-xs text-[#000000] pt-1 font-medium">
                     System
@@ -176,7 +176,7 @@ const Compare = () => {
                   placeholder="Enter system instructions"
                   className="w-full bg-transparent resize-none input-with-small-placeholder focus:outline-none focus-visible:outline-none"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="lg:w-[60%] w-full flex flex-col bg-[#F3F4F5] justify-between    mr-3  px-2 py-2 border-[#F3F4F5]  rounded-[8px] z-1">
@@ -254,7 +254,7 @@ const Compare = () => {
                   </div>
                 </div>
               </div>
-              <div className="bg-[#FFFFFF]  py-3 px-5 mx-2 mb-2 flex flex-col gap-2 mt-6 rounded-[8px] ">
+              {/* <div className="bg-[#FFFFFF]  py-3 px-5 mx-2 mb-2 flex flex-col gap-2 mt-6 rounded-[8px] ">
                 <div className="flex justify-between w-full border-b-[1px] pb-3 border-b-[#F3F4F5]">
                   <div className="text-xs text-[#000000] pt-1 font-medium">
                     System
@@ -269,7 +269,7 @@ const Compare = () => {
                   placeholder="Enter system instructions"
                   className="w-full bg-transparent resize-none input-with-small-placeholder focus:outline-none focus-visible:outline-none"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
