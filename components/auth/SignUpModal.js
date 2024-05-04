@@ -119,7 +119,9 @@ const SignUp = ({ open, setOpen }) => {
       const result = await response.json();
 
       if (result.message === "Signup successful") {
-        toast.success("Data Submitted.");
+        toast.success(
+          "Your registration is successful! We have sent a verification email to your inbox. Please follow the instruction in the email to activate your account."
+        );
         closeModal();
         localStorage.setItem("email", email);
 

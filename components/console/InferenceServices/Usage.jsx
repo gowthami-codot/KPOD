@@ -76,7 +76,7 @@ const Usage = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white p-10 gap-8 ">
+    <div className="flex flex-col min-h-screen w-full bg-white p-10 gap-8 ">
       <div className="w-full min-h-10 flex  md:flex-row justify-between items-center">
         <p className="text-[32px] md:mt-0 -mt-32 text-[#181E22] font-medium leading-6">
           Usage
