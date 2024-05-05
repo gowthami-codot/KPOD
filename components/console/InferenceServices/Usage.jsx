@@ -1,6 +1,57 @@
 "use client";
 import { BarChart } from "@mui/x-charts/BarChart";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+
+const cleanPercentage = (percentage) => {
+  const isNegativeOrNaN = !Number.isFinite(+percentage) || percentage < 0;
+  const isTooHigh = percentage > 100;
+  return isNegativeOrNaN ? 0 : isTooHigh ? 100 : +percentage;
+};
+
+const Circle = ({ colour, percentage }) => {
+  const r = 70;
+  const circ = 2 * Math.PI * r;
+  const strokePct = ((100 - percentage) * circ) / 100;
+  return (
+    <circle
+      r={r}
+      cx={100}
+      cy={100}
+      fill="transparent"
+      stroke={strokePct !== circ ? colour : ""}
+      strokeWidth={"2rem"}
+      strokeDasharray={circ}
+      strokeDashoffset={percentage ? strokePct : 0}
+    ></circle>
+  );
+};
+
+const Text = ({ percentage }) => {
+  return (
+    <text
+      x="50%"
+      y="50%"
+      dominantBaseline="central"
+      textAnchor="middle"
+      fontSize={"1.5em"}
+    >
+      {percentage.toFixed(0)}%
+    </text>
+  );
+};
+
+const Pie = ({ percentage }) => {
+  const pct = cleanPercentage(percentage);
+  return (
+    <svg width={200} height={200}>
+      <g transform={`rotate(-90 ${"100 100"})`}>
+        <Circle colour="lightgrey" />
+        <Circle colour="grey" percentage={pct} />
+      </g>
+      <Text percentage={pct} />
+    </svg>
+  );
+};
 
 const Usage = () => {
   const chartData = [
@@ -63,7 +114,7 @@ const Usage = () => {
     "December",
   ];
 
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(3); // April is the 4th month (index 3)
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(3);
 
   const prevMonth = () => {
     setCurrentMonthIndex(
@@ -134,6 +185,18 @@ const Usage = () => {
             />
           </div>
         ))}
+      </div>
+      <div>
+        <div className="text-black text-xl md:text-2xl lg:text-3xl font-medium z-50">
+          Total Token Usage
+        </div>
+        <div className="flex flex-col md:flex-row items-center my-6 md:my-10 gap-10 md:gap-3">
+          <Pie percentage={10} />
+          <div className="flex flex-col items-start justify-center">
+            <div className="text-xl md:text-2xl font-bold text-black">32,800 Tokens</div>
+            <div className="text-gray-400 text-md">/ 4,800,000 Limit</div>
+          </div>
+        </div>
       </div>
     </div>
   );
