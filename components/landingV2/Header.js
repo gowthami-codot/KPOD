@@ -16,13 +16,13 @@ const Header = () => {
           : "text-3xl font-bold px-10 py-5 w-full absolute text-center md:text-start"
       }`}
     >
-      {/* <Image
-        src={"/logo-black.png"}
+      <Image
+        src={"/K1.png"}
         alt="logo"
-        width="250"
+        width="150"
         height="50"
         className="object-cover"
-      /> */}
+      />
     </Link>
   );
 };

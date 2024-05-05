@@ -21,7 +21,7 @@ export default function Hero({setOpen}) {
             Revolutionising AI Workloads with Krutrim Cloud
           </p>
           <p className="text-darkSecondary sm:text-lg text-base">
-            Scale your computational capabilities and experience the GPU services like never before
+            Scale computational capabilities and experience the GPU services like never before
           </p>
         </section>
         <section className="flex gap-5 z-10">

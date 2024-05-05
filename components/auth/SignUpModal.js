@@ -1,12 +1,21 @@
 "use client";
 import Link from "next/link";
-import { useState, FormEvent, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { sha256 } from "js-sha256";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { Input } from "../UI/CustomInput";
 import { Button } from "../UI/Button";
+
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure
+} from "@nextui-org/modal";
 
 const SignUp = ({ open, setOpen }) => {
   const [firstName, setFirstName] = useState("");
@@ -20,6 +29,8 @@ const SignUp = ({ open, setOpen }) => {
   const [selectedProfile, setSelectedProfile] = useState("");
   const [isTermsAccepted, setIsTermsAccepted] = useState(false);
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   useEffect(() => {
     setSelectedProfile(userProfile);
@@ -119,7 +130,7 @@ const SignUp = ({ open, setOpen }) => {
       const result = await response.json();
 
       if (result.message === "Signup successful") {
-        toast.success("Data Submitted.");
+        onOpen(true)
         closeModal();
         localStorage.setItem("email", email);
 
@@ -143,6 +154,25 @@ const SignUp = ({ open, setOpen }) => {
 
   return (
     <div>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalBody className="p-5 md:p-10">
+                <div className="text-xl font-bold text-black">
+                  Your registration is successful! We have sent a verification email to your inbox. 
+                  Please follow the instruction in the email to activate your account.
+                </div>
+              </ModalBody>
+              <ModalFooter>
+                <Button onPress={onClose} className="bg-black text-white rounded-lg flex items-center justify-center">
+                  OK
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
       <Transition appear show={open} as={Fragment}>
         <Dialog
           as="div"
