@@ -6,6 +6,7 @@ import { useEffect, useState, Suspense } from "react";
 import Compare from "@/components/console/InferenceServices/Compare";
 import Usage from "@/components/console/InferenceServices/Usage";
 import ApiKeys from "@/components/console/InferenceServices/ApiKeys";
+import Docs from "@/components/console/InferenceServices/Docs";
 
 const PageContent = () => {
  const searchParams = useSearchParams();
@@ -28,6 +29,7 @@ const PageContent = () => {
        
         {activeTab === 'usage' && <Usage />}
         {activeTab === 'api-keys' && <ApiKeys />}
+        {activeTab === 'docs'&& <Docs/>}
       </main>
     </div>
  );

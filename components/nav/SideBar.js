@@ -47,6 +47,10 @@ export default function SideBar() {
           label: "Api Keys",
           link: "/console/inference-service?section=api-keys",
         },
+        {
+          label: "docs",
+          link: "/console/inference-service?section=docs",
+        },
       ],
     },
     // {
