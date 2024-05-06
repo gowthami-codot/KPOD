@@ -87,6 +87,7 @@ const Docs = () => {
     {"role": "user", "content": "Hello"}],
     )
     print(chat_completion.choices[0].message.content)`;
+
   return (
     <>
       <div className="text-black">
@@ -161,7 +162,7 @@ const Docs = () => {
               <ul className="list-disc md:px-20 px-10">
                 <li>
                   Model ID:{" "}
-                  <span class="font-bold">Meta-Llama-3-8B-Instruct</span>
+                  <span className="font-bold">Meta-Llama-3-8B-Instruct</span>
                 </li>
                 <li> Developer: Meta</li>
                 <li>Context Window: 8192 tokens</li>
@@ -169,7 +170,7 @@ const Docs = () => {
               <p className="font-semibold underline pt-3">Mistral-7B</p>
               <ul className="list-disc md:px-20 px-10">
                 <li>
-                  Model ID: <span class="font-bold">Mistral-7B-Instruct</span>
+                  Model ID: <span className="font-bold">Mistral-7B-Instruct</span>
                 </li>
                 <li> Developer: Mistral</li>
                 <li>Context Window: 8192 tokens</li>
@@ -177,7 +178,7 @@ const Docs = () => {
               <p className="font-semibold underline pt-3">Krutrim</p>
               <ul className="list-disc md:px-20 px-10">
                 <li>
-                  Model ID: <span class="font-bold">Krutrim-spectre-v2</span>
+                  Model ID: <span className="font-bold">Krutrim-spectre-v2</span>
                 </li>
                 <li> Developer: Krutrim</li>
                 <li>Context Window: 4096 tokens</li>
@@ -443,19 +444,19 @@ const Docs = () => {
                 user can access our services within a specified period.
               </p>
               <div className="justify-center flex flex-col items-center mt-6 ">
-                <table class="table-auto border-collapse border border-black ">
+                <table className="table-auto border-collapse border border-black ">
                   <thead>
                     <tr>
-                      <th class="border border-black px-4 py-2">RPM</th>
-                      <th class="border border-black px-4 py-2">RPD</th>
-                      <th class="border border-black px-4 py-2">TPD</th>
+                      <th className="border border-black px-4 py-2">RPM</th>
+                      <th className="border border-black px-4 py-2">RPD</th>
+                      <th className="border border-black px-4 py-2">TPD</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="border border-black px-4 py-2">60</td>
-                      <td class="border border-black px-4 py-2">600</td>
-                      <td class="border border-black px-4 py-2">500000</td>
+                      <td className="border border-black px-4 py-2">60</td>
+                      <td className="border border-black px-4 py-2">600</td>
+                      <td className="border border-black px-4 py-2">500000</td>
                     </tr>
                   </tbody>
                 </table>

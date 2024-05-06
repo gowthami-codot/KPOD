@@ -67,7 +67,6 @@ const CreateScrecet = ({ onClose }) => {
                   width="16"
                   height="16"
                   fill="#000"
-                  class="bi bi-copy"
                   viewBox="0 0 16 16"
                 >
                   <path

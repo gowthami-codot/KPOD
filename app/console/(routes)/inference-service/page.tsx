@@ -9,38 +9,38 @@ import ApiKeys from "@/components/console/InferenceServices/ApiKeys";
 import Docs from "@/components/console/InferenceServices/Docs";
 
 const PageContent = () => {
- const searchParams = useSearchParams();
- const section = searchParams.get("section");
+  const searchParams = useSearchParams();
+  const section = searchParams.get("section");
 
- const [activeTab, setActiveTab] = useState("");
- 
- const project =
+  const [activeTab, setActiveTab] = useState("");
+
+  const project =
     typeof window !== "undefined" ? localStorage.getItem("done") : false;
 
- useEffect(() => {
+  useEffect(() => {
     setActiveTab(section || "");
- }, [project,section]);
+  }, [project, section]);
 
- return (
+  return (
     <div className="h-full flex flex-col">
       <main>
         {activeTab === "" && <Compare />}
-        {activeTab === 'compare' && <Compare />}
-       
-        {activeTab === 'usage' && <Usage />}
-        {activeTab === 'api-keys' && <ApiKeys />}
-        {activeTab === 'docs'&& <Docs/>}
+        {activeTab === "compare" && <Compare />}
+
+        {activeTab === "usage" && <Usage />}
+        {activeTab === "api-keys" && <ApiKeys />}
+        {activeTab === "docs" && <Docs />}
       </main>
     </div>
- );
+  );
 };
 
 const Page = () => {
   return (
-     <Suspense fallback={<div>Loading...</div>}>
-       <PageContent />
-     </Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageContent />
+    </Suspense>
   );
- };
- 
- export default Page;
+};
+
+export default Page;
