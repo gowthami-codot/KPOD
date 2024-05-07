@@ -11,11 +11,20 @@ import { Button } from "../UI/Button";
 import {
   Modal,
   ModalContent,
-  ModalHeader,
   ModalBody,
   ModalFooter,
-  useDisclosure
+  useDisclosure,
 } from "@nextui-org/modal";
+
+import moengage from "@moengage/web-sdk";
+
+if (typeof window !== "undefined") {
+  moengage.initialize({
+    app_id: "WAY71GBZKJDZ9548UJKHRBNR",
+    debug_logs: 1,
+    cluster: "dc_3",
+  });
+}
 
 const SignUp = ({ open, setOpen }) => {
   const [firstName, setFirstName] = useState("");
@@ -130,9 +139,12 @@ const SignUp = ({ open, setOpen }) => {
       const result = await response.json();
 
       if (result.message === "Signup successful") {
-        onOpen(true)
+        onOpen(true);
         closeModal();
         localStorage.setItem("email", email);
+
+        moengage.add_unique_user_id(email);
+        moengage.add_email(email);
 
         setFirstName("");
         setLastName("");
@@ -160,12 +172,16 @@ const SignUp = ({ open, setOpen }) => {
             <>
               <ModalBody className="p-5 md:p-10">
                 <div className="text-xl font-bold text-black">
-                  Your registration is successful! We have sent a verification email to your inbox. 
-                  Please follow the instruction in the email to activate your account.
+                  Your registration is successful! We have sent a verification
+                  email to your inbox. Please follow the instruction in the
+                  email to activate your account.
                 </div>
               </ModalBody>
               <ModalFooter>
-                <Button onPress={onClose} className="bg-black text-white rounded-lg flex items-center justify-center">
+                <Button
+                  onPress={onClose}
+                  className="bg-black text-white rounded-lg flex items-center justify-center"
+                >
                   OK
                 </Button>
               </ModalFooter>
