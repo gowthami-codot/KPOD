@@ -38,7 +38,7 @@ const ForgotPassword = () => {
         <div className="w-full">
           <Input
             type="email"
-            label={`Email`}
+            label={`Email *`}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className=" focus:outline-none  w-full bg-[#F3F4F5]"

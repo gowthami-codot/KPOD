@@ -24,6 +24,7 @@ if (typeof window !== "undefined") {
     debug_logs: 1,
     cluster: "dc_3",
   });
+  console.log("Initialization Failed")
 }
 
 const SignUp = ({ open, setOpen }) => {
@@ -240,7 +241,7 @@ const SignUp = ({ open, setOpen }) => {
                       <div className="flex items-center justify-center gap-5 w-full">
                         <div className="w-full">
                           <Input
-                            label="First Name"
+                            label="First Name *"
                             type="text"
                             placeholder="First Name"
                             className={`text-black`}
@@ -251,7 +252,7 @@ const SignUp = ({ open, setOpen }) => {
                         </div>
                         <div className="w-full">
                           <Input
-                            label="Last Name"
+                            label="Last Name *"
                             type="text"
                             className="text-black"
                             placeholder="Last Name"
@@ -264,7 +265,7 @@ const SignUp = ({ open, setOpen }) => {
 
                       <div className="flex flex-col w-full">
                         <Input
-                          label="Email"
+                          label="Email *"
                           type="email"
                           id="email"
                           className="text-black"
@@ -277,7 +278,7 @@ const SignUp = ({ open, setOpen }) => {
 
                       <div className="flex flex-col w-full">
                         <Input
-                          label={"Password"}
+                          label="Password *"
                           type="password"
                           id="password"
                           className="text-black"
@@ -308,7 +309,7 @@ const SignUp = ({ open, setOpen }) => {
                       <div className="flex items-center justify-center gap-5 w-full">
                         <div className="w-full">
                           <Input
-                            label="LinkedIn / GitHub Profile"
+                            label="LinkedIn / GitHub Profile *"
                             type="text"
                             id="profileLink"
                             className="text-black"
@@ -321,7 +322,7 @@ const SignUp = ({ open, setOpen }) => {
                       </div>
                       <div>
                         <p className=" text-[#798E9E]">
-                          What do you do? Choose one or more
+                          What do you do? Choose one or more <span className="text-red-500">*</span>
                         </p>
                       </div>
                       <div className="flex flex-col w-full">

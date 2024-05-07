@@ -65,7 +65,7 @@ const ForgotPassword = () => {
             placeholder="Enter your New password"
             className="focus:outline-none  w-full bg-[#F3F4F5]"
             autocomplete="off"
-            label="New Password"
+            label="New Password *"
           />
         </div>
         <div className="w-full">
@@ -76,7 +76,7 @@ const ForgotPassword = () => {
             placeholder="Confirm your password"
             className=" focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5]"
             autocomplete="off"
-            label="Confirm Password"
+            label="Confirm Password *"
           />
        
         </div>
