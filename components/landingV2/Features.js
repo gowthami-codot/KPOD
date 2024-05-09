@@ -11,7 +11,7 @@ export default function Features() {
     {
       title: "Real-Time Analytics and Monitoring",
       description:
-        "Monitor usage and performance metrics in real-time.",
+        "Monitor usage and performance metrics in real-time. ",
       image: "./analysis.png",
     },
     {
