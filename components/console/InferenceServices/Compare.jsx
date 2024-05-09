@@ -12,6 +12,8 @@ const Compare = () => {
   const [sysInp1, setSysInp1] = useState("");
   const [sysInp2, setSysInp2] = useState("");
 
+  console.log(message);
+
   const [currentModel, setCurrentModel] = useState("modelOne");
   const toggleModel = () => {
     setCurrentModel(currentModel === "modelOne" ? "modelTwo" : "modelOne");
