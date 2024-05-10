@@ -54,13 +54,14 @@ const Compare = () => {
   const toggleInstructionLeftPopup = () => {
     setShowInstructionsLeftPopup(!showInstructionsLeftPopup);
   };
+  
   const toggleInstructionRightPopup = () => {
     setShowInstructionsRightPopup(!showInstructionsRightPopup);
   };
 
   return (
-    <div className="flex md:mb-0 mb-[80px] md:flex-col bg-[#FFFFFF] w-full h-full min-h-screen px-5 md:ml-0 ">
-      <div className="w-full h-[150%] bg-[#FFFFFF]   ">
+    <div className="flex md:mb-0 mb-[80px] md:flex-col bg-[#FFFFFF] w-full h-full min-h-screen px-5 md:ml-0">
+      <div className="w-full h-[150%] bg-[#FFFFFF]">
         <div className="flex  md:flex-row flex-col justify-between items-center mb-3 ">
           <div className="lg:text-[26px] text-[20px]  lg:mt-10 font-bold mt-10 px-10 mb-5 text-[#181E22] ">
             Compare
@@ -68,7 +69,7 @@ const Compare = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-between mb-4 md:mb-6 gap-4">
           <div className="w-full hidden md:flex"></div>
-          <div className="bg-[#F3F4F5 flex space-x-3 justify-center my-auto items-center w-full md:w-fit   text-[#687986]  md:my-3 my-2 md:px-4 py-2 px-2 rounded-[4px] border border-gray-300">
+          <div className="bg-[#F3F4F5 flex space-x-3 justify-center items-center w-full md:w-fit   text-[#687986]  md:my-3 my-2 md:px-4 py-2 px-2 rounded-[4px] border border-gray-300">
             <div className="font-medium cursor-pointer">Clear</div>
           </div>
           <div className="flex md:hidden items-center justify-between">

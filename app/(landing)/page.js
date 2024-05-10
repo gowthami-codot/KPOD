@@ -16,7 +16,7 @@ const page = () => {
       <Hero setOpen={setOpen} />
       <Features />
       <DescriptionText />
-      <MissionVision />
+      {/* <MissionVision /> */}
       <Business />
       <Experience setOpen={setOpen} />
     </div>
