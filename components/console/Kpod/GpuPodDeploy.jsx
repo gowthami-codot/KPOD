@@ -66,9 +66,9 @@ const GpuPodDepoly = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:border-l-[3px] lg:ml-52   border-[#D6D6D6] my-10 ">
+                        <div className="md:border-l-[3px] lg:ml-32   border-[#D6D6D6] my-10 ">
                             <div className="flex lg:flex-row flex-col ">
-                                <div className="bg-[#FFFFFF] px-7 w-fit lg:mb-0 mb-5  lg:ml-32 md:ml-10  rounded-[4px] py-4">
+                                <div className="bg-[#FFFFFF] px-7 w-fit lg:mb-0 mb-5  lg:ml-44 md:ml-10  rounded-[4px] py-4">
                                 <div className="text-[#000000] text-[16px] font-medium">Pricing Summary</div>
                                 <div className="text-[#3D3D3D] text-[14px] mt-10">GPU Cost: $0.49/hr</div>
                                 <div className="text-[#3D3D3D] text-[14px] mt-3">Running Disk Cost: $0.006/hr</div>
@@ -82,7 +82,7 @@ const GpuPodDepoly = () => {
                                 </div>
                                
                                 </div>
-                                <div className="bg-[#010101] lg:ml-32 -ml-1 md:ml-10 mt-4 py-2.5 mb-4 md:px-0 mx-4 md:mx-0 text-[18px] font-medium   flex items-center justify-center rounded-[4px]">Deploy Spot</div>
+                                <div className="bg-[#010101] lg:ml-44 -ml-1 md:ml-10 mt-4 py-2.5 mb-4 md:px-0 mx-4 md:mx-0 text-[18px] font-medium   flex items-center justify-center rounded-[4px]">Deploy Spot</div>
                                
                         </div>
                         <div>
