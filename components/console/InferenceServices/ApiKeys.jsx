@@ -28,7 +28,7 @@ const ApiKeys = () => {
   return (
     <div className="flex flex-col min-h-screen px-5">
       <div className="w-full h-full bg-[#FFFF] ">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-3 justify-between mt-10 mx-5 md:mx-10">
+        <div className="flex flex-col md:flex-row   items-start md:items-center gap-3 justify-between mt-10 mx-5 md:mx-10">
           <div className="text-[27px]  font-bold  text-[#181E22] ">
             API Keys Management
           </div>

@@ -28,6 +28,8 @@ export default function SideBar() {
       height: 18,
       width: 18,
     },
+    
+   ,
     {
       name: "Inference Service",
       link: "/console/inference-service",
@@ -53,6 +55,14 @@ export default function SideBar() {
         },
       ],
     },
+
+    {
+      name: "KPOD",
+      link: "/console/KPOD?section=KPOD",
+      src: "/kpod.png",
+      height: 18,
+      width: 18,
+    }
     // {
     //     name: "Admin Settings",
     //     link: "/console/home",
