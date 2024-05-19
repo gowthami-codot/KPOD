@@ -206,7 +206,7 @@ const GpuPod = () => {
                 <div className="bg-[#F3F7F9] border-[2px] border-[#181E220F] border-opacity-5 mx-10 rounded-[8px] mt-3  px-10">
                     <div className="text-[16px] text-[#000000] font-semibold py-5">Select an Instance</div>
                     <div className="rounded-[4px] mt-3">
-                        <span className="bg-[#70E134] text-[#000000] text-[16px] px-3 py-2 rounded-[4px]">AMD</span>
+                        <span className="bg-[#70E134] text-[#000000] text-[16px] px-2 py-1 rounded-[4px]">AMD</span>
                     </div>
                     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-full h-full mt-6">
                         {Amd.map((feature, index) => (
@@ -219,7 +219,7 @@ const GpuPod = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="rounded-[4px] mt-8 space-x-3"> <span className="bg-[#70E134] text-[#000000] text-[16px] md:px-5 px-3 font-semibold py-2 rounded-[4px]">NVIDIA</span>
+                    <div className="rounded-[4px] mt-8 space-x-3"> <span className="bg-[#70E134] text-[#000000] text-[16px] md:px-2 px-3 font-semibold py-1 rounded-[4px]">NVIDIA</span>
                         <span className="text-[#00000091] text-opacity-15 md:text-[13px] text-[10px] font-semibold ">Latest Gen</span> </div>
                     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-ful h-full mt-6">
                         {NVIDIALG.map((feature, index) => (
@@ -258,7 +258,7 @@ const GpuPod = () => {
                          
                         ))}
                     </div>
-                    <div className="rounded-[4px] mt-8 md:space-x-3 space-x-1"> <span className="bg-[#70E134] text-[#000000] text-[16px] md:px-5 px-2 font-semibold py-2 rounded-[4px]">NVIDIA</span>
+                    <div className="rounded-[4px] mt-8 md:space-x-3 space-x-1"> <span className="bg-[#70E134] text-[#000000] text-[16px] md:px-3 px-2 font-semibold py-1 rounded-[4px]">NVIDIA</span>
                         <span className="text-[#00000091] text-opacity-15 md:text-[13px] text-[10px] font-semibold "> Previous Gen</span> </div>
                     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 w-ful h-full mt-6 mb-10">
                         {NVIDIAPG.map((feature, index) => (

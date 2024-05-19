@@ -30,7 +30,7 @@ const GpuPodDepoly = () => {
                         <div className="bg-white mb-6 flex lg:flex-row flex-col items-center justify-start  rounded-[4px] mt-3 py-5 md:px-12 ">
                             <Image src={require("@/public/pyTorch.png")} alt="" className="md:w-[12vh] md:h-[12vh] w-[9vh] h-[9vh] " />
                             <div className="flex  flex-col lg:items-start  items-center justify-center lg:mx-20"><div className="text-[#3D3D3D] text-[18px]  font-medium">KPod Pytorch 2.0.1</div><div className="text-[#8D8D8D] text-[14px] font-medium md:px-0 pl-6">runpod/pytorch:2.0.1-py3.10-cuda11.8.0-devel-ubuntu22.04</div></div>
-                            <div className=" flex  md:flex-row  flex-col  items-center text-[16px] font-medium lg:ml-20 md:space-x-6 md:mb-0 mb-3 "><div className="text-[#000000] flex border-[#000000]  border-[2px] py-2 rounded-[4px] px-6 md:mb-0 mb-4 md:mt-0 mt-2"><Image src={require("@/public/Edit.png")} alt="" className="w-[3vh] h-[3vh] mr-4 " />Edit Template</div>
+                            <div className=" flex  md:flex-row  flex-col  items-center text-[16px] font-medium lg:ml-20 lg:mt-0 mt-0 md:mt-5 md:space-x-6 md:mb-0 mb-3 "><div className="text-[#000000] flex border-[#000000]  border-[2px] py-2 rounded-[4px] px-6 md:mb-0 mb-4 md:mt-0 mt-2"><Image src={require("@/public/Edit.png")} alt="" className="w-[3vh] h-[3vh] mr-4 " />Edit Template</div>
                                 <div className="bg-black px-6 py-2.5 rounded-[4px]">Change Template</div></div>
                         </div>
 
@@ -66,9 +66,9 @@ const GpuPodDepoly = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:border-l-[3px]   border-[#D6D6D6] my-10 ">
+                        <div className="md:border-l-[3px] lg:ml-44   border-[#D6D6D6] my-10 ">
                             <div className="flex lg:flex-row flex-col ">
-                                <div className="bg-[#FFFFFF] px-7 w-fit lg:mb-0 mb-5  lg:ml-20 md:ml-10  rounded-[4px] py-4">
+                                <div className="bg-[#FFFFFF] px-7 w-fit lg:mb-0 mb-5  lg:ml-32 md:ml-10  rounded-[4px] py-4">
                                 <div className="text-[#000000] text-[16px] font-medium">Pricing Summary</div>
                                 <div className="text-[#3D3D3D] text-[14px] mt-10">GPU Cost: $0.49/hr</div>
                                 <div className="text-[#3D3D3D] text-[14px] mt-3">Running Disk Cost: $0.006/hr</div>
@@ -82,7 +82,7 @@ const GpuPodDepoly = () => {
                                 </div>
                                
                                 </div>
-                                <div className="bg-[#010101] lg:ml-20 -ml-1 md:ml-10 mt-4 py-2.5 mb-4 md:px-0 mx-4 md:mx-0 text-[18px] font-medium   flex items-center justify-center rounded-[4px]">Deploy Spot</div>
+                                <div className="bg-[#010101] lg:ml-32 -ml-1 md:ml-10 mt-4 py-2.5 mb-4 md:px-0 mx-4 md:mx-0 text-[18px] font-medium   flex items-center justify-center rounded-[4px]">Deploy Spot</div>
                                
                         </div>
                         <div>
