@@ -18,7 +18,7 @@ const GpuPodDepoly = () => {
                     </div>
 
                     <div className="bg-[#F3F7F9] border-[2px] border-[#181E220F] border-opacity-5 lg:mx-10 md:mx-10 mx-10 rounded-[8px] mt-3 md:px-10 px-8">
-                        <div className="text-[16px] text-[#000000] font-semibold py-5">Configure Deployment</div>
+                        <div className="text-[20px] text-[#000000] font-semibold py-5">Configure Deployment</div>
                         <div className="text-[#000000] text-[16px] font-semibold">Pod name</div>
                         <input
                             type="text"
@@ -39,7 +39,7 @@ const GpuPodDepoly = () => {
                         <div className="">
                             <div className="text-[16px] text-[#000000] font-semibold py-5">Instance Pricing</div>
                             <div className="flex flex-col w-fit ">
-                                <div className="bg-[#FFFFFF] md:px-5 px-9 mb-4 rounded-[4px] py-4">
+                                <div className="bg-[#FFFFFF] md:px-5 lg:pr-32  px-9 mb-4 rounded-[4px] py-4">
                                     <div className="text-[#000000] text-[16px] font-medium">On Demand</div>
                                     <div className="text-[11px] text-[#8B8B8B]">Non - Interruptible</div>
                                     <div className="text-[#000000] text-[16px] font-medium pt-3">$0.74/hr</div>

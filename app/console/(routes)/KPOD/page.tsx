@@ -17,7 +17,8 @@ const PageContent = () => {
 
   return (
     <>
-     <main> {activeTab === "" && <Kpod />}
+     <main>
+       {activeTab === "" && <Kpod />}
       {activeTab === "KPOD" && <Kpod />}
       {activeTab === "GpuPod" && <GpuPod/>}
 
