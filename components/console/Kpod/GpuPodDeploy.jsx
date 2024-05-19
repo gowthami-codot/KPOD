@@ -66,7 +66,7 @@ const GpuPodDepoly = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="md:border-l-[3px] lg:ml-44   border-[#D6D6D6] my-10 ">
+                        <div className="md:border-l-[3px] lg:ml-52   border-[#D6D6D6] my-10 ">
                             <div className="flex lg:flex-row flex-col ">
                                 <div className="bg-[#FFFFFF] px-7 w-fit lg:mb-0 mb-5  lg:ml-32 md:ml-10  rounded-[4px] py-4">
                                 <div className="text-[#000000] text-[16px] font-medium">Pricing Summary</div>
