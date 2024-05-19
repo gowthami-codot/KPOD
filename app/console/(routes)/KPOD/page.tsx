@@ -3,10 +3,10 @@ import { useSearchParams } from "next/navigation";
 import Kpod from "../../../../components/console/Kpod/Kpod"
 import GpuPod from "../../../../components/console/Kpod/GpuPod";
 import GpuPodDeploy from "../../../../components/console/Kpod/GpuPodDeploy";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 
-const Page = () => {
+const PageContent = () => {
   const [activeTab, setActiveTab] = useState("");
   const searchParams = useSearchParams();
   const section = searchParams.get("section");
@@ -17,13 +17,19 @@ const Page = () => {
 
   return (
     <>
-      {activeTab === "" && <Kpod />}
+     <main> {activeTab === "" && <Kpod />}
       {activeTab === "KPOD" && <Kpod />}
       {activeTab === "GpuPod" && <GpuPod/>}
 
-      {activeTab === "GpuPodDeploy" && <GpuPodDeploy />}
+      {activeTab === "GpuPodDeploy" && <GpuPodDeploy />}</main>
     </>
   );
 };
-
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageContent />
+    </Suspense>
+  );
+};
 export default Page;
