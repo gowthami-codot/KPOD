@@ -67,13 +67,13 @@ const GpuPodDepoly = () => {
                 </div>
                 <div className=" flex  md:flex-row  flex-col  items-center text-[16px] font-medium lg:ml-20 lg:mt-0 mt-0 md:mt-5 md:space-x-6 md:mb-0 mb-3 ">
                   <div
-                    className="text-[#000000] flex border-[#000000]  border-[2px] py-2 rounded-[4px] px-6 md:mb-0 mb-4 md:mt-0 mt-2 cursor-pointer"
+                    className="text-[#000000] flex border-[#000000] items-center justify-center border-[2px] py-2 rounded-[4px] px-6 md:mb-0 mb-4 md:mt-0 mt-2 cursor-pointer"
                     onClick={handleEditTemplate}
                   >
                     <Image
                       src={require("@/public/Edit.png")}
                       alt=""
-                      className="w-[3vh] h-[3vh] mr-4 "
+                      className="lg:w-[3vh] lg:h-[3vh] md:w-[2vh] md:h-[2vh] w-[3vh] h-[3vh] mr-4 "
                     />
                     Edit Template
                   </div>
@@ -99,11 +99,11 @@ const GpuPodDepoly = () => {
                     $0.74/hr
                   </div>
                   <div className="text-[11px] text-[#8B8B8B]">
-                    Pay as you go, with costs based on <br className="lg:flex hidden" />
+                    Pay as you go, with costs based on <br className="md:flex hidden" />
                     actual usage time.
                   </div>
                 </div>
-                <div className="bg-[#FFFFFF] lg:pl-10 lg:pr-16 lg:px-0 px-4 mb-4 rounded-[4px]   py-4">
+                <div className="bg-[#FFFFFF] lg:pl-10 md:pr-16 lg:px-0 px-4 mb-4 rounded-[4px]   py-4">
                   <div className="flex flex-col items-start lg:pt-3">
                     <div className="lg:mr-3">
                       <input type="checkbox" id="encrypt" name="encrypt" />
@@ -166,7 +166,7 @@ const GpuPodDepoly = () => {
                       <div className="text-[#3D3D3D] text-[14px] mt-3">
                         46GB RAM . 8vCPU
                       </div>
-                      <div className="text-[#3D3D3D] text-[14px] lg:mb-10 mb-16 mt-3">
+                      <div className="text-[#3D3D3D] text-[14px] lg:mb-10 mb-16 md:mb-9 mt-3">
                         Total Disk: 40 GB
                       </div>
                     </div>

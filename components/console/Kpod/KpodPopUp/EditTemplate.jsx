@@ -174,7 +174,7 @@ const EditTemplate = ({ onClose }) => {
                         <Image
                           src={require("../../../../public/cancel.png")}
                           alt=""
-                          className="w-[3vh] h-[3vh]"
+                          className="md:w-[3vh] md:h-[3vh] w-[4vh] h-[4vh]"
                         />
                       </div>
                     </div>
@@ -235,7 +235,7 @@ const EditTemplate = ({ onClose }) => {
                     Add Environment Variable
                   </div>
                 </div>
-                <div className="flex justify-start md:mx-2 lg:mt-0 mt-4">
+                <div className="flex lg:justify-start justify-center md:mx-2 lg:mt-0 mt-4">
                   <div className="text-[#000000] text-[14px] flex items-center ml-4 font-semibold relative">
                     Click the
                     <Image
@@ -254,7 +254,7 @@ const EditTemplate = ({ onClose }) => {
                     {showPopup && (
                       <div className=" bg-[#00000080]">
                         {" "}
-                        <div className="absolute md:-bottom-[18vh] -bottom-[16vh] w-full left-1/2 transform -translate-x-1/2 bg-white rounded-[5px] px-4 py-2 md:text-[14px] text-[12px] z-10">
+                        <div className="absolute lg:-bottom-[18vh] -bottom-[19vh] md:-bottom-[14vh] w-full left-1/2 transform -translate-x-1/2 bg-white rounded-[5px] px-4 py-2 md:text-[14px] text-[12px] z-10">
                           Secret Name must start with a letter or underscore,
                           followed by any combination of alphanumeric
                           characters, dots, dashes, or underscores. It cannot
