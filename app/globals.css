@@ -71,4 +71,24 @@
   font-size: 0.8em; /* Adjust the font size as needed */
   opacity: 0.7; /* Adjust the opacity if desired */
 }
+.give-feedback {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg); /* Rotate the text vertically */
+  writing-mode: vertical-rl; /* vertical right-to-left */
+  
+  /* Adjust as per your preference */
+  white-space: nowrap; 
+  /* Make the text face towards the right side */
+  font-size: 14px;
+  font-weight: 600; /* semibold */
+  color: #161717;
+  background-color: #8BFFDC;
+  padding: 12px; /* optional, for better appearance */
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
 
