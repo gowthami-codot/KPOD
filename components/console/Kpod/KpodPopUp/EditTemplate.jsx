@@ -258,7 +258,7 @@ const EditTemplate = ({ onClose }) => {
                           Secret Name must start with a letter or underscore,
                           followed by any combination of alphanumeric
                           characters, dots, dashes, or underscores. It cannot
-                          start with 'RUNPOD'.
+                          start with &#39;RUNPOD&#39;.
                         </div>
                       </div>
                     )}

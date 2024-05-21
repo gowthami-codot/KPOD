@@ -424,7 +424,7 @@ const SignUp = ({ open, setOpen }) => {
       onChange={(e) => setIsRobot(e.target.checked)}
       className="w-4 h-4 mr-1  text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
     />
-    <label className="ml-2 text-black font-medium md:text-[13px] text-[8px] ">I'm not a robot</label>
+    <label className="ml-2 text-black font-medium md:text-[13px] text-[8px] ">I&#39;m not a robot</label>
   </div>
   <div className="flex flex-col items-center justify-center text-[12px] md:px-10 px-5 md:pt-0 pt-3 pb-3"><div><Image src={require("../../public/captcha.png")} alt="" className="md:w-[7vh] md:h-[7vh] w-[4vh] h-[4vh]"/></div>
   <div className="md:text-[8px] text-[6px] text-[#555555] -mt-1">reCAPTCHA<br/><span className="md:text-[7px] text-[4px]">Privacy - Terms</span></div></div>
