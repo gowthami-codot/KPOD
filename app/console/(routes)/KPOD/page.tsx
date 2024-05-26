@@ -3,6 +3,7 @@ import { useSearchParams } from "next/navigation";
 import Kpod from "../../../../components/console/Kpod/Kpod"
 import GpuPod from "../../../../components/console/Kpod/GpuPod";
 import GpuPodDeploy from "../../../../components/console/Kpod/GpuPodDeploy";
+import DepolySpot from "../../../../components/console/Kpod/DepolySpot";
 import { Suspense, useEffect, useState } from "react";
 
 
@@ -21,8 +22,10 @@ const PageContent = () => {
        {activeTab === "" && <Kpod />}
       {activeTab === "KPOD" && <Kpod />}
       {activeTab === "GpuPod" && <GpuPod/>}
+      {activeTab === "GpuPodDeploy" && <GpuPodDeploy />}
 
-      {activeTab === "GpuPodDeploy" && <GpuPodDeploy />}</main>
+      
+      {activeTab === "depoly" && <DepolySpot/>}</main>
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import SecertPopup from "../KpodPopUp/SecertPopup";
 import Image from "next/image";
 
 const EditTemplate = ({ onClose }) => {
@@ -46,10 +46,22 @@ const EditTemplate = ({ onClose }) => {
     setShowInput(false);
   };
 
+  const [secert,setSecert]= useState(false);
+
+  const handleSecertClick = () =>
+    {
+      setSecert(true);
+    }
+
+    const handleCloseSecert =()=>
+      {
+        setSecert(false);
+      }
+
   return (
     <>
       <div className="fixed inset-0 flex lg:items-start items-center justify-center bg-[#00000080]">
-        <div className="bg-[#F3F7F9] shadow-md  my-auto text-[#000000] h-fit   md:w-[64%] w-[90%] md:mt-14 lg:mt-5 mt-5    p-5 max-h-full overflow-y-auto ">
+        <div className="bg-[#F3F7F9] shadow-md  my-auto text-[#000000] h-fit  mb-20  md:w-[64%] w-[90%] md:mt-20  lg:mt-5 mt-28    p-5 max-h-full overflow-y-auto ">
           <div className="flex items-end justify-end mr-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +160,7 @@ const EditTemplate = ({ onClose }) => {
             </div>
           </div>
 
-          <div className="text-[#000000] text-[16px] font-semibold md:mx-10 mt-3 md:mt-6">
+          <div className="text-[#000000] text-[16px] font-semibold md:mx-10 mt-3 mb-3 md:mt-6">
             Environment Variables
           </div>
           <div>
@@ -180,7 +192,7 @@ const EditTemplate = ({ onClose }) => {
                     </div>
                   </div>
 
-                  <div>
+                  <div >
                     {" "}
                     <label className="text-[#00000099] text-[14px] font-medium">
                       Password
@@ -191,21 +203,23 @@ const EditTemplate = ({ onClose }) => {
                         onChange={Password}
                         className="mt-0 text-black text-[14px] px-3 py-2 pr-32 rounded-[5px] focus:outline-none focus-visible:outline-none w-full"
                       />
-                      <Image
+                     <div className="cursor-pointer mr-3"onClick={handleSecertClick}>
+                     <Image
                         src={require("../../../../public/key.png")}
                         alt=""
                         className="w-[4vh] h-[2vh] mx-2"
                       />
+                     </div>
                     </div>
                   </div>
                   <div
-                    className="lg:flex hidden items-center my-5 justify-center cursor-pointer"
+                    className="lg:flex hidden items-center mt-5 justify-center cursor-pointer"
                     onClick={handlePopUp}
                   >
                     <Image
                       src={require("../../../../public/cancel.png")}
                       alt=""
-                      className="w-[5vh] h-[5vh]"
+                      className="w-[3.5vh] h-[3.5vh]"
                     />
                   </div>
                 </div>
@@ -252,9 +266,9 @@ const EditTemplate = ({ onClose }) => {
                       onMouseLeave={() => setShowPopup(false)}
                     />
                     {showPopup && (
-                      <div className=" bg-[#00000080]">
+                      <div className=" bg-[#00000080] mb-12">
                         {" "}
-                        <div className="absolute lg:-bottom-[18vh] -bottom-[19vh] md:-bottom-[14vh] w-full left-1/2 transform -translate-x-1/2 bg-white rounded-[5px] px-4 py-2 md:text-[14px] text-[12px] z-10">
+                        <div className="absolute lg:-bottom-[13vh]  -bottom-[19vh] md:-bottom-[14vh] w-full left-1/2 transform -translate-x-1/2 bg-white rounded-[5px] px-2 py-2 md:text-[12px] text-[12px] pb-2 z-10">
                           Secret Name must start with a letter or underscore,
                           followed by any combination of alphanumeric
                           characters, dots, dashes, or underscores. It cannot
@@ -266,6 +280,8 @@ const EditTemplate = ({ onClose }) => {
                 </div>
               </div>
             </div>
+
+            {secert&&<SecertPopup onClose={handleCloseSecert}/>}
 
             <div className="mt-6 flex lg:flex-row flex-col lg:items-end lg:mb-6 mb-20 items-center justify-centerlg:space-y-0 space-y-2  lg:justify-end">
               <div className="text-[#000000] border-[#000000] py-2 border-[2px] font-medium px-6 rounded-[4px]">

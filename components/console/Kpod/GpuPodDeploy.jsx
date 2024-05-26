@@ -2,10 +2,12 @@ import Image from "next/image";
 import { useState } from "react";
 import ChangeTemplate from "./KpodPopUp/ChangeTemplate";
 import EditTemplate from "./KpodPopUp/EditTemplate";
+import { useRouter } from "next/navigation";
 
 const GpuPodDepoly = () => {
   const [changeTemplate, SetChangeTemplate] = useState(false);
   const [editTemplate, SetEditTemplate] = useState(false);
+  const router = useRouter();
   const handleChangeClick = () => {
     SetChangeTemplate(true);
   };
@@ -65,7 +67,7 @@ const GpuPodDepoly = () => {
                     runpod/pytorch:2.0.1-py3.10-cuda11.8.0-devel-ubuntu22.04
                   </div>
                 </div>
-                <div className=" flex  md:flex-row  flex-col  items-center text-[16px] font-medium lg:ml-20 lg:mt-0 mt-0 md:mt-5 md:space-x-6 md:mb-0 mb-3 ">
+                <div className=" flex  md:flex-row  flex-col justify-end items-center text-[16px] font-medium lg:ml-20 lg:mt-0 mt-0 md:mt-5 md:space-x-6 md:mb-0 mb-3 ">
                   <div
                     className="text-[#000000] flex border-[#000000] items-center justify-center border-[2px] py-2 rounded-[4px] px-6 md:mb-0 mb-4 md:mt-0 mt-2 cursor-pointer"
                     onClick={handleEditTemplate}
@@ -99,11 +101,12 @@ const GpuPodDepoly = () => {
                     $0.74/hr
                   </div>
                   <div className="text-[11px] text-[#8B8B8B]">
-                    Pay as you go, with costs based on <br className="md:flex hidden" />
+                    Pay as you go, with costs based on{" "}
+                    <br className="md:flex hidden" />
                     actual usage time.
                   </div>
                 </div>
-                <div className="bg-[#FFFFFF] lg:pl-10 md:pr-16 lg:px-0 px-4 mb-4 rounded-[4px]   py-4">
+                <div className="bg-[#FFFFFF] lg:pl-10 md:pr-16 lg:pr-16 lg:px-0 px-4 mb-4 rounded-[4px]   py-4">
                   <div className="flex flex-col items-start lg:pt-3">
                     <div className="lg:mr-3">
                       <input type="checkbox" id="encrypt" name="encrypt" />
@@ -172,8 +175,11 @@ const GpuPodDepoly = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bg-[#010101] mt-7 py-2.5 mb-4 text-[18px] font-medium w-full flex items-center justify-center rounded-[4px]">
-                  Deploy Spot
+                <div className="cursor-pointer" onClick={()=>{router.push("/console/KPOD?section=depoly")}}>
+                  {" "}
+                  <div className="bg-[#010101] mt-7 py-2.5 mb-4 text-[18px] font-medium w-full flex items-center justify-center rounded-[4px]">
+                    Deploy
+                  </div>
                 </div>
               </div>
 
