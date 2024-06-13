@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import { useUser } from "../../../app/context/UserContext";
 import RequestGPU from "./RequestGPU";
 import RequestInference from "./KYCForm/RequestInference";
-import FeedBack from "../../../components/console/HomeComponents/FeedBack";
+import FeedBack from "./FeedBack";
 import ContactUs from "@/components/console/HomeComponents/KYCForm/ContactUs";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import React from "react";
 
 const Welcome = () => {
   const router = useRouter();
@@ -49,7 +50,7 @@ const Welcome = () => {
     setShowContactUs(false);
   };
 
-  const closeModal = (requestSuccess: boolean) => {
+  const closeModal = (requestSuccess) => {
     setShowModal(false);
 
     if (requestSuccess) {
