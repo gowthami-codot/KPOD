@@ -232,7 +232,7 @@ export default function SideBar({ sidebar, toggleSidebar }) {
           </div>
           <div className="h-fit w-fit flex flex-col-reverse gap-2 ml-3">
             {lowerItems.reverse().map((item, index) => (
-              <div>
+              <div key={index}>
                 <div
                   key={index}
                   className={`flex w-[200px] hover:bg-gray-200 hover:text-black rounded-lg cursor-pointer pl-4 h-10 gap-3 items-center ${

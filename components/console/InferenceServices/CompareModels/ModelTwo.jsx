@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import dynamic from 'next/dynamic';
 // import remarkGfm from 'remark-gfm';
 
-// const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
+const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
 
 const ModelTwo = ({ togglePopup2, RenderModelOption, conversation, selectedModel, isVisible }) => {
 
