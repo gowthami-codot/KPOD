@@ -1,15 +1,60 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateApi from "./CreateApi";
 
-const ProjectApi = () => {
+import { fetchData } from '@/utils/auth';
+
+
+const ProjectApi = ({ data, onClose }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  
   const handleClosePopup = () => {
     setIsPopupOpen(false);
+    onClose();
   };
+
+  const [apikeys, setApiKeys] = useState([]);
+
+  useEffect(() => {
+    setApiKeys(data);
+  }, [data]);
+
+  const deleteKey = async (uuid) => {
+    try {
+      const response = await fetchData(`/api/apikey?uuid=${uuid}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({id: uuid })
+      });
+
+      if (response.status === 200) {
+        const response = await fetchData("/api/apikey", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          }
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200) {
+          if (result && result.length > 0) {
+            setApiKeys(result);
+          }
+
+          if (result.length === 0) {
+            console.log("close");
+            onClose();
+          }
+        }
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
  
   return (
     <div className="flex flex-col min-h-screen px-5 relative">
@@ -28,30 +73,34 @@ const ProjectApi = () => {
             <div>CREATED</div>
             <div></div>
           </div>
-          <div className="grid grid-cols-4 gap-20  py-3 px-16 mt-8  w-full">
-            <div>Test</div>
-            <div>ak************dfv55dfvdf</div>
-            <div>April 27, 2024</div>
-            <div className="flex space-x-6">
-              <div>
-                <Image
-                  src={require("../../../public/Editing.png")}
-                  alt=""
-                  width={23}
-                  height={23}
-                />
+          {
+            apikeys && apikeys.length > 0 && apikeys.map(item => (
+              <div key={item.uuid} className="grid grid-cols-4 gap-20 py-3 px-16 mt-8  w-full">
+                <div>{item.name}</div>
+                <div>{item.secretkey}</div>
+                <div>{item.created_at}</div>
+                <div className="flex space-x-6">
+                  {/* <div>
+                    <Image
+                      src={require("../../../public/Editing.png")}
+                      alt=""
+                      width={23}
+                      height={23}
+                    />
+                  </div> */}
+                  <div onClick={() => { deleteKey(item.uuid) }}>
+                    {" "}
+                    <Image
+                      src={require("../../../public/Bin.png")}
+                      alt=""
+                      width={23}
+                      height={23}
+                    />
+                  </div>
+                </div>
               </div>
-              <div>
-                {" "}
-                <Image
-                  src={require("../../../public/Bin.png")}
-                  alt=""
-                  width={23}
-                  height={23}
-                />
-              </div>
-            </div>
-          </div>
+            ))
+          }
 
           <button className="w-[40%] mb-[38rem] mt-20 px-16 " onClick={()=>setIsPopupOpen(true)}>
             {" "}

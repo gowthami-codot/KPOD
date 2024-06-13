@@ -2,31 +2,36 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 
-const CreateScrecet = ({ onClose }) => {
-  const [screcetKey, setScreteKey] = useState("");
-  
+const CreateScrecet = ({ onClose, apikey }) => {
+  //const [screcetKey, setScreteKey] = useState("");
 
   const inputRef = useRef(null);
 
   const copyToClipboard = () => {
+    console.log(inputRef);
     if (inputRef.current) {
-      navigator.clipboard.writeText(inputRef.current.value).then(
-        function () {
-          toast.success("Copying to clipboard was successful!");
-        },
-        function (err) {
-          toast.error("Could not copy text: ", err);
-        }
-      );
+
+      const input = inputRef.current;
+        input.select();
+        document.execCommand("copy");
+
+      // navigator.clipboard?.writeText(inputRef.current.value).then(
+      //   function () {
+      //     toast.success("Copying to clipboard was successful!");
+      //   },
+      //   function (err) {
+      //     toast.error("Could not copy text: ", err);
+      //   }
+      // );
     }
   };
 
-  const handleChangekey = (e) => {
-    setScreteKey(e.target.value);
-  };
+  // const handleChangekey = (e) => {
+  //   setScreteKey(e.target.value);
+  // };
 
   const handleDoneClick = () => {
-    localStorage.setItem("done", "true");
+    //localStorage.setItem("done", "true");
     onClose();
   };
 
@@ -51,9 +56,9 @@ const CreateScrecet = ({ onClose }) => {
 
           <div className="rounded-[8px]  bg-[#F3F4F5] mt-6">
             <div className="flex justify-between pt-3">
-              <input
-                ref={inputRef}
-                onChange={handleChangekey}
+              <input                              
+                //onChange={handleChangekey}
+                disabled
                 placeholder="Your Key"
                 className=" text-[#687986] font-medium bg-transparent  focus:outline-none focus-visible:outline-none w-full  px-4 "
               />
@@ -70,17 +75,16 @@ const CreateScrecet = ({ onClose }) => {
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
                   />
                 </svg>
               </div>{" "}
             </div>
 
-            <div className=" w-[90%] mx-auto border-t-1 border-[#e0e1e2] p-5 text-center">
-              {" "}
-              092713ukhqi8nxy8wq3
-            </div>
+            <input className=" w-[90%] mx-auto border-t-1 border-[#e0e1e2] p-5 text-center text-[#687986] font-medium bg-transparent" ref={inputRef} value={apikey} readOnly>
+              
+            </input>
           </div>
 
           <div className="mt-10   flex justify-end">

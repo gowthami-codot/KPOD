@@ -2,17 +2,13 @@ import { useState } from "react";
 import CustomDropDown from "./CustomDropDown";
 import RequestInference from "./RequestInference";
 import KycForm3 from "./KycForm3";
-import KycForm4 from "./KycForm4";
+
 const KYCform2 = ({ onClose }) => {
   const [isInferenceOpen, SetInferenceOpen] = useState(true);
   const [kycForm1, SetKycForm1] = useState(false);
   const [KYCform4, SetKYCform4] = useState(false);
   const handleCloseKycform1 = () => {
     SetKycForm1(false);
-    onClose();
-  };
-  const handleCloseKycform4 = () => {
-    SetKYCform4(false);
     onClose();
   };
   const [selectedOption, setSelectedOption] = useState(null);
@@ -24,7 +20,7 @@ const KYCform2 = ({ onClose }) => {
   const inputServices = (e) => {
     setServices(e.target.value);
   };
-  const numbers = [{ num: "1" }, { num: "2" }, { num: "3" }, { num: "4" }];
+  const numbers = [{ num: "1" }, { num: "2" }, { num: "3" },];
   const handleNumberClick = (number) => {
     if (number === "1") {
       SetInferenceOpen(true);
@@ -36,18 +32,10 @@ const KYCform2 = ({ onClose }) => {
       SetKycForm1(false);
       SetKYCform3(false);
       SetKYCform4(false);
-
-      SetKYCform3(false);
     } else if (number === "3") {
       SetInferenceOpen(false);
       SetKycForm1(false);
       SetKYCform3(true);
-      SetKYCform4(false);
-    } else if (number === "4") {
-      SetInferenceOpen(false);
-      SetKycForm1(false);
-      SetKYCform3(false);
-      SetKYCform4(true);
     } else {
       SetInferenceOpen(false);
       SetKycForm1(false);
@@ -68,7 +56,7 @@ const KYCform2 = ({ onClose }) => {
   };
   return (
     <>
-      {!kycForm1 && !KYCform3 && !KYCform4 && (
+      {!kycForm1 && !KYCform3 && (
         <>
           {" "}
           <div className="fixed inset-0 flex lg:items-start items-center justify-center bg-[#00000099]">
@@ -119,19 +107,6 @@ const KYCform2 = ({ onClose }) => {
                                 <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#00C39B] transform -translate-y-1/2"></div>
                                 <div className="absolute top-1/2 lg:left-16 md:left-8 left-4 transform -translate-x-1/2 -translate-y-1/2">
                                   {/* SVG Triangle Code */}
-                                  <svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 5 8"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      d="M1 7L4 4L1 1"
-                                      stroke="#00C39B"
-                                      stroke-linecap="round"
-                                    />
-                                  </svg>
                                 </div>
                               </div>
                             )}
@@ -146,13 +121,13 @@ const KYCform2 = ({ onClose }) => {
                 </div>
 
                 <div className="md:mt-6 mt-2">
-                  <div className="flex lg:flex-row flex-col w-full">
-                    <div className="flex flex-col lg:w-1/2 w-full lg:pr-2">
+                  <div className="flex flex-col w-full">
+                    <div className="flex flex-col w-full">
                       <div className="md:text-[12px] text-[9px] text-[#000000] text-opacity-70 font-medium">
-                        MaaS services being used currently{" "}
-                        <span className="text-[#00000080]">
-                          (Select if applicable)
-                        </span>
+                        Services Used / Interested In
+                        <span className="text-[20px] text-[#FF6868]">
+                          *
+                        </span>{" "}
                       </div>
                       <div className="md:mt-1 mt-[2px] ">
                         <CustomDropDown
@@ -178,37 +153,12 @@ const KYCform2 = ({ onClose }) => {
                         )}
                       </div>
                     </div>
-                    <div className="flex flex-col lg:mt-0 md:mt-5 mt-3 lg:w-1/2 w-full lg:pl-2">
+                    <div className="flex flex-col w-full lg:mt-4 md:mt-5 mt-3">
                       <div className="md:text-[12px] text-[9px] text-[#000000] text-opacity-70 font-medium">
-                        GPU SKU Requirements:
-                        <br />
-                      </div>
-                      <div className="md:mt-1 mt-[2px]">
-                        <div>
-                          <input
-                            value={services}
-                            onChange={inputServices}
-                            className="mt-0 text-black rounded-[4px] focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-2 md:py-2 px-5"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex lg:flex-row flex-col w-full lg:mt-4 md:mt-5 mt-3">
-                    <div className="flex flex-col lg:w-1/2 w-full lg:pr-2">
-                      <div className="md:text-[12px] text-[9px] text-[#000000] text-opacity-70 font-medium">
-                        Are you using Bare Metal GPUs
-                      </div>
-                      <div className="mt-1">
-                        <CustomDropDown
-                          options={["Option 1", "Option 2", "Option 3"]}
-                          onSelect={handleSelect}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex flex-col lg:w-1/2 w-full lg:pl-2 lg:mt-0 md:mt-5 mt-3">
-                      <div className="md:text-[12px] text-[9px] text-[#000000] text-opacity-70 font-medium">
-                        What frameworks are you using?
+                      Current Cloud used
+                        <span className="text-[20px] text-[#FF6868]">
+                          *
+                        </span>{" "}
                       </div>
                       <div className="mt-1">
                         <CustomDropDown
@@ -218,22 +168,11 @@ const KYCform2 = ({ onClose }) => {
                       </div>
                     </div>
                   </div>
-
                   <div className="flex lg:flex-row flex-col w-full lg:mt-4 md:mt-5 mt-3">
-                    <div className="flex flex-col lg:w-1/2 w-full lg:pr-2">
+                  <div className="w-full lg:mt-0 md:mt-5">
                       <div className="md:text-[12px] text-[9px] text-[#000000] text-opacity-70 font-medium">
-                        GPU Requirements:
-                      </div>
-                      <div className="mt-1">
-                        <CustomDropDown
-                          options={["Option 1", "Option 2", "Option 3"]}
-                          onSelect={handleSelect}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex flex-col lg:w-1/2 lg:pl-2 w-full lg:mt-0 md:mt-5 mt-3">
-                      <div className="md:text-[12px] text-[9px] text-[#000000] text-opacity-70 font-medium">
-                        Services Used/Interested in
+                      Current Cloud Spends <span className="text-gray-300">(per month in INR)</span>
+                      <span className="text-[20px] text-[#FF6868]">*</span>
                       </div>
                       <div className="mt-1">
                         <CustomDropDown
@@ -245,7 +184,7 @@ const KYCform2 = ({ onClose }) => {
                   </div>
                 </div>
 
-                <div className="lg:mt-[20vh] md:mt-[10vh] mt-[3vh] mb-5 justify-center items-center  w-full  flex cursor-pointer ">
+                <div className="md:mt-20 mt-6 mb-5 justify-center items-center  w-full  flex cursor-pointer ">
                   <div
                     onClick={handlekycForm3}
                     className="md:text-[16px] w-full flex items-center justify-center text-[12px]  bg-black text-white px-5 py-3 font-medium  cursor-pointer"
@@ -275,7 +214,6 @@ const KYCform2 = ({ onClose }) => {
       )}
       {kycForm1 && <RequestInference onClose={handleCloseKycform1} />}
       {KYCform3 && <KycForm3 onClose={handleCloseKycform3} />}
-      {KYCform4 && <KycForm4 onClose={handleCloseKycform4} />}
     </>
   );
 };

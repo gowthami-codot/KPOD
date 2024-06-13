@@ -33,13 +33,14 @@ const SignIn = () => {
       toast.error("Please fill out all fields.");
       return;
     }
-
+    console.log("password:", password)
     const hashedPassword = sha256(password);
 
     const data = {
       email,
       password: hashedPassword,
     };
+    console.log("hashedPassword:", hashedPassword)
 
     try {
       const response = await fetch("/api/signin", {

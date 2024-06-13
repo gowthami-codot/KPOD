@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Slider } from "@nextui-org/react";
 
-const Popup2 = ({ onClose }) => {
+const Popup2 = ({ onClose, handleChange, values, model }) => {
   const popupRef = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -15,41 +16,51 @@ const Popup2 = ({ onClose }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [onClose]);
+
+  useEffect(() => {
+    setTemperature(values.temperature);
+    setToken(values.maxToken);
+    setTop(values.topP);
+    setPenalty(values.frequencyPenalty);
+    setpresence(values.presencePenalty);
+  }, [values])
+
+
   const [temperature, setTemperature] = useState(3);
-
-  const handleTemperatureChange = (value) => {
-    setTemperature(value);
-  };
-
   const [tokens, setToken] = useState(6);
-
-  const handleToken = (value) => {
-    setToken(value);
-  };
   const [top, setTop] = useState(4);
-
-  const handleTop = (value) => {
-    setTop(value);
-  };
   const [penalty, setPenalty] = useState(7);
-
-  const handlePenalty = (value) => {
-    setPenalty(value);
-  };
   const [presence, setpresence] = useState(4);
 
-  const handlePresence = (value) => {
-    setpresence(value);
-  };
+  const handleValueChange = (position, field, value) => {
+    handleChange(position, field, value);
+    switch (field) {
+      case "temperature":
+        setTemperature(value);
+        break;
+      case "maxToken":
+        setToken(value);
+        break;
+      case "topP":
+        setTop(value);
+        break;
+      case "frequencyPenalty":
+        setPenalty(value);
+        break;
+      case "presencePenalty":
+        setpresence(value);
+        break;
+    }
+  }
   return (
-    <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50 z-0">
+    <div className="absolute inset-0 flex  items-center  justify-center bg-[#3d3939] bg-opacity-50 z-50">
       <div
         ref={popupRef}
-        className="absolute p-10  rounded-[20px] top-[6%] md:right-[5%] md:mt-[10rem] mt-[8rem] md:ml-[10vw] ml-[0vh] shadow-lg bg-[#F3F4F5] w-[90%] md:w-1/3"
+        className="absolute p-10  rounded-[20px] top-[6%] md:right-[10%] md:mt-[10rem] mt-[8rem] md:ml-[10vw] ml-[0vh] shadow-lg bg-[#F3F4F5] w-[90%] md:w-1/3"
       >
         <div className="flex items-center  justify-between w-full">
           <div className="text-black">Configuration</div>
-          <div className="flex items-center text-black">
+          {/* <div className="flex items-center text-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="36"
@@ -61,7 +72,7 @@ const Popup2 = ({ onClose }) => {
               <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
             </svg>
             Sync
-          </div>
+          </div> */}
         </div>
         <div className="text-xs text-gray-400">
           Changes apply to all the models
@@ -74,13 +85,14 @@ const Popup2 = ({ onClose }) => {
           <Slider
             size="sm"
             color="foreground"
-            step={1}
-            maxValue={10}
-            minValue={0}
+            step={values.tempStep}
+            maxValue={values.tempMax}
+            minValue={values.tempMin}
             aria-label="Temperature"
-            defaultValue={3}
+            defaultValue={values.temperature}
             className="max-w-md"
-            onChange={handleTemperatureChange}
+            onChange={(newValue) => { handleValueChange("right", "temperature", newValue) }}
+            isDisabled={model==="Krutrim-spectre-v2"}
           />
         </div>
         <div>
@@ -91,13 +103,13 @@ const Popup2 = ({ onClose }) => {
           <Slider
             size="sm"
             color="foreground"
-            step={1}
-            maxValue={10}
-            minValue={0}
-            aria-label="token"
-            defaultValue={6}
+            step={values.maxTokenStep}
+            maxValue={values.maxTokenMax}
+            minValue={values.maxTokenMin}
+            aria-label="Max Tokens"
+            defaultValue={values.maxToken}
             className="max-w-md"
-            onChange={handleToken}
+            onChange={(newValue) => { handleValueChange("right", "maxToken", newValue) }}
           />
         </div>
         <div className="flex flex-col w-full">
@@ -114,13 +126,15 @@ const Popup2 = ({ onClose }) => {
           <Slider
             size="sm"
             color="foreground"
-            step={1}
-            maxValue={10}
-            minValue={0}
-            aria-label="top"
-            defaultValue={3}
+            step={values.topPStep}
+            maxValue={values.topPMax}
+            minValue={values.topPMin}
+            aria-label="TOP P"
+            defaultValue={values.topP}
             className="max-w-md"
-            onChange={handleTop}
+            onChange={(newValue) => { handleValueChange("right", "topP", newValue) }}
+            isDisabled={model==="Krutrim-spectre-v2"}
+
           />
         </div>
 
@@ -132,13 +146,13 @@ const Popup2 = ({ onClose }) => {
           <Slider
             size="sm"
             color="foreground"
-            step={1}
-            maxValue={10}
-            minValue={0}
-            aria-label="top"
-            defaultValue={7}
+            step={values.fpStep}
+            maxValue={values.fpMax}
+            minValue={values.fpMin}
+            aria-label="Frequence Penalty"
+            defaultValue={values.frequencyPenalty}
             className="max-w-md"
-            onChange={handlePenalty}
+            onChange={(newValue) => { handleValueChange("right", "frequencyPenalty", newValue) }}
           />
         </div>
         <div>
@@ -149,13 +163,13 @@ const Popup2 = ({ onClose }) => {
           <Slider
             size="sm"
             color="foreground"
-            step={1}
-            maxValue={10}
-            minValue={0}
-            aria-label="top"
-            defaultValue={3}
+            step={values.ppstep}
+            maxValue={values.ppMax}
+            minValue={values.ppMin}
+            aria-label="Presence Penalty"
+            defaultValue={values.presencePenalty}
             className="max-w-md"
-            onChange={handlePresence}
+            onChange={(newValue) => { handleValueChange("right", "presencePenalty", newValue) }}
           />
         </div>
       </div>

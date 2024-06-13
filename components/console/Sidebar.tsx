@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useUser } from '@/app/context/UserContext';
 
 const routes = [
   {
@@ -74,13 +75,15 @@ const Sidebar = () => {
   const handleClick = (index:any) => {
     setClicked(index);
   };
+  const { setUserDetails, userDetails } = useUser();
+
   return (
     <div className="space-y-4 py-4 flex flex-col h-full text-white bg-gray-800 rounded-lg">
       <div className="px-3 py-2 flex-1">
       <div className="space-y-1 flex flex-col justify-between h-full gap-2">
       <div className="space-y-4 flex flex-col gap-2">
         {routes.map((route, index) => (
-          <Link href={`${route.href}`} key={route.href} className="text-white">
+          <Link href={`${route.href}`} key={route.href} className="text-white" hidden={ (userDetails?.vm_instance_request!=2 && route.label==="GPU") || (userDetails?.maas_request!=2 && route.label==="Inference Service")}>
             <div
               className={`flex items-center flex-1 ${
                 clicked === index ? 'text-[#8BFFDD] border border-[#8BFFDD] text-[14px] mr-14 py-2 rounded-[20px] ' : ' text-[14px] text-[#C7C7C7]'

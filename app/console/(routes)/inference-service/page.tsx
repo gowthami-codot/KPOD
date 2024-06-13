@@ -2,24 +2,27 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
+import { useUser } from "@/app/context/UserContext";
 
 import Compare from "@/components/console/InferenceServices/Compare";
 import Usage from "@/components/console/InferenceServices/Usage";
 import ApiKeys from "@/components/console/InferenceServices/ApiKeys";
-// import Docs from "@/components/console/InferenceServices/Docs";
+import Docs from "@/components/console/InferenceServices/Docs";
+
 
 const PageContent = () => {
   const searchParams = useSearchParams();
   const section = searchParams.get("section");
 
-  const [activeTab, setActiveTab] = useState("");
+ const [activeTab, setActiveTab] = useState("");
+//  const { setUserDetails, userDetails } = useUser();
+ 
 
-  const project =
-    typeof window !== "undefined" ? localStorage.getItem("done") : false;
+ useEffect(() => {
+    setActiveTab(section || "");    
+ }, [section]);
 
-  useEffect(() => {
-    setActiveTab(section || "");
-  }, [project, section]);
+//  if(!userDetails || userDetails.maas_request != 2) return (<div></div>);
 
   return (
     <div className="h-full flex flex-col">
@@ -29,7 +32,7 @@ const PageContent = () => {
 
         {activeTab === "usage" && <Usage />}
         {activeTab === "api-keys" && <ApiKeys />}
-        {/* {activeTab === "docs" && <Docs />} */}
+        {activeTab === "docs" && <Docs />}
       </main>
     </div>
   );

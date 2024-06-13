@@ -29,7 +29,7 @@ const Footer = () => {
           </Link>
           <Link
             href={
-              "https://olacareers.turbohire.co/dashboardv2?orgId=e0c1eb37-eb7a-4ca4-bcc5-d59ce4ce9212&type=0"
+              "mailto:cloudsupport@olakrutrim.com"
             }
             target="_blank"
           >
@@ -39,7 +39,7 @@ const Footer = () => {
           </Link>
           <Link
             href={
-              "https://llm-spark-new.s3.amazonaws.com/krutrim_chat_policy_docs/privacy_policy_v1.pdf"
+              "/privacy_policy_v1.pdf"
             }
           >
             <div>
@@ -48,7 +48,7 @@ const Footer = () => {
           </Link>
           <Link
             href={
-              "https://llm-spark-new.s3.amazonaws.com/krutrim_chat_policy_docs/TOU_v1.pdf"
+              "/TOU_v1.pdf"
             }
             target="_blank"
             className="cursor-pointer hover:underline duration-300"

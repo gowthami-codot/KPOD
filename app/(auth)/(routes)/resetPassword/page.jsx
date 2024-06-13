@@ -2,7 +2,7 @@ import ResetPassword from "@/components/auth/ResetPassword";
 
 const page = () => {
   return (
-    <div className=" w-full min-h-screen">
+    <div className=" ">
       <ResetPassword />
     </div>
   );

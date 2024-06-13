@@ -1,16 +1,37 @@
-const ModelOne = ({ togglePopup1 }) => {
+import { useState } from "react";
+import { useEffect, useRef } from "react";
+
+import dynamic from 'next/dynamic';
+// import remarkGfm from 'remark-gfm';
+
+// const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
+
+const ModelOne = ({ togglePopup1, RenderModelOption, conversation, selectedModel, isVisible }) => {
+
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    if (messagesEndRef.current) {
+      const scrollHeight = messagesEndRef.current?.scrollHeight;
+      const height = messagesEndRef.current?.clientHeight;
+      const maxScrollTop = scrollHeight - height;
+      messagesEndRef.current.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [conversation]); // Dependency array includes conversationRight to trigger on update
+
+
   return (
     <div className="flex flex-col">
       <div className="w-full flex flex-col">
         <div className="flex justify-between items-center p-2 ">
           <div className="flex justify-center space-x-10 items-center">
             <div className="cursor-pointer">
-              <select className="bg-[#FFFFFF]  font-semibold  text-[#000000] rounded-[4px] px-5 py-2">
-                <option className="text-black py-2">Mistral</option>
-                <option className="text-black">LAMA 3</option>
-                <option className="text-black">Claude</option>
-              </select>
-              <svg
+              <RenderModelOption position="left" />
+              {/* <svg
                 className="select-arrow"
                 width="13"
                 height="12"
@@ -22,7 +43,7 @@ const ModelOne = ({ togglePopup1 }) => {
                   d="M1.71436 3.5L6.71436 8.5L11.7144 3.5H1.71436Z"
                   fill="#687986"
                 />
-              </svg>
+              </svg> */}
             </div>
           </div>
           <div className="flex gap-1">
@@ -51,41 +72,28 @@ const ModelOne = ({ togglePopup1 }) => {
           </div>
         </div>
       </div>
-      <div
-        className="w-full h-[40vh] h-[25vh] mt-7  text-black p-3 md:p-10 rounded-[14px] bg-[#F3F4F5] mr-2"
+      <div ref={messagesEndRef}
+        className="w-full h-[50vh] mt-7  text-black p-3 md:p-10 rounded-[14px] bg-[#F3F4F5] mr-2"
         style={{ overflowY: "auto" }}
       >
-        According to the 2022 Global Happiness Report, the top 3 happiest
-        countries in the world are:
-        <br />
-        <br />
-        <span className="font-bold mr-2 text-[17px]"> 1. Finland :</span>
-        Finland has consistently ranked as one of the happiest countries in the
-        world. It has a high level of social support, low levels of corruption,
-        and a high standard of living. <br />
-        <br /> <span className="font-bold mr-2  text-[17px]">
-          2. Denmark :
-        </span>{" "}
-        Denmark is known for its high standard of living, generous social
-        welfare system, and high level of social support. The country also has a
-        strong culture of work-life balance and a high level of trust in
-        institutions.
-        <br />
-        <br />
-        <span className="font-bold mr-2  text-[17px]">
-          {" "}
-          3. Switzerland :
-        </span>{" "}
-        Switzerland is a neutral and stable country with a high standard of
-        living. It has a low level of corruption, a high level of social
-        support, and a strong economy. The country also has a high level of
-        trust in institutions and a strong culture of social cohesion. These
-        countries have a high score on the Gross Domestic Happiness (GDH) index,
-        which measures happiness and well-being across countries. The GDH index
-        takes into account factors such as GDP per capita, social support,
-        healthy life expectancy, freedom to make life choices, generosity, and
-        perceptions of corruption and trust in institutions
+        {
+          conversation.map((message, index) => (
+            <div key={index} style={{ textAlign: message.sender === 'user' ? 'right' : 'left' }}>
+              <div className="prose prose-sm markdown-content">
+                <strong>{message.sender === 'user' ? 'You: ' : selectedModel}</strong>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {message.text}
+                </ReactMarkdown>
+              </div>
+            </div>
+          ))}
       </div>
+      {isVisible && (<div className="error-prompt-banner" >
+        <div><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 24 24"><path d="M13 12a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0v-4Zm-1-2.5A1.25 1.25 0 1 0 12 7a1.25 1.25 0 0 0 0 2.5Z"></path><path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2ZM4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0Z" clipRule="evenodd"></path></svg></div>
+        <div className="error-message" style={{ fontSize: '12px' }}><p>Hmm....something seems to have gone wrong. Please regenerate the response</p>
+        </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 import { BarChart } from "@mui/x-charts/BarChart";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+// import { fetchData } from '@/utils/auth';
 
 const cleanPercentage = (percentage) => {
   const isNegativeOrNaN = !Number.isFinite(+percentage) || percentage < 0;
@@ -54,50 +55,7 @@ const Pie = ({ percentage }) => {
 };
 
 const Usage = () => {
-  const chartData = [
-    {
-      label: "API Requests | 350",
-      BarChartData: {
-        xAxis: [
-          {
-            id: "barCategories",
-            data: ["A", "B", "C", "D", "E"],
-            scaleType: "band",
-            barCategoryGap: 4,
-          },
-        ],
-        series: [
-          {
-            data: [2, 5, 3, 1, 2],
-          },
-        ],
-        width: 370,
-        height: 250,
-        colors: ["#9FC4CC", "#9FC42B"],
-      },
-    },
-    {
-      label: "Token Requests | 350",
-      BarChartData: {
-        xAxis: [
-          {
-            id: "barCategories",
-            data: ["A", "B", "C", "D", "E"],
-            scaleType: "band",
-            barCategoryGap: 4,
-          },
-        ],
-        series: [
-          {
-            data: [2, 5, 3, 1, 2],
-          },
-        ],
-        width: 370,
-        height: 250,
-        colors: ["#9FC4CC", "#9FC42B"],
-      },
-    },
-  ];
+
 
   const monthLabels = [
     "January",
@@ -114,7 +72,9 @@ const Usage = () => {
     "December",
   ];
 
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(3);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(4); // April is the 4th month (index 3)
+
+  const year = 2024;
 
   const prevMonth = () => {
     setCurrentMonthIndex(
@@ -125,18 +85,237 @@ const Usage = () => {
   const nextMonth = () => {
     setCurrentMonthIndex((prevIndex) => (prevIndex + 1) % monthLabels.length);
   };
+  const [model, setModel] = useState("Meta-Llama-3-8B-Instruct");
+
+  const [tokenxAxis, setTokenAxis] = useState([]);
+  const [tokenData, setTokenData] = useState([{data:[]}]);
+  var tokenUsage = null;
+  var totalTokenUsage = null;
+
+  const getTotalTokenUsage = async () => {
+    console.log("getTotalTokenUsage")
+    try {
+      const response_token = await fetchData("/api/usage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          isToken: true,
+          isDay: true,
+        }),
+      });
+
+      var result = await response_token.json();
+
+      if (result && result.data) {
+        if (result.data) {
+          totalTokenUsage = result.data;
+          var totalData = totalTokenUsage.filter(item => item.groupBy.type === "total");
+          //console.log(totalData);
+          var totalValue = 0;
+
+          totalData.forEach(item => {
+            totalValue += item.value;
+          });
+
+          console.log("Total total count: ", totalValue);
+          //updateTokenChart();
+          return true;
+        }
+      }
+      return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
+  const getTokenUsage = async (month) => {
+
+    console.log("getTokenUsage")
+    const fromDate = new Date(year, month, 1);
+    const toDate = new Date(year, month + 1, 1);
+
+    // var fromDate = new Date(toDate);
+    // var toDate = new Date();    
+    // fromDate.setDate(fromDate.getDate() - 3);
+    // toDate.setDate(toDate.getDate() + 1);
+
+    var todate = toDate.toISOString().split('T')[0]
+    var fromdate = fromDate.toISOString().split('T')[0]
+
+    try {
+      const response_token = await fetchData("/api/usage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          isToken: true,
+          isDay: true,
+          fromDate: fromdate,
+          toDate: todate
+        }),
+      });
+
+      var result = await response_token.json();
+
+      if (result && result.data) {
+        if (result.data) {
+          tokenUsage = result.data;
+          updateTokenChart();
+          return true;
+        }
+      }
+      return false;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
+  const updateTokenChart = () => {
+    var totalData = tokenUsage.filter(item => item.groupBy.type === "total");
+    totalData = totalData.filter(item => item.groupBy.model === model);
+    // Extract windowStart values for xAxis
+    var windows = totalData.map(item => item.windowStart.substring(0, 10));
+    setTokenAxis(windows);
+    //console.log(tokenUsage);
+
+    var series = [
+      { id: "prompt", data: [], label: 'prompt', stack: "total"},
+      { id: "completion", data: [], label: 'completion', stack: "total" }
+    ];
+
+    for (var window of windows) {
+      series[0].data.push(0);
+      series[1].data.push(0);
+    }
+
+    for (var usage of tokenUsage) {
+      if(usage.groupBy.model === model) {
+        windows.forEach((window, index) => {
+            if (usage.windowStart.substring(0, 10) === window) {
+              if (usage.groupBy.type === "prompt") {
+                series[0].data[index] = usage.value;
+              }
+              if (usage.groupBy.type === "completion") {
+                series[1].data[index] = usage.value;
+              }
+            }
+        })
+      }
+    }
+
+    //console.log(series);
+    setTokenData(series);
+
+
+    // Convert data into a format suitable for BarChart
+    //setTokenData(totalData.map(item => item.value))
+  }
+
+  const [apiAxis, setApiAxis] = useState([]);
+  const [apiData, setApiData] = useState([]);
+  var apiUsage = null;
+
+  const getApiUsage = async (month) => {
+    const fromDate = new Date(year, month, 1);
+    const toDate = new Date(year, month + 1, 1);
+
+    var todate = toDate.toISOString().split('T')[0]
+    var fromdate = fromDate.toISOString().split('T')[0]
+
+    try {
+      const response_api = await fetchData("/api/usage", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          isToken: false,
+          isDay: true,
+          fromDate: fromdate,
+          toDate: todate
+        }),
+      });
+
+
+      var result = await response_api.json();
+
+      if (result && result.data) {
+        if (result.data) {
+          apiUsage = result.data;
+          updateApiUsage();
+          return true;
+        }
+      }
+      return false;
+    } catch (err) {
+
+      return false;
+    }
+  }
+
+  const updateApiUsage = () => {
+    var modelData = apiUsage.filter(item => item.groupBy.route === model);
+    setApiAxis(modelData.map(item => item.windowStart.substring(0, 10)))
+    setApiData(modelData.map(item => item.value))
+  }
+
+  var intervalId = null;
+
+  const updateChart = (month) => {
+    console.log("updateChart");
+    const update = async () => {
+      if (await getTokenUsage(month) && await getApiUsage(month)) {
+        return true;
+      }
+      return false;
+    }
+
+    update().then(result => {
+      if (result === false && intervalId === null) {
+        intervalId = setInterval(update, 3000);
+      }
+
+      if (result && intervalId !== null) {
+        clearInterval(intervalId);
+      }
+    })
+  }
+
+  useEffect(() => {
+    getTotalTokenUsage();
+  }, []);
+
+  useEffect(() => {
+    updateChart(currentMonthIndex);
+
+    return () => {
+      if (intervalId !== null)
+        clearInterval(intervalId);
+    }
+  }, [currentMonthIndex, model]);
 
   return (
-    <div className="flex flex-col min-h-screen w-full bg-white p-10 gap-8 ">
-      <div className="w-full min-h-10 flex  md:flex-row justify-between items-center">
-        <p className="text-[32px] md:mt-0 -mt-32 text-[#181E22] font-medium leading-6">
+    <div className="flex flex-col min-h-screen w-full bg-white p-10 gap-8 md:fixed md:ml-12 md:w-[85vw]">
+      <div className="w-[90%] min-h-10 flex md:flex-row justify-between items-center">
+        <p className="text-[32px] md:mt-0 -mt-16 text-[#181E22] font-medium leading-6">
           Usage
         </p>
-        <div className="flex md:flex-row flex-col md:mt-0 mt-6 gap-3 h-full">
+        <div className="flex md:mt-0 mt-6 gap-3 h-full">
           {/*  */}
           <div className="flex w-[119px] h-[46px] justify-center items-center px-4 bg-[#F3F4F5] rounded-md">
-            <select className="bg-[#F3F4F5] w-full text-[#687986] text-[14px]  focus:ring-0">
-              <option>Models</option>
+            <select className="bg-[#F3F4F5] w-full text-[#687986] text-[14px]  focus:ring-0"
+              value={model}
+              onChange={(e) => {
+                setModel(e.target.value)
+              }}>
+              <option value="Meta-Llama-3-8B-Instruct" className="text-black">Meta-Llama-3-8B-Instruct</option>
+              <option value="Mistral-7B-Instruct" className="text-black">Mistral-7B-Instruct</option>
+              <option value="Krutrim-spectre-v2" className="text-black">Krutrim-spectre-v2</option>
             </select>
           </div>
           {/*  */}
@@ -168,25 +347,55 @@ const Usage = () => {
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-4 ">
-        {chartData.map((data, index) => (
-          <div
-            className="px-5 bg-[#181E220F] w-full rounded-md overflow-scroll"
-            key={index}
-          >
-            <div className="text-[#41515C] text-[16px] font-medium pt-10">
-              {data.label}
-            </div>
-            <BarChart
-              xAxis={data.BarChartData.xAxis}
-              series={data.BarChartData.series}
-              width={data.BarChartData.width}
-              height={data.BarChartData.height}
-              colors={data.BarChartData.colors}
-            />
+
+        <div
+          className="px-5 bg-[#181E220F] w-full rounded-md overflow-scroll"
+
+        >
+          <div className="text-[#41515C] text-[16px] font-medium pt-10">
+            API Requests | {model}
           </div>
-        ))}
+          <BarChart
+            xAxis={[
+              {
+                id: "barCategories",
+                data: apiAxis,
+                scaleType: "band",
+                barCategoryGap: 4,
+              },
+            ]}
+            series={[
+              {
+                data: apiData,
+              },
+            ]}
+            width={370}
+            height={250}
+            // colors={["#0F1B2B", "#0F1B2B"]}
+          />
+        </div>
+
+        <div className="px-5 bg-[#181E220F] w-full rounded-md overflow-scroll">
+          <div className="text-[#41515C] text-[16px] font-medium pt-10">
+            Token Requests | {model}
+          </div>
+          <BarChart
+            xAxis={[
+              {
+                id: "barCategories",
+                data: tokenxAxis,
+                scaleType: "band",
+                barCategoryGap: 4,
+              },
+            ]}
+            series={tokenData}
+            width={370}
+            height={250}
+            // colors={["#0F1B2B", "#0F1B2B"]}
+          />
+        </div>
       </div>
-      <div>
+      {/* <div>
         <div className="text-black text-xl md:text-2xl lg:text-3xl font-medium z-50">
           Total Token Usage
         </div>
@@ -197,7 +406,7 @@ const Usage = () => {
             <div className="text-gray-400 text-md">/ 4,800,000 Limit</div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

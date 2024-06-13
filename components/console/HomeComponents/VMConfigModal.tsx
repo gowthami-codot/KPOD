@@ -12,52 +12,52 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
+// import { fetchData } from '@/utils/auth';
 
-const VMConfigModal = ({ isOpen, onClose }: any) => {
+const VMConfigModal = ({ isOpen, onClose, setVmInstanceRequested }: any) => {
   const [requested, setRequested] = useState(false);
   const [sshKey, setSsh] = useState("");
   const { onOpenChange } = useDisclosure();
 
-  const email =
-    typeof window !== "undefined" ? localStorage.getItem("email") : "";
-
-  const sshdata = { email, sshKey };
-
-  const sendMailData = { email, mailTemplate: "selection" };
+  const sshdata = { sshKey };
 
   const handleClose = () => {
     onClose(false);
   };
 
-  const handleRequest = async () => {
-    if (!sshKey) {
-      toast.error("Please fill your ssh key.");
-      return;
-    }
+  // const handleRequest = async () => {
+  //   if (!sshKey) {
+  //     toast.error("Please fill your ssh key.");
+  //     return;
+  //   }
 
-    if (!sshKey.startsWith("ssh-rsa")) {
-      toast.error("Put a valid SSH Key. SSH key must start with 'ssh-rsa'.");
-      return;
-    }
+  //   if (!sshKey.startsWith("ssh-rsa")) {
+  //     toast.error("Put a valid SSH Key. SSH key must start with 'ssh-rsa'.");
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch("/api/requestvm", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(sshdata),
-      });
+  //   try {
+  //     const response = await fetchData("/api/requestvm", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(sshdata),
+  //     });
 
-      if (response.status === 200) {
-        setRequested(true);
-        toast.success("Email Sent Successfully.");
-      }
-    } catch (error) {
-      onClose(false);
-      toast.error("Something went wrong, try again.");
-    }
-  };
+  //     if (response.status === 200) {
+  //       setVmInstanceRequested();
+  //       setRequested(true);
+  //       toast.success("Email Sent Successfully.");
+  //     } else {
+  //       onClose(false);
+  //       toast.error("Something went wrong, try again.");
+  //     }
+  //   } catch (error) {
+  //     onClose(false);
+  //     toast.error("Something went wrong, try again.");
+  //   }
+  // };
 
   return (
     <div>
@@ -130,7 +130,7 @@ const VMConfigModal = ({ isOpen, onClose }: any) => {
                 <ModalFooter>
                   <Button
                     className="flex justify-center items-center mx-auto bg-[#80FFF7] px-10 rounded-full"
-                    onClick={handleRequest}
+                    // onClick={handleRequest}
                   >
                     Request Access
                   </Button>

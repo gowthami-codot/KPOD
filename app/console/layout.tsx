@@ -8,17 +8,15 @@ const layout = ({ children }: { children: React.ReactNode }) => {
   useProtectedRoute();
 
   return (
-    <div className="flex bg-white">
+    <div className="flex bg-[#FBFDFD]">
       <div
-        className={`w-[80px] h-[100vh] bg-white text-darkPrimary ${
-          showSidebar ? "flex md:hidden" : "hidden md:flex"
-        }`}
+        className={`md:w-[200px] h-[100vh] text-darkPrimary`}
       >
-        <SideBar />
+        <SideBar sidebar={showSidebar} toggleSidebar={setShowSidebar} />
       </div>
       <div
         className="text-black flex md:hidden absolute mt-5 mr-5 right-0"
-        onClick={() => setShowSidebar(!showSidebar)}
+        onClick={() => setShowSidebar(true)}
       >
         {showSidebar ? (
           <svg

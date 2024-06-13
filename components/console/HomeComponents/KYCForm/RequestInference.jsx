@@ -2,21 +2,21 @@ import { useState } from "react";
 import CustomDropdown from "./CustomDropDown";
 import KYCform2 from "./KycForm2";
 import KycForm3 from "./KycForm3";
-import KycForm4 from "./KycForm4";
 
 const RequestInference = ({ onClose }) => {
   const [isInferenceOpen, SetInferenceOpen] = useState(true);
   const [kycform2, SetKYCform2] = useState(false);
   const [KYCform3, SetKYCform3] = useState(false);
   const [KYCform4, SetKYCform4] = useState(false);
+  const [contactNo, setContactNo] = useState("");
+  const [selectedDesignation, setSelectedDesignation] = useState("");
+  const [otherText, setOtherText] = useState("");
+
   const handleCloseKycform3 = () => {
     SetKYCform3(false);
     onClose();
   };
-  const handleCloseKycform4 = () => {
-    SetKYCform4(false);
-    onClose();
-  };
+
   const [Business, setBusiness] = useState("");
   const inputBusiness = (e) => {
     setBusiness(e.target.value);
@@ -36,7 +36,7 @@ const RequestInference = ({ onClose }) => {
     setStage(e.target.value);
   };
 
-  const numbers = [{ num: "1" }, { num: "2" }, { num: "3" }, { num: "4" }];
+  const numbers = [{ num: "1" }, { num: "2" }, { num: "3" }];
 
   const handleNumberClick = (number) => {
     if (number === "1") {
@@ -51,11 +51,6 @@ const RequestInference = ({ onClose }) => {
       SetInferenceOpen(false);
       SetKYCform2(false);
       SetKYCform3(true);
-    } else if (number === "4") {
-      SetInferenceOpen(false);
-      SetKYCform2(false);
-      SetKYCform3(false);
-      SetKYCform4(true);
     } else {
       SetInferenceOpen(false);
       SetKYCform2(false);
@@ -73,9 +68,13 @@ const RequestInference = ({ onClose }) => {
     SetKYCform2(false);
     onClose();
   };
+
+  const handleDesignationSelect = (option) => {
+    setSelectedDesignation(option);
+  };
   return (
     <>
-      {!kycform2 && !KYCform3 && !KYCform4 && (
+      {!kycform2 && !KYCform3 && (
         <>
           {" "}
           <div className="fixed inset-0 flex lg:items-start items-center justify-center bg-[#00000099] ">
@@ -94,7 +93,7 @@ const RequestInference = ({ onClose }) => {
                   <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
                 </svg>
               </div>
-              <div className="lg:mx-48">
+              <div className="lg:mx-20">
                 <div className="md:text-[20px] text-[16px] text-[#181E22]  items-center md:mt-0 mt-5 mb-3  flex justify-center ">
                   <h2 className=" font-bold capitalize">
                     Tell us more about yourself{" "}
@@ -126,7 +125,7 @@ const RequestInference = ({ onClose }) => {
                                 <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#00C39B] transform -translate-y-1/2"></div>
                                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                   {/* SVG Triangle Code */}
-                                  <svg
+                                  {/* <svg
                                     width="12"
                                     height="12"
                                     viewBox="0 0 5 8"
@@ -138,7 +137,7 @@ const RequestInference = ({ onClose }) => {
                                       stroke="#00C39B"
                                       stroke-linecap="round"
                                     />
-                                  </svg>
+                                  </svg> */}
                                 </div>
                               </div>
                             )}
@@ -153,75 +152,79 @@ const RequestInference = ({ onClose }) => {
                 </div>
 
                 <div className="mt-5">
-                  <div className="text-[12px] text-[#000000] text-opacity-70 font-medium ">
-                    Customer Type
-                    <span className="text-[20px] text-[#FF6868]">*</span>{" "}
-                  </div>
-                  <div className="mt-1">
-                    <div>
-                      <CustomDropdown
-                        options={["Option 1", "Option 2", "Option 3"]}
-                        onSelect={handleSelect}
-                      />
+                  <div>
+                    <div className="text-[12px] text-[#000000] text-opacity-70 font-medium">
+                      Designation
+                      <span className="text-[20px] text-[#FF6868]">*</span>{" "}
                     </div>
-                  </div>
-                  <div className="text-[12px] mt-2 text-[#000000] text-opacity-70 font-medium capitalize ">
-                    social profile{" "}
-                    <span className="text-[20px] text-[#FF6868]">*</span>{" "}
-                  </div>
-                  <div className="mt-1">
                     <div>
-                      <input
-                        value={services}
-                        onChange={inputServices}
-                        className="mt-0 text-black  rounded-[4px]  md:px-5 focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-2 md:p-2"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="text-[12px] mt-2 text-[#000000] text-opacity-70 font-medium ">
-                    Nature of Business{" "}
-                    <span className="text-[20px] text-[#FF6868]">*</span>{" "}
-                  </div>
-
-                  <div className="mt-1">
-                    <div>
-                      <input
-                        value={Business}
-                        onChange={inputBusiness}
-                        className="mt-0 text-black  rounded-[4px]  md:px-5 focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-2 md:p-2"
-                      />
+                      <div>
+                        <CustomDropdown
+                          options={[
+                            "CEO",
+                            "CTO",
+                            "CIO",
+                            "IT Manager",
+                            "Procurement",
+                            "Finance",
+                            "Product",
+                            "Others",
+                          ]}
+                          onSelect={handleDesignationSelect}
+                        />
+                        {selectedDesignation === "Others" && (
+                          <div className="md:mt-2 mt-1">
+                            <input
+                              type="text"
+                              value={otherText}
+                              onChange={(e) => setOtherText(e.target.value)}
+                              placeholder="Type here"
+                              className="mt-0 text-black rounded-[4px] md:text-[12px] text-[8px] pb-12 pt-4 px-6  focus:outline-none focus-visible:outline-none w-full bg-[#F9FAFB] "
+                            />
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="text-[12px] mt-2 text-[#000000] text-opacity-70 font-medium ">
-                    What AI Application are you building{" "}
-                  </div>
-                  <div className="mt-1">
                     <div>
-                      <input
-                        value={app}
-                        onChange={inputApp}
-                        className="mt-0 text-black  rounded-[4px]  md:px-5 focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-2 md:p-2"
-                      />
+                      <div>
+                        <div className="text-[12px] text-[#000000] text-opacity-70 font-medium my-3">
+                          Organisation Name
+                          <span className="text-[20px] text-[#FF6868]">
+                            *
+                          </span>{" "}
+                        </div>
+
+                        <div>
+                          <div>
+                            <input
+                              value={Business}
+                              onChange={inputBusiness}
+                              className="mt-0 text-black  rounded-[4px]  md:px-5 focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-1.5"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="text-[12px] text-[#000000] text-opacity-70 font-medium my-3">
+                          Number of employees
+                          <span className="text-[20px] text-[#FF6868]">
+                            *
+                          </span>{" "}
+                        </div>
+                        <div>
+                          <div>
+                            <CustomDropdown options={["1", "2", "3", "4"]} />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-[12px] mt-2 text-[#000000] text-opacity-70 font-medium ">
-                    What stage are you on{" "}
-                  </div>
-                  <div className="mt-1">
-                    <div>
-                      <input
-                        value={stage}
-                        onChange={inputStage}
-                        className="mt-0 text-black  rounded-[4px]  md:px-5 focus:outline-none focus-visible:outline-none w-full bg-[#F3F4F5] p-2 md:p-2"
-                      />
-                    </div>
-                  </div>
                 </div>
 
                 <div
-                  className="mt-4 mb-5 justify-center items-center  w-full  flex cursor-pointer "
+                  className="mt-4 md:mt-20 mb-5 justify-center items-center  w-full  flex cursor-pointer "
                   onClick={handlekycForm2}
                 >
                   <div className="md:text-[16px] w-full flex items-center justify-center text-[12px]  bg-black text-white px-5 py-3 font-medium  cursor-pointer">
@@ -250,7 +253,6 @@ const RequestInference = ({ onClose }) => {
       )}
       {kycform2 && <KYCform2 onClose={handleCloseKycform2} />}
       {KYCform3 && <KycForm3 onClose={handleCloseKycform3} />}
-      {KYCform4 && <KycForm4 onClose={handleCloseKycform4} />}
     </>
   );
 };

@@ -11,8 +11,10 @@ export const UserProvider = ({ children }) => {
     const [userDetails, setUserDetails] = useState(null);
 
     return (
-        <UserContext.Provider value={{ userDetails, setUserDetails }}>
+        // <UserContext.Provider value={{ userDetails, setUserDetails }}>
+        <div>
             {children}
-        </UserContext.Provider>
+        </div>
+        // </UserContext.Provider>
     );
 };

@@ -25,7 +25,7 @@ const DropdownButton = styled.button`
   align-items: center;
   text-align: left;
   border-radius: 4px;
-  font-size:12px;
+  font-size:14px;
   padding:12px 18px;
   @media (max-width: 768px) 
     font-size: 9px; 
