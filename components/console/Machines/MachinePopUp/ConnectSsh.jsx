@@ -13,7 +13,7 @@ export default function ConnectSsh({onClose}) {
                     <input type="text" className="border w-full h-10 p-2 pr-10" />
                     <Image 
                         className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" 
-                        src={require("@/public/machines/copy.png")} 
+                        src={require("@/public/machines/Copy.png")} 
                         alt="Copy" 
                         width={24} 
                         height={24} 

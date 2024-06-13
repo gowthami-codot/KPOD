@@ -11,7 +11,7 @@ import { Button } from "../UI/Button";
 import { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/modal";
-import { validateEmail, validatePassword } from "@/utils/regex";
+// import { validateEmail, validatePassword } from "@/utils/regex";
 
 const SignUp = ({ open, setOpen }) => {
     const [firstName, setFirstName] = useState("");
@@ -91,80 +91,80 @@ const SignUp = ({ open, setOpen }) => {
         }
     }, [firstName, lastName, email, password, accountType, userProfile, profileLink, isTermsAccepted]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
 
-        if (!firstName || !lastName || !email || !password || !accountType || !userProfile || !profileLink) {
-            toast.error("Please fill out all fields.");
-            return;
-        }
+    //     if (!firstName || !lastName || !email || !password || !accountType || !userProfile || !profileLink) {
+    //         toast.error("Please fill out all fields.");
+    //         return;
+    //     }
 
-        if (!isTermsAccepted) {
-            toast.error("Please accept the terms and conditions.");
-            return;
-        }
+    //     if (!isTermsAccepted) {
+    //         toast.error("Please accept the terms and conditions.");
+    //         return;
+    //     }
 
-        if (!validateEmail(email)) {
-            toast.error("Please enter a valid email address.");
-            return;
-        }
+    //     if (!validateEmail(email)) {
+    //         toast.error("Please enter a valid email address.");
+    //         return;
+    //     }
 
-        if (!validatePassword(password)) {
-            toast.error(
-                "Password must be at least 8 characters long and contain at least one special character, one capital letter, and one number."
-            );
-            return;
-        }
+    //     if (!validatePassword(password)) {
+    //         toast.error(
+    //             "Password must be at least 8 characters long and contain at least one special character, one capital letter, and one number."
+    //         );
+    //         return;
+    //     }
 
-        const hashedPassword = sha256(password);
+    //     const hashedPassword = sha256(password);
 
-        const data = {
-            firstName,
-            lastName,
-            email,
-            password: hashedPassword,
-            accountType,
-            userProfile,
-            profileLink,
-            token: captchaToken,
-        };
+    //     const data = {
+    //         firstName,
+    //         lastName,
+    //         email,
+    //         password: hashedPassword,
+    //         accountType,
+    //         userProfile,
+    //         profileLink,
+    //         token: captchaToken,
+    //     };
 
-        try {
-            const response = await fetch("/api/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
+    //     try {
+    //         const response = await fetch("/api/signup", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify(data),
+    //         });
 
-            const result = await response.json();
+    //         const result = await response.json();
 
-            if (response.status === 200) {
-                onOpen(true);;
-                closeModal();
-                localStorage.setItem("email", email);
-                sendMoEngageEvent('REGISTRATION_ATTEMPT_SUCCESS', {email: email});
-                setFirstName("");
-                setLastName("");
-                setEmail("");
-                setPassword("");
-                setAccountType("");
-                setUserProfile("");
-                setProfileLink("");
-                setMobileNumber("");
-            } else if (response.status == 409) {
-                sendMoEngageEvent('REGISTRATION_ATTEMPT_FAILED', {email: email});
-                toast.error(result.message);
-            } else {
-                sendMoEngageEvent('REGISTRATION_ATTEMPT_FAILED', {email: email});
-                throw new Error("An error occurred while submitting your data.");
-            }
-        } catch (error) {
-            sendMoEngageEvent('REGISTRATION_ATTEMPT_FAILED', {email: email});
-            toast.error;
-        }
-    };
+    //         if (response.status === 200) {
+    //             onOpen(true);;
+    //             closeModal();
+    //             localStorage.setItem("email", email);
+    //             sendMoEngageEvent('REGISTRATION_ATTEMPT_SUCCESS', {email: email});
+    //             setFirstName("");
+    //             setLastName("");
+    //             setEmail("");
+    //             setPassword("");
+    //             setAccountType("");
+    //             setUserProfile("");
+    //             setProfileLink("");
+    //             setMobileNumber("");
+    //         } else if (response.status == 409) {
+    //             sendMoEngageEvent('REGISTRATION_ATTEMPT_FAILED', {email: email});
+    //             toast.error(result.message);
+    //         } else {
+    //             sendMoEngageEvent('REGISTRATION_ATTEMPT_FAILED', {email: email});
+    //             throw new Error("An error occurred while submitting your data.");
+    //         }
+    //     } catch (error) {
+    //         sendMoEngageEvent('REGISTRATION_ATTEMPT_FAILED', {email: email});
+    //         toast.error;
+    //     }
+    // };
 
     return (
         <div>
@@ -433,7 +433,7 @@ const SignUp = ({ open, setOpen }) => {
                                         <Button
                                             type="submit"
                                             disabled={!isButtonEnabled || !isVerified}
-                                            onClick={handleSubmit}
+                                            // onClick={handleSubmit}
                                             className={`flex text-black w-full py-3 px-10 w-fit mx-auto rounded-full cursor-pointer ${
                                                 isButtonEnabled && isVerified
                                                     ? "hover:scale-105 duration-300 bg-[#80FFF7]"
