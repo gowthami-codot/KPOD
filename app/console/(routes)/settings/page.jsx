@@ -1,10 +1,8 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import Kpod from "../../../../components/console/Kpod/Kpod"
-import GpuPod from "../../../../components/console/Kpod/GpuPod";
-import GpuPodDeploy from "../../../../components/console/Kpod/GpuPodDeploy";
-import DepolySpot from "../../../../components/console/Kpod/DepolySpot";
+import ManageSshKey from "@/components/console/settings/ManageSshKey"
 import { Suspense, useEffect, useState } from "react";
+import AddSshKey from "@/components/console/settings/AddSshKey"
 
 
 const PageContent = () => {
@@ -19,11 +17,9 @@ const PageContent = () => {
   return (
     <>
      <main>
-       {activeTab === "" && <Kpod />}
-      {activeTab === "KPOD" && <Kpod />}
-      {activeTab === "GpuPod" && <GpuPod/>}
-      {activeTab === "GpuPodDeploy" && <GpuPodDeploy />}
-      {activeTab === "depoly" && <DepolySpot/>}</main>
+       {activeTab === "manage" && <ManageSshKey />}
+       {activeTab === "addkey" && < AddSshKey />}
+      </main>
     </>
   );
 };

@@ -16,7 +16,7 @@
 @font-face {
   font-family: 'Gentona';
   src: url('/fonts/Gentona-Regular.woff2') format('woff2'),
-       url('/fonts/Gentona-Regular.woff') format('woff');
+    url('/fonts/Gentona-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -25,7 +25,7 @@
 @font-face {
   font-family: 'Gentona';
   src: url('/fonts/Gentona-Bold.woff2') format('woff2'),
-       url('/fonts/Gentona-Bold.woff') format('woff');
+    url('/fonts/Gentona-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -47,14 +47,17 @@
   border: none;
   cursor: pointer;
   padding-right: 50px;
-  padding-left: 10px; /* Adjust the padding to accommodate the arrow */
+  padding-left: 10px;
+  /* Adjust the padding to accommodate the arrow */
   outline: none;
- 
-  font-size: x-small;/* Remove outline on focus */
+
+  font-size: x-small;
+  /* Remove outline on focus */
 }
 
 .custom-select select:focus {
-  border: none; /* Remove border on focus */
+  border: none;
+  /* Remove border on focus */
 }
 
 .select-arrow {
@@ -62,33 +65,38 @@
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
-  pointer-events: none; /* Ensure SVG doesn't interfere with select */
+  pointer-events: none;
+  /* Ensure SVG doesn't interfere with select */
 }
 
 
 
 .input-with-small-placeholder::placeholder {
-  font-size: 0.8em; /* Adjust the font size as needed */
-  opacity: 0.7; /* Adjust the opacity if desired */
+  font-size: 0.8em;
+  /* Adjust the font size as needed */
+  opacity: 0.7;
+  /* Adjust the opacity if desired */
 }
+
 .give-feedback {
   position: absolute;
   right: 0px;
   top: 50%;
-  transform: translateY(-50%) rotate(180deg); /* Rotate the text vertically */
-  writing-mode: vertical-rl; /* vertical right-to-left */
-  
+  transform: translateY(-50%) rotate(180deg);
+  /* Rotate the text vertically */
+  writing-mode: vertical-rl;
+  /* vertical right-to-left */
+
   /* Adjust as per your preference */
-  white-space: nowrap; 
+  white-space: nowrap;
   /* Make the text face towards the right side */
   font-size: 14px;
-  font-weight: 600; /* semibold */
+  font-weight: 600;
+  /* semibold */
   color: #161717;
   background-color: #8BFFDC;
-  padding: 12px; /* optional, for better appearance */
+  padding: 12px;
+  /* optional, for better appearance */
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
-
-

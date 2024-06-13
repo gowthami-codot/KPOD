@@ -28,8 +28,8 @@ export default function SideBar() {
       height: 18,
       width: 18,
     },
-    
-   ,
+
+    ,
     {
       name: "Inference Service",
       link: "/console/inference-service",
@@ -62,7 +62,7 @@ export default function SideBar() {
       src: "/kpod.png",
       height: 18,
       width: 18,
-    }
+    },
     // {
     //     name: "Admin Settings",
     //     link: "/console/home",
@@ -70,6 +70,19 @@ export default function SideBar() {
     //     height: 20,
     //     width: 20,
     // },
+    {
+      name: "Settings",
+      link: "",
+      src: "/Krutrim-vector.svg",
+      height: 20,
+      width: 20,
+      subPoints: [
+        {
+          label: "ssh keys",
+          link: "/console/settings?section=manage"
+        }
+      ]
+    }
   ];
 
   const lowerItems = [
@@ -81,11 +94,11 @@ export default function SideBar() {
       width: 20,
     },
     {
-        name:"Logout",
-        link:"/signIn",
-        src:"/logout.png",
-        height:30,
-        width:30
+      name: "Logout",
+      link: "/signIn",
+      src: "/logout.png",
+      height: 30,
+      width: 30
 
     }
 
@@ -104,7 +117,7 @@ export default function SideBar() {
     //     width: 18,
     // },
   ];
-  
+
 
   return (
     <React.Fragment>
@@ -133,7 +146,7 @@ export default function SideBar() {
               />
             </div>
           ))}
-        
+
         </div>
         <div className="flex flex-col h-[152px] w-full min-h-[152px] gap-6">
           {lowerItems.map((item, index) => (
@@ -212,9 +225,8 @@ export default function SideBar() {
                   <p className="text-[#41515C] text-[16px]">{item.name}</p>
                 </div>
                 <div
-                  className={`flex flex-col h-fit justify-center items-center ${
-                    item?.subPoints?.length ? "mt-2 -mb-3" : ""
-                  }`}
+                  className={`flex flex-col h-fit justify-center items-center ${item?.subPoints?.length ? "mt-2 -mb-3" : ""
+                    }`}
                 >
                   {item?.subPoints?.length &&
                     item?.subPoints?.map((subItem, subIndex) => (
