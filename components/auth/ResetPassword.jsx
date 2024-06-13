@@ -114,7 +114,7 @@ const ResetPassword = () => {
     // };
 
     return (
-        <form onSubmit={handleSubmit} className="flex">
+        <form  className="flex">
             <div className="w-[100vw] h-[100vh] bg-white flex items-center justify-center text-darkPrimary">
                 <div className="w-full h-full relative hidden sm:block">
                     <img
