@@ -1,11 +1,12 @@
 "use client";
-import useProtectedRoute from "@/components/auth/ProtectedRoutes";
+
 import { useState } from "react";
-import SideBar from "@/components/nav/SideBar";
+import SideBar from "../../components/nav/SideBar";
+import React from "react";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   const [showSidebar, setShowSidebar] = useState(false);
-  useProtectedRoute();
+
 
   return (
     <div className="flex bg-[#FBFDFD]">

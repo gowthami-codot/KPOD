@@ -1,26 +1,26 @@
-import type { Metadata } from "next";
+
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { NextUIProvider } from "@nextui-org/react";
-import Header from "@/components/landingV2/Header";
+
+import { Providers } from "./providers";
+import React from "react";
+
 import Footer from "@/components/landingV2/Footer";
 import AuthProvider from "@/components/auth/AuthContext";
-import { Providers } from "./providers";
-
+import Header from "@/components/landingV2/Header";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Krutrim",
   description: "AI Workloads with krutrim cloud.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({children}) {
   return (
     <html lang="en">
       <head>
