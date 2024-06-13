@@ -1,9 +1,10 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import Machine from "@/components/console/machines/Machine";
-import MachineConfig from "@/components/console/machines/MachineConfig";
+import Machine from "@/components/console/Machines/Machine";
+import MachineConfig from "@/components/console/Machines/MachineConfig";
 import { Suspense, useEffect, useState } from "react";
-import ListMachine from "@/components/console/machines/ListMachines";
+import ListMachine from "@/components/console/Machines/ListMachines";
+import React from "react";
 
 
 const PageContent = () => {

@@ -26,6 +26,7 @@
     "react": "^18",
     "react-code-blocks": "^0.1.6",
     "react-dom": "^18",
+    "react-google-recaptcha": "^3.1.0",
     "react-merge-refs": "^2.1.1",
     "react-select": "^5.8.0",
     "sonner": "^1.4.41",

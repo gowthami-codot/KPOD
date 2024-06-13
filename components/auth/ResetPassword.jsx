@@ -5,7 +5,7 @@ import { toast } from "sonner"; // Assuming this is a custom toast notification 
 import Image from "next/image";
 import { Input } from "@/components/UI/CustomInput";
 import { sha256 } from "js-sha256";
-import { validatePassword } from "@/utils/regex";
+// import { validatePassword } from "@/utils/regex";
 
 const ResetPassword = () => {
     const router = useRouter();
@@ -40,78 +40,78 @@ const ResetPassword = () => {
         }
     };
 
-    const sendMoEngageEvent =(eventName,data) =>{
-        if(Moengage!== null){
-            if (data == null){
-                Moengage.track_event(eventName);
-            }
-            else{
-                Moengage.track_event(eventName, data);
-            }
-            console.log("Sending event:"+ eventName);
-        }
-        else{
-            console.log("MoEngage Object is Null");
-        }
-    };
+    // const sendMoEngageEvent =(eventName,data) =>{
+    //     if(Moengage!== null){
+    //         if (data == null){
+    //             Moengage.track_event(eventName);
+    //         }
+    //         else{
+    //             Moengage.track_event(eventName, data);
+    //         }
+    //         console.log("Sending event:"+ eventName);
+    //     }
+    //     else{
+    //         console.log("MoEngage Object is Null");
+    //     }
+    // };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
 
-        if (password !== confirmPassword) {
-            toast.error("Passwords do not match.");
-            return;
-        } else if (!validatePassword(password)) {
-            toast.error(
-                "Password must be at least 8 characters long and contain at least one special character, one capital letter, and one number."
-            );
-            return;
-        }
+    //     if (password !== confirmPassword) {
+    //         toast.error("Passwords do not match.");
+    //         return;
+    //     } else if (!validatePassword(password)) {
+    //         toast.error(
+    //             "Password must be at least 8 characters long and contain at least one special character, one capital letter, and one number."
+    //         );
+    //         return;
+    //     }
 
-        const hashedPassword = sha256(password);
-        const data = {
-            password: hashedPassword,
-            token: token,
-        };
+    //     const hashedPassword = sha256(password);
+    //     const data = {
+    //         password: hashedPassword,
+    //         token: token,
+    //     };
 
-        try {
-            const response = await fetch("/api/resetPassword", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
+    //     try {
+    //         const response = await fetch("/api/resetPassword", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify(data),
+    //         });
 
-            if (response.status == 409) {
-                toast.error("New password cannot be the same as current password.");
-                sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
-                return;
-            } else if (response.status == 401) {
-                sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
-                toast.error("Invalid credentials.");
-                return;
-            } else if (!response.ok) {
-                sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
-                throw new Error("API request failed with status: " + response.status);
-            }
+    //         if (response.status == 409) {
+    //             toast.error("New password cannot be the same as current password.");
+    //             sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
+    //             return;
+    //         } else if (response.status == 401) {
+    //             sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
+    //             toast.error("Invalid credentials.");
+    //             return;
+    //         } else if (!response.ok) {
+    //             sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
+    //             throw new Error("API request failed with status: " + response.status);
+    //         }
 
-            const result = await response.json();
-            if (result && result.email) {
-                toast.success("Password Reset Successful.");
+    //         const result = await response.json();
+    //         if (result && result.email) {
+    //             toast.success("Password Reset Successful.");
 
-                sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',{email:result.email})
-                router.push("/signIn");
-            } else {
-                sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
-                throw new Error("Resetting password failed.");
-            }
-        } catch (error) {
-            sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
-            console.error("Error:", error);
-            toast.error("An error occurred while resetting password.");
-        }
-    };
+    //             sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',{email:result.email})
+    //             router.push("/signIn");
+    //         } else {
+    //             sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
+    //             throw new Error("Resetting password failed.");
+    //         }
+    //     } catch (error) {
+    //         sendMoEngageEvent('PASSWORD_RESET_ATTEMPT_FAILED',null);
+    //         console.error("Error:", error);
+    //         toast.error("An error occurred while resetting password.");
+    //     }
+    // };
 
     return (
         <form onSubmit={handleSubmit} className="flex">
