@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState, FormEvent, useEffect } from "react";
 import { toast } from "sonner";
 import { sha256 } from "js-sha256";
+import React from "react";
 
-import VerificationPopup from "@/components/VerificationPopUp";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -107,11 +107,11 @@ const SignUp = () => {
       <div className="text-center my-5 md:my-10 text-xl md:text-3xl font-bold">
         Welcome, Tell us a little bit about you.
       </div>
-      <VerificationPopup
+      {/* <VerificationPopup
         isOpen={isModalOpen}
         onOpen={() => setIsModalOpen(true)}
         onClose={closeModal}
-      />
+      /> */}
       <div className="w-full md:px-20">
         <form
           className="md:p-10 p-3 rounded-2xl bg-[#ffffff15] flex flex-col 

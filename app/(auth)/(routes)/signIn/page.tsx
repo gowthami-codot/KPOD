@@ -1,4 +1,5 @@
-import SignIn from "@/components/auth/SignInV2";
+import React from "react";
+import SignIn from "../../../../components/auth/SignIn";
 
 const page = () => {
   return (
