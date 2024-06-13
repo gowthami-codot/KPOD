@@ -6,8 +6,9 @@ import { toast } from "sonner";
 import { sha256 } from "js-sha256";
 import { useRouter } from "next/navigation";
 
-import { useAuth } from "@/components/auth/AuthContext";
+// import { useAuth } from "@/components/auth/AuthContext";
 import { useUser } from '../../app/context/UserContext';
+import React from "react";
 
 const SignIn = () => {
   const router = useRouter();
@@ -15,65 +16,65 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [type, setType] = useState("password");
 
-  const { setCurrentUser } = useAuth();
-  const { setUserDetails } = useUser();
+  // const { setCurrentUser } = useAuth();
+  // const { setUserDetails } = useUser();
 
-  const handleToggle = () => {
-    if (type === "password") {
-      setType("text");
-    } else {
-      setType("password");
-    }
-  };
+  // const handleToggle = () => {
+  //   if (type === "password") {
+  //     setType("text");
+  //   } else {
+  //     setType("password");
+  //   }
+  // };
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = async (e: FormEvent) => {
+  //   e.preventDefault();
 
-    if (!email || !password) {
-      toast.error("Please fill out all fields.");
-      return;
-    }
-    console.log("password:", password)
-    const hashedPassword = sha256(password);
+  //   if (!email || !password) {
+  //     toast.error("Please fill out all fields.");
+  //     return;
+  //   }
+  //   console.log("password:", password)
+  //   const hashedPassword = sha256(password);
 
-    const data = {
-      email,
-      password: hashedPassword,
-    };
-    console.log("hashedPassword:", hashedPassword)
+  //   const data = {
+  //     email,
+  //     password: hashedPassword,
+  //   };
+  //   console.log("hashedPassword:", hashedPassword)
 
-    try {
-      const response = await fetch("/api/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+  //   try {
+  //     const response = await fetch("/api/signin", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
 
-      if (!response.ok) {
-        throw new Error("API request failed with status: " + response.status);
-      }
+  //     if (!response.ok) {
+  //       throw new Error("API request failed with status: " + response.status);
+  //     }
 
-      const result = await response.json();
+  //     const result = await response.json();
 
-      if (result && result.email) {
-        toast.success("Logged in successfully.");
+  //     if (result && result.email) {
+  //       toast.success("Logged in successfully.");
 
-        setCurrentUser(result);
-        setUserDetails(result);
+  //       setCurrentUser(result);
+  //       setUserDetails(result);
         
-        router.push("/console/home");
-      } else if (result.message === "Invalid Credentials") {
-        toast.error("Invalid email or password. Please try again.");
-      } else {
-        throw new Error("An error occurred while logging in.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      toast.error("An error occurred while logging in.");
-    }
-  };
+  //       router.push("/console/home");
+  //     } else if (result.message === "Invalid Credentials") {
+  //       toast.error("Invalid email or password. Please try again.");
+  //     } else {
+  //       throw new Error("An error occurred while logging in.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     toast.error("An error occurred while logging in.");
+  //   }
+  // };
 
   return (
     <div className="mt-6 md:mt-20">
@@ -96,7 +97,7 @@ const SignIn = () => {
               height={300}
             />
           </div>
-          <form onSubmit={handleSubmit} className="z-10">
+          <form  className="z-10">
             <div className="flex flex-col items-start justify-center w-full gap-2 md:gap-3">
               <span>Email</span>
               <input
@@ -118,7 +119,7 @@ const SignIn = () => {
                 />
                 <span
                   className="pr-2 md:pr-4 cursor-pointer"
-                  onClick={handleToggle}
+                  // onClick={handleToggle}
                 >
                   {type === "text" ? (
                     <svg
