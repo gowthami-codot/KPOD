@@ -181,7 +181,7 @@ export default function SideBar({ sidebar, toggleSidebar }) {
         <div className="w-full h-full flex flex-col justify-between mt-5 mb-5">
           <div className="h-fit w-fit flex flex-col-reverse gap-2 ml-3">
             {topItems.reverse().map((item, index) => (
-              <div
+              <div key={index}
               // className={ (userDetails?.vm_instance_request!=2 && item.name==="GPU") || (userDetails?.maas_request!=2 && item.name==="Inference Service") ? "" : "flex flex-col"} key={index}
               //  hidden={ (userDetails?.vm_instance_request!=2 && item.name==="GPU") || (userDetails?.maas_request!=2 && item.name==="Inference Service")}
               >
@@ -299,7 +299,7 @@ export default function SideBar({ sidebar, toggleSidebar }) {
         <div className="w-full h-full flex flex-col justify-between mt-10 mb-5">
           <div className="h-fit w-fit flex flex-col-reverse gap-2 ml-3">
             {topItems.map((item, index) => (
-              <div
+              <div key={index}
               // className={ (userDetails?.vm_instance_request!=2 && item.name==="GPU") || (userDetails?.maas_request!=2 && item.name==="Inference Service") ? "" : "flex flex-col"} key={index}
               //     hidden={ (userDetails?.vm_instance_request!=2 && item.name==="GPU") || (userDetails?.maas_request!=2 && item.name==="Inference Service")}
               >

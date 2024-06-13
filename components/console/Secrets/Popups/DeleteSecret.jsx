@@ -17,7 +17,7 @@ const DeleteSecret = ({ onClose }) => {
           </div>
           <div className="text-center">Delete Secret</div>
           <div className="my-3">
-            Are you sure you want to delete "Name 1" ?
+            Are you sure you want to delete &quot;Name 1&quot; ?
           </div>
           <div className="my-3 bg-gray-400 w-fit p-1 rounded-md">
             name1
