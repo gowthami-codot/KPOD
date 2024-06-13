@@ -1,4 +1,4 @@
-// import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, dracula } from "react-code-blocks";
 
 const pythonCode = {
   code: `# Assume openai>=1.0.0

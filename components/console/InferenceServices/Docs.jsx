@@ -68,7 +68,7 @@ const Docs = () => {
   }, []);
 
   return (
-    <div className="md:ml-[230px] lg:ml-[230px] mt-16 md:mt-10 bg-white">
+    <div className="md:ml-[130px] lg:ml-[130px] mt-16 md:mt-10 bg-white">
       <div className="flex">
         <div className="w-[25%] hidden md:flex flex-col border-r border-gray-300 p-4 fixed mt-6">
           <div className="text-xl text-black mb-4">Documentation</div>

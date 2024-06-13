@@ -12,6 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
+import React from "react";
 // import { fetchData } from '@/utils/auth';
 
 const VMConfigModal = ({ isOpen, onClose, setVmInstanceRequested }: any) => {

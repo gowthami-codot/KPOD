@@ -1,4 +1,4 @@
-// import { CopyBlock, dracula } from "react-code-blocks";
+import { CopyBlock, dracula } from "react-code-blocks";
 import { useState } from "react";
 
 const curlCode = {

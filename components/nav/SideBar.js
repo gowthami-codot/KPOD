@@ -320,9 +320,8 @@ export default function SideBar({ sidebar, toggleSidebar }) {
                   <p className="text-[#41515C] text-[16px]">{item.name}</p>
                 </div>
                 <div
-                  className={`flex flex-col h-fit justify-center items-center ${
-                    item?.subPoints?.length ? "mt-2 -mb-3" : ""
-                  }`}
+                  className={`flex flex-col h-fit justify-center items-center ${item?.subPoints?.length ? "mt-2 -mb-3" : ""
+                    }`}
                 >
                   {item?.subPoints?.length &&
                     item?.subPoints?.map((subItem, subIndex) => (

@@ -1,10 +1,10 @@
 "use client";
-import { useState, useEffect } from 'react';
-import { useUser } from "@/app/context/UserContext";
+import React from 'react';
+
+
 
 const page = () => {
-  // const { userDetails } = useUser();
-  const [timeSinceStart, setTimeSinceStart] = useState('');
+
 
   // useEffect(() => {
   //   if (userDetails && userDetails.vm_started_since) {
@@ -37,7 +37,7 @@ md:w-[78%] w-full border-[2px] border-[#F3F4F5] rounded-[8px] px-20 md:px-10 gap
         <div className="text-gray-400 text-center">
           <span className="md:text-xl text-black text-[12px]">
             {/* Your GPU Instance has been live since {new Date(userDetails.vm_started_since).toLocaleString()}<br/> */}
-            It has been running for {timeSinceStart}
+            It has been running for 
           </span>
           <br />
           <br />
